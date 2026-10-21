@@ -3,7 +3,7 @@
 <script>
 /* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
 const CONFIG = {
-  "VERSION": "2026-10-21.11",
+  "VERSION": "2026-10-21.12",
   "APPS_SCRIPT_URL": "",
   "CONTROLEGROEP_AAN": true,
   "LIVE_GEREED": false,
@@ -859,6 +859,9 @@ const CONFIG = {
       },
       "labelsByGroup": {
         "werk": {
+          "2": "Een persoonlijk ontwikkelplan",
+          "5": "Mijn vaardigheden en talenten in kaart brengen",
+          "6": "Doorgroeimogelijkheden binnen de organisatie",
           "7": "Software of een online platform voor ontwikkeling",
           "10": "Hier wordt (nog) weinig aan gedaan"
         }
@@ -935,6 +938,10 @@ const CONFIG = {
           "Q08_BEHOUD": "Dat de werkgever investeert om mij te behouden",
           "Q08_WELZIJN": "Welzijn en werkplezier"
         }
+      },
+      "hintByGroup": {
+        "toekomst": "Talentontwikkeling gaat over hoe medewerkers leren en groeien in hun werk. Geef per onderdeel aan hoe belangrijk het voor jou is; er zijn geen goede of foute antwoorden.",
+        "werk": "Geef per onderdeel aan hoe belangrijk het voor jou is. Er zijn geen goede of foute antwoorden."
       }
     },
     {
@@ -1000,7 +1007,7 @@ const CONFIG = {
       "text": "Stel dat jouw organisatie software voor talentontwikkeling zoekt. Waar zou je als eerste gaan kijken?",
       "textByGroup": {
         "organisatie": "Stel dat jouw organisatie software voor talentontwikkeling zoekt. Waar zou je als eerste gaan kijken?",
-        "werk": "Stel dat jouw organisatie software voor talentontwikkeling zoekt. Waar zou je als eerste gaan kijken?",
+        "werk": "Stel dat jij voor jouw organisatie mee moet zoeken naar software voor talentontwikkeling. Waar zou je als eerste gaan kijken?",
         "toekomst": "Stel dat je later voor een werkgever software voor talentontwikkeling moet zoeken. Waar zou je als eerste gaan kijken?"
       },
       "hint": "Kies wat je als eerste zou doen.",
@@ -1280,7 +1287,12 @@ const CONFIG = {
         "Zeer waarschijnlijk"
       ],
       "comment": "Q24_TOELICHTING",
-      "nps": true
+      "nps": true,
+      "textByGroup": {
+        "organisatie": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan een collega of iemand in je netwerk?",
+        "werk": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan een collega, bijvoorbeeld iemand van HR?",
+        "toekomst": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan iemand in je netwerk?"
+      }
     },
     {
       "id": "Q25",
@@ -1534,6 +1546,7 @@ function perspective(q04){q04=String(q04??'');return ['1','2','3'].includes(q04)
 function groupKey(){const p=perspective(state?.answers.Q04);return p===1?'organisatie':p===3?'toekomst':'werk'}
 /* Rij- en optieteksten per perspectief; codes blijven gelijk zodat groepen vergelijkbaar zijn. */
 function labelFor(q,code,label){return q.labelsByGroup?.[groupKey()]?.[code]||label}
+function hintText(q){return q.hintByGroup?.[groupKey()]||q.hint||''}
 function questionText(q){if(q.textByGroup){return q.textByGroup[groupKey()]}return q.id==='Q26'&&state.condition===2?q.controlText:q.text}
 function order(q){if(!state.orders[q.id]){const arr=q.type==='semantic'?q.rows:q.options||[];state.orders[q.id]=q.type==='semantic'?shuffle(arr).map(x=>x[0]):(q.shuffle?[...shuffle(arr.filter(x=>x[2]!==true)),...arr.filter(x=>x[2]===true)]:arr).map(x=>x[0]);persist()}return state.orders[q.id].map(id=>(q.rows||q.options).find(x=>x[0]===id))}
 async function preload(){const urls=[...new Set(Object.values(CONFIG.pages).map(p=>p[state?.device||DEVICE].src))];await Promise.all(urls.map(src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve();im.onerror=()=>reject(new Error('Afbeelding ontbreekt: '+src));im.src=src})));imagesReady=true}
@@ -1560,7 +1573,7 @@ const VIEW_CLASS={compact:'compact-mode',breedte:'',overzicht:'overview-mode'};
 function attentionView(){return state?.answers?.Q14_WEERGAVE||'breedte'}
 function toggleWebsiteView(){const study=$('.study'),button=$('#expand-site');if(!study||!button)return;const expanded=study.classList.toggle('website-expanded');button.textContent=expanded?'← Terug naar vragen':'Website groter bekijken';button.setAttribute('aria-expanded',String(expanded));if(!expanded)$('#question-heading')?.focus({preventScroll:true});else button.focus({preventScroll:true})}
 function textCount(q,value){const n=String(value||'').trim().length;return n<q.minLength&&q.minLength>1?'Minimaal '+q.minLength+' tekens.':n+' / '+q.maxLength+' tekens'}
-function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc(q.ends[0])}</span><span>5 · ${esc(q.ends[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat je oog als eerste trekt, niet om waar je naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${q.hint?`<p class="muted" style="font-size:13px">${esc(q.hint)}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
+function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc(q.ends[0])}</span><span>5 · ${esc(q.ends[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat je oog als eerste trekt, niet om waar je naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${hintText(q)?`<p class="muted" style="font-size:13px">${esc(hintText(q))}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
 function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Aanwijzen · er opent niets':selectionMode?'Afbeelding van de website · klik om aan te wijzen':'Echte website · kies ‘Terug naar aanwijzen’ om te klikken'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Bekijk de echte website':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste je aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
 function render(){
  questionAt=performance.now();showCard=false;const q=current();state.last=q.id;persist();
