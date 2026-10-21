@@ -3,7 +3,7 @@
 <script>
 /* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
 const CONFIG = {
-  "VERSION": "2026-10-21.14",
+  "VERSION": "2026-10-21.15",
   "APPS_SCRIPT_URL": "",
   "CONTROLEGROEP_AAN": true,
   "LIVE_GEREED": false,
@@ -29,21 +29,21 @@ const CONFIG = {
     "startText": "Met deze enquête onderzoeken we hoe mensen naar talentontwikkeling kijken en hoe ze de website van LIVREA ervaren.",
     "duration": "Circa 6–8 minuten",
     "consent": "Ik doe vrijwillig mee en geef toestemming om mijn antwoorden en interacties voor dit schoolonderzoek te gebruiken.",
-    "privacy": "We vragen geen naam of e-mailadres. We registreren antwoorden, klikken, scrollen en tijdsduur onder een willekeurige code. Vul geen persoonsgegevens in open antwoorden in. Je kunt stoppen door dit venster te sluiten; reeds gegeven antwoorden blijven voor afhaakanalyse bewaard. Tijdens vrij verkennen laad je de echte LIVREA-website, met de eigen cookiekeuzes van die website. Je antwoorden worden niet aan LIVREA doorgegeven. Klikken en scrollen binnen die externe website kunnen wij niet uitlezen; aangewezen plekken in de vaste opnamen worden wel vastgelegd.",
+    "privacy": "We vragen geen naam of e-mailadres. We registreren antwoorden, klikken, scrollen en tijdsduur onder een willekeurige code. Vul geen persoonsgegevens in open antwoorden in. U kunt stoppen door dit venster te sluiten; reeds gegeven antwoorden blijven voor afhaakanalyse bewaard. Tijdens vrij verkennen laadt u de echte LIVREA-website, met de eigen cookiekeuzes van die website. Uw antwoorden worden niet aan LIVREA doorgegeven. Klikken en scrollen binnen die externe website kunnen wij niet uitlezen; aangewezen plekken in de vaste opnamen worden wel vastgelegd.",
     "start": "Start de enquête",
     "next": "Volgende",
     "back": "Terug",
     "confirm": "Dit is mijn keuze",
     "finish": "Onderzoek afronden",
-    "thanks": "Bedankt voor je deelname.",
-    "thanksText": "Met jouw antwoorden kunnen we ons advies aan LIVREA verder onderbouwen. Bedankt voor de tijd die je hiervoor hebt genomen.",
+    "thanks": "Bedankt voor uw deelname.",
+    "thanksText": "Met uw antwoorden kunnen we ons advies aan LIVREA verder onderbouwen. Bedankt voor de tijd die u hiervoor heeft genomen.",
     "test": "TESTVERSIE · geen echte onderzoeksafname",
     "noContact": "Geen naam of e-mail",
     "complete": "Onderzoek afgerond",
     "completedSuffix": "% voltooid",
     "choiceRecorded": "Keuze vastgelegd.",
-    "choiceEditable": "Keuze vastgelegd. Je kunt deze nog aanpassen.",
-    "maxChanges": "Maximum aantal wijzigingen bereikt. Bevestig je laatste keuze.",
+    "choiceEditable": "Keuze vastgelegd. U kunt deze nog aanpassen.",
+    "maxChanges": "Maximum aantal wijzigingen bereikt. Bevestig uw laatste keuze.",
     "moreInfo": "Aanvullende informatie",
     "sourceLabel": "Bron bekijken ↗",
     "minChars": "tekens minimaal",
@@ -53,9 +53,9 @@ const CONFIG = {
     "blocked": "Deze versie is nog niet vrijgegeven voor echte afnames. Open ?test=1 om de tool te proberen.",
     "loading": "Afbeeldingen voorbereiden…",
     "noLeave": "Ik zou niet afhaken",
-    "exposureInstruction": "Wat trekt als eerste je aandacht?",
-    "exposureReady": "Klik op één plek. Je kunt scrollen.",
-    "clickHelp": "Klik in de website op het onderdeel. Je kunt scrollen en via Homepage en Product wisselen.",
+    "exposureInstruction": "Wat trekt als eerste uw aandacht?",
+    "exposureReady": "Klik op één plek. U kunt scrollen.",
+    "clickHelp": "Klik in de website op het onderdeel. U kunt scrollen en via Homepage en Product wisselen.",
     "savedLocal": "Lokaal bewaard",
     "sending": "Antwoorden versturen…",
     "saved": "Opslag bevestigd",
@@ -72,7 +72,7 @@ const CONFIG = {
     "logout": "Uitloggen",
     "configExport": "Download ResearchConfig.gs",
     "empty": "Nog geen gegevens voor deze selectie.",
-    "neutralHint": "Lees deze tekst voordat je verdergaat.",
+    "neutralHint": "Lees deze tekst voordat u verdergaat.",
     "comment": "Toelichting (optioneel)",
     "openHint": "Minimaal 10 tekens. Vermeld geen namen of andere persoonsgegevens.",
     "positiveNone": "Niets nodigt me uit om verder te kijken"
@@ -560,7 +560,7 @@ const CONFIG = {
       "id": "Q01",
       "block": "A",
       "type": "single",
-      "text": "Wat is je geslacht?",
+      "text": "Wat is uw geslacht?",
       "shuffle": false,
       "options": [
         [
@@ -585,7 +585,7 @@ const CONFIG = {
       "id": "Q02",
       "block": "A",
       "type": "single",
-      "text": "Wat is je leeftijd?",
+      "text": "Wat is uw leeftijd?",
       "options": [
         [
           "1",
@@ -617,7 +617,7 @@ const CONFIG = {
       "id": "Q03",
       "block": "A",
       "type": "single",
-      "text": "Wat is je hoogst afgeronde opleiding?",
+      "text": "Wat is uw hoogst afgeronde opleiding?",
       "options": [
         [
           "0",
@@ -665,7 +665,7 @@ const CONFIG = {
       "id": "Q04",
       "block": "A",
       "type": "single",
-      "text": "In welk vakgebied werk je?",
+      "text": "In welk vakgebied werkt u?",
       "shuffle": false,
       "options": [
         [
@@ -695,14 +695,14 @@ const CONFIG = {
         [
           "5",
           "Ik studeer",
-          "Werk je naast je studie? Kies dan ook ‘Ik studeer’."
+          "Werkt u naast uw studie? Kies dan ook ‘Ik studeer’."
         ],
         [
           "11",
           "Ik werk momenteel niet"
         ]
       ],
-      "hint": "Kies wat het best past bij je huidige werk.",
+      "hint": "Kies wat het best past bij uw huidige werk.",
       "dividerBefore": "5",
       "dividerLabel": "Of"
     },
@@ -713,8 +713,8 @@ const CONFIG = {
       "audience": [
         "1"
       ],
-      "text": "Wat doe je binnen HR?",
-      "hint": "Kies je belangrijkste taak.",
+      "text": "Wat doet u binnen HR?",
+      "hint": "Kies uw belangrijkste taak.",
       "shuffle": false,
       "options": [
         [
@@ -748,7 +748,7 @@ const CONFIG = {
       "id": "Q06",
       "block": "A",
       "type": "single",
-      "text": "Hoeveel medewerkers telt jouw organisatie?",
+      "text": "Hoeveel medewerkers telt uw organisatie?",
       "skipStudent": true,
       "options": [
         [
@@ -772,7 +772,7 @@ const CONFIG = {
           "Niet van toepassing"
         ]
       ],
-      "hint": "Werk je niet bij een organisatie? Kies dan ‘Niet van toepassing’.",
+      "hint": "Werkt u niet bij een organisatie? Kies dan ‘Niet van toepassing’.",
       "audience": [
         "1",
         "3",
@@ -786,7 +786,7 @@ const CONFIG = {
       "id": "Q07",
       "block": "B",
       "type": "multi",
-      "text": "Wat doet jouw organisatie op dit moment aan talentontwikkeling?",
+      "text": "Wat doet uw organisatie op dit moment aan talentontwikkeling?",
       "hint": "Eerst een paar vragen over talentontwikkeling: hoe medewerkers leren en groeien in hun werk. Kies alles wat van toepassing is.",
       "shuffle": false,
       "prefix": "Q07_",
@@ -853,9 +853,9 @@ const CONFIG = {
         ]
       ],
       "textByGroup": {
-        "organisatie": "Wat doet jouw organisatie op dit moment aan talentontwikkeling?",
-        "werk": "Wat doet jouw werkgever op dit moment aan jouw ontwikkeling?",
-        "toekomst": "Wat doet jouw organisatie op dit moment aan talentontwikkeling?"
+        "organisatie": "Wat doet uw organisatie op dit moment aan talentontwikkeling?",
+        "werk": "Wat doet uw werkgever op dit moment aan uw ontwikkeling?",
+        "toekomst": "Wat doet uw organisatie op dit moment aan talentontwikkeling?"
       },
       "labelsByGroup": {
         "werk": {
@@ -887,9 +887,9 @@ const CONFIG = {
       },
       "text": "Hoe vaak vindt zo’n functionerings- of beoordelingsgesprek plaats?",
       "textByGroup": {
-        "leidinggevend": "Hoe vaak voer jij zo’n functionerings- of beoordelingsgesprek met een medewerker?",
-        "organisatie": "Hoe vaak heeft een medewerker bij jullie zo’n functionerings- of beoordelingsgesprek?",
-        "werk": "Hoe vaak heb jij zo’n functionerings- of beoordelingsgesprek met je leidinggevende?",
+        "leidinggevend": "Hoe vaak voert u zo’n functionerings- of beoordelingsgesprek met een medewerker?",
+        "organisatie": "Hoe vaak heeft een medewerker binnen uw organisatie zo’n functionerings- of beoordelingsgesprek?",
+        "werk": "Hoe vaak heeft u zo’n functionerings- of beoordelingsgesprek met uw leidinggevende?",
         "toekomst": "Hoe vaak vindt zo’n functionerings- of beoordelingsgesprek plaats?"
       },
       "options": [
@@ -923,7 +923,7 @@ const CONFIG = {
         ]
       ],
       "hintByGroup": {
-        "leidinggevend": "Denk aan een gemiddelde medewerker die jij aanstuurt. Is het jaarlijks, of vaker?",
+        "leidinggevend": "Denk aan een gemiddelde medewerker die u aanstuurt. Is het jaarlijks, of vaker?",
         "organisatie": "Denk aan wat voor de meeste medewerkers geldt. Is het jaarlijks, of vaker?",
         "werk": "Is het jaarlijks, of vaker? Kies wat het meest voorkomt.",
         "toekomst": ""
@@ -933,11 +933,11 @@ const CONFIG = {
       "id": "Q08",
       "block": "B",
       "type": "matrix",
-      "text": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor jouw organisatie?",
+      "text": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor uw organisatie?",
       "textByGroup": {
-        "organisatie": "Hoe hoog staan deze thema’s de komende twee jaar op de agenda van jouw organisatie?",
-        "werk": "Hoe belangrijk vind jij deze onderdelen van ontwikkeling in je eigen werk?",
-        "toekomst": "Hoe belangrijk vind jij deze onderdelen bij een toekomstige werkgever?"
+        "organisatie": "Hoe hoog staan deze thema’s de komende twee jaar op de agenda van uw organisatie?",
+        "werk": "Hoe belangrijk vindt u deze onderdelen van ontwikkeling in uw eigen werk?",
+        "toekomst": "Hoe belangrijk vindt u deze onderdelen bij een toekomstige werkgever?"
       },
       "hint": "Geef per onderdeel aan hoe belangrijk het is. Er zijn geen goede of foute antwoorden.",
       "ends": [
@@ -1002,9 +1002,9 @@ const CONFIG = {
         }
       },
       "hintByGroup": {
-        "toekomst": "Talentontwikkeling gaat over hoe medewerkers leren en groeien in hun werk. Geef per onderdeel aan hoe belangrijk het voor jou is; er zijn geen goede of foute antwoorden.",
-        "werk": "Geef per onderdeel aan hoe belangrijk het voor jou is. Er zijn geen goede of foute antwoorden.",
-        "organisatie": "Denk aan de prioriteiten van je organisatie, niet aan wat er nu al goed gaat. Er zijn geen goede of foute antwoorden."
+        "toekomst": "Talentontwikkeling gaat over hoe medewerkers leren en groeien in hun werk. Geef per onderdeel aan hoe belangrijk het voor u is; er zijn geen goede of foute antwoorden.",
+        "werk": "Geef per onderdeel aan hoe belangrijk het voor u is. Er zijn geen goede of foute antwoorden.",
+        "organisatie": "Denk aan de prioriteiten van uw organisatie, niet aan wat er nu al goed gaat. Er zijn geen goede of foute antwoorden."
       },
       "endsByGroup": {
         "organisatie": [
@@ -1025,11 +1025,11 @@ const CONFIG = {
         "9",
         "10"
       ],
-      "text": "Hoe tevreden ben je over hoe jouw organisatie talentontwikkeling nu aanpakt?",
+      "text": "Hoe tevreden bent u over hoe uw organisatie talentontwikkeling nu aanpakt?",
       "textByGroup": {
-        "organisatie": "Hoe tevreden ben je over hoe jouw organisatie talentontwikkeling nu aanpakt?",
-        "werk": "Hoe tevreden ben je over wat jouw werkgever nu aan jouw ontwikkeling doet?",
-        "toekomst": "Hoe tevreden ben je over hoe jouw organisatie talentontwikkeling nu aanpakt?"
+        "organisatie": "Hoe tevreden bent u over hoe uw organisatie talentontwikkeling nu aanpakt?",
+        "werk": "Hoe tevreden bent u over wat uw werkgever nu aan uw ontwikkeling doet?",
+        "toekomst": "Hoe tevreden bent u over hoe uw organisatie talentontwikkeling nu aanpakt?"
       },
       "min": 1,
       "max": 5,
@@ -1046,7 +1046,7 @@ const CONFIG = {
         "1",
         "3"
       ],
-      "text": "Gebruikt jouw organisatie software voor HR of talentontwikkeling?",
+      "text": "Gebruikt uw organisatie software voor HR of talentontwikkeling?",
       "hint": "Bijvoorbeeld een HR-systeem voor personeelsadministratie, of een platform voor ontwikkeling en feedback.",
       "shuffle": false,
       "options": [
@@ -1073,13 +1073,13 @@ const CONFIG = {
       "id": "Q11",
       "block": "BV",
       "type": "single",
-      "text": "Stel dat jouw organisatie software voor talentontwikkeling zoekt. Waar zou je als eerste gaan kijken?",
+      "text": "Stel dat uw organisatie software voor talentontwikkeling zoekt. Waar zou u als eerste gaan kijken?",
       "textByGroup": {
-        "organisatie": "Stel dat jouw organisatie software voor talentontwikkeling zoekt. Waar zou je als eerste gaan kijken?",
-        "werk": "Stel dat jij voor jouw organisatie mee moet zoeken naar software voor talentontwikkeling. Waar zou je als eerste gaan kijken?",
-        "toekomst": "Stel dat je later voor een werkgever software voor talentontwikkeling moet zoeken. Waar zou je als eerste gaan kijken?"
+        "organisatie": "Stel dat uw organisatie software voor talentontwikkeling zoekt. Waar zou u als eerste gaan kijken?",
+        "werk": "Stel dat u voor uw organisatie mee moet zoeken naar software voor talentontwikkeling. Waar zou u als eerste gaan kijken?",
+        "toekomst": "Stel dat u later voor een werkgever software voor talentontwikkeling moet zoeken. Waar zou u als eerste gaan kijken?"
       },
-      "hint": "Kies wat je als eerste zou doen.",
+      "hint": "Kies wat u als eerste zou doen.",
       "shuffle": true,
       "options": [
         [
@@ -1130,8 +1130,8 @@ const CONFIG = {
       "id": "Q12",
       "block": "BV",
       "type": "multi",
-      "text": "Welke van deze aanbieders van HR-software ken je?",
-      "hint": "Organisaties gebruiken soms software om HR en talentontwikkeling te ondersteunen. Kies de namen die je al kende vóór deze enquête, al is het maar van naam.",
+      "text": "Welke van deze aanbieders van HR-software kent u?",
+      "hint": "Organisaties gebruiken soms software om HR en talentontwikkeling te ondersteunen. Kies de namen die u al kende vóór deze enquête, al is het maar van naam.",
       "shuffle": true,
       "prefix": "Q12_",
       "options": [
@@ -1169,7 +1169,7 @@ const CONFIG = {
       "id": "Q13",
       "block": "BV",
       "type": "scale",
-      "text": "Stel dat je zo’n aanbieder online opzoekt. Hoe belangrijk is de website dan voor je eerste indruk van het bedrijf?",
+      "text": "Stel dat u zo’n aanbieder online opzoekt. Hoe belangrijk is de website dan voor uw eerste indruk van het bedrijf?",
       "min": 1,
       "max": 5,
       "ends": [
@@ -1181,29 +1181,29 @@ const CONFIG = {
       "id": "Q14",
       "block": "C",
       "type": "attention",
-      "text": "Wat trekt als eerste je aandacht?",
+      "text": "Wat trekt als eerste uw aandacht?",
       "page": "home",
-      "hint": "Kijk naar de homepage en klik op het eerste dat je opviel.",
+      "hint": "Kijk naar de homepage en klik op het eerste dat u opviel.",
       "comment": "Q14_TOELICHTING"
     },
     {
       "id": "Q15",
       "block": "C",
       "type": "scale",
-      "text": "Hoe duidelijk is voor jou wat LIVREA aanbiedt?",
+      "text": "Hoe duidelijk is voor u wat LIVREA aanbiedt?",
       "min": 1,
       "max": 5,
       "ends": [
         "Helemaal niet duidelijk",
         "Helemaal duidelijk"
       ],
-      "hint": "Op basis van wat je net hebt gezien."
+      "hint": "Op basis van wat u net heeft gezien."
     },
     {
       "id": "Q16",
       "block": "C",
       "type": "scale",
-      "text": "Wat is je eerste indruk van de website?",
+      "text": "Wat is uw eerste indruk van de website?",
       "min": 1,
       "max": 5,
       "ends": [
@@ -1212,13 +1212,13 @@ const CONFIG = {
       ],
       "comment": "Q16_TOELICHTING",
       "page": "home",
-      "hint": "Bekijk de website opnieuw als je dat wilt."
+      "hint": "Bekijk de website opnieuw als u dat wilt."
     },
     {
       "id": "Q17",
       "block": "D",
       "type": "semantic",
-      "text": "Hoe komt de website op je over?",
+      "text": "Hoe komt de website op u over?",
       "page": "home",
       "rows": [
         [
@@ -1247,34 +1247,34 @@ const CONFIG = {
           "Nederlands gericht"
         ]
       ],
-      "hint": "Kies voor elke regel de positie die het best past bij jouw indruk.",
+      "hint": "Kies voor elke regel de positie die het best past bij uw indruk.",
       "shuffle": false
     },
     {
       "id": "Q18",
       "block": "D",
       "type": "click",
-      "text": "Welk onderdeel nodigt je het meest uit om verder te kijken?",
+      "text": "Welk onderdeel nodigt u het meest uit om verder te kijken?",
       "page": "home",
       "noAttraction": true,
       "comment": "Q18_TOELICHTING",
-      "hint": "Klik in de website op het onderdeel dat je het meest uitnodigt om verder te kijken. Je kunt scrollen en via Homepage en Product wisselen."
+      "hint": "Klik in de website op het onderdeel dat u het meest uitnodigt om verder te kijken. U kunt scrollen en via Homepage en Product wisselen."
     },
     {
       "id": "Q19",
       "block": "D",
       "type": "click",
-      "text": "Bij welk onderdeel zou je besluiten de website te verlaten?",
+      "text": "Bij welk onderdeel zou u besluiten de website te verlaten?",
       "page": "home",
       "noLeave": true,
       "comment": "Q19_TOELICHTING",
-      "hint": "Klik in de website op het punt waar je zou afhaken en de website zou verlaten. Je kunt scrollen en via Homepage en Product wisselen."
+      "hint": "Klik in de website op het punt waar u zou afhaken en de website zou verlaten. U kunt scrollen en via Homepage en Product wisselen."
     },
     {
       "id": "Q20",
       "block": "E",
       "type": "scale",
-      "text": "Hoe duidelijk is het voor jou voor welke organisaties LIVREA bedoeld is?",
+      "text": "Hoe duidelijk is het voor u voor welke organisaties LIVREA bedoeld is?",
       "page": "product",
       "min": 1,
       "max": 5,
@@ -1290,8 +1290,8 @@ const CONFIG = {
       "block": "E",
       "type": "single",
       "page": "product",
-      "text": "Welk beeld krijg je van LIVREA: waar draait het bij dit bedrijf vooral om?",
-      "hint": "Kies het antwoord dat het best past bij wat je hebt gezien.",
+      "text": "Welk beeld krijgt u van LIVREA: waar draait het bij dit bedrijf vooral om?",
+      "hint": "Kies het antwoord dat het best past bij wat u heeft gezien.",
       "shuffle": true,
       "options": [
         [
@@ -1322,16 +1322,16 @@ const CONFIG = {
       "variable": "MEEST_BIJGEBLEVEN",
       "block": "F",
       "type": "open",
-      "text": "Welk onderdeel van de website is je het meest bijgebleven?",
+      "text": "Welk onderdeel van de website is u het meest bijgebleven?",
       "minLength": 1,
       "maxLength": 2000,
-      "hint": "Noem het onderdeel of de boodschap die je je herinnert. Je kunt ook “niets in het bijzonder” invullen."
+      "hint": "Noem het onderdeel of de boodschap die u zich herinnert. U kunt ook “niets in het bijzonder” invullen."
     },
     {
       "id": "Q23",
       "block": "F",
       "type": "scale",
-      "text": "Hoe waarschijnlijk is het dat je contact zou opnemen met LIVREA?",
+      "text": "Hoe waarschijnlijk is het dat u contact zou opnemen met LIVREA?",
       "min": 1,
       "max": 5,
       "ends": [
@@ -1339,16 +1339,16 @@ const CONFIG = {
         "Zeer waarschijnlijk"
       ],
       "textByGroup": {
-        "organisatie": "Hoe waarschijnlijk is het dat je contact zou opnemen met LIVREA?",
-        "werk": "Stel dat jouw organisatie ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?",
-        "toekomst": "Stel dat je later voor een werkgever ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?"
+        "organisatie": "Hoe waarschijnlijk is het dat u contact zou opnemen met LIVREA?",
+        "werk": "Stel dat uw organisatie ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat u dan contact zou opnemen met LIVREA?",
+        "toekomst": "Stel dat u later voor een werkgever ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat u dan contact zou opnemen met LIVREA?"
       }
     },
     {
       "id": "Q24",
       "block": "F",
       "type": "scale",
-      "text": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan een collega of bekende?",
+      "text": "Hoe waarschijnlijk is het dat u LIVREA zou aanbevelen aan een collega of bekende?",
       "min": 0,
       "max": 10,
       "ends": [
@@ -1358,16 +1358,16 @@ const CONFIG = {
       "comment": "Q24_TOELICHTING",
       "nps": true,
       "textByGroup": {
-        "organisatie": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan een collega of iemand in je netwerk?",
-        "werk": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan een collega, bijvoorbeeld iemand van HR?",
-        "toekomst": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan iemand in je netwerk?"
+        "organisatie": "Hoe waarschijnlijk is het dat u LIVREA zou aanbevelen aan een collega of iemand in uw netwerk?",
+        "werk": "Hoe waarschijnlijk is het dat u LIVREA zou aanbevelen aan een collega, bijvoorbeeld iemand van HR?",
+        "toekomst": "Hoe waarschijnlijk is het dat u LIVREA zou aanbevelen aan iemand in uw netwerk?"
       }
     },
     {
       "id": "Q25",
       "block": "G",
       "type": "single",
-      "text": "Heb je op de website informatie gezien over een wetenschappelijke onderbouwing?",
+      "text": "Heeft u op de website informatie gezien over een wetenschappelijke onderbouwing?",
       "shuffle": false,
       "options": [
         [
@@ -1390,8 +1390,8 @@ const CONFIG = {
       "id": "Q26",
       "block": "G",
       "type": "scale",
-      "text": "Hoe waarschijnlijk is het nu dat je contact zou opnemen met LIVREA?",
-      "controlText": "Hoe waarschijnlijk is het nu dat je contact zou opnemen met LIVREA?",
+      "text": "Hoe waarschijnlijk is het nu dat u contact zou opnemen met LIVREA?",
+      "controlText": "Hoe waarschijnlijk is het nu dat u contact zou opnemen met LIVREA?",
       "min": 1,
       "max": 5,
       "ends": [
@@ -1400,17 +1400,17 @@ const CONFIG = {
       ],
       "comment": "Q26_TOELICHTING",
       "textByGroup": {
-        "organisatie": "Hoe waarschijnlijk is het nu dat je contact zou opnemen met LIVREA?",
-        "werk": "En nu: stel dat jouw organisatie ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?",
-        "toekomst": "En nu: stel dat je later voor een werkgever ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?"
+        "organisatie": "Hoe waarschijnlijk is het nu dat u contact zou opnemen met LIVREA?",
+        "werk": "En nu: stel dat uw organisatie ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat u dan contact zou opnemen met LIVREA?",
+        "toekomst": "En nu: stel dat u later voor een werkgever ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat u dan contact zou opnemen met LIVREA?"
       }
     },
     {
       "id": "Q27",
       "block": "G",
       "type": "single",
-      "text": "Wat zou je als eerste verbeteren aan de website?",
-      "hint": "Kies het verbeterpunt dat voor jou het belangrijkst is.",
+      "text": "Wat zou u als eerste verbeteren aan de website?",
+      "hint": "Kies het verbeterpunt dat voor u het belangrijkst is.",
       "shuffle": true,
       "comment": "Q27_TOELICHTING",
       "commentRequiredFor": [
@@ -1470,11 +1470,11 @@ const CONFIG = {
     "retryMs": 6000
   },
   "blocks": {
-    "A": "Over jou",
+    "A": "Over u",
     "B": "Talentontwikkeling",
     "BV": "HR-software",
-    "C": "Je eerste indruk",
-    "D": "Je ervaring met de website",
+    "C": "Uw eerste indruk",
+    "D": "Uw ervaring met de website",
     "E": "Het aanbod verkennen",
     "F": "Wat blijft hangen?",
     "G": "Tot slot"
@@ -1524,12 +1524,12 @@ const CONFIG = {
     "C": {
       "label": "Deel 2 van 3",
       "title": "De website van LIVREA",
-      "text": "LIVREA is een van de aanbieders die je net in de lijst zag. In dit deel bekijk je hun website: wat valt op, hoe komt het over en wat zou je doen? Er zijn geen goede of foute antwoorden."
+      "text": "LIVREA is een van de aanbieders die u net in de lijst zag. In dit deel bekijkt u hun website: wat valt op, hoe komt het over en wat zou u doen? Er zijn geen goede of foute antwoorden."
     },
     "F": {
       "label": "Deel 3 van 3",
       "title": "Bijna klaar",
-      "text": "Nog een paar korte vragen over wat je is bijgebleven en hoe je LIVREA nu beoordeelt."
+      "text": "Nog een paar korte vragen over wat u is bijgebleven en hoe u LIVREA nu beoordeelt."
     }
   },
   "parts": {
@@ -1628,10 +1628,10 @@ function welcome(){
  let old;try{old=JSON.parse(localStorage.getItem(STORE))}catch{}
  if(old?.complete){state=old;thanks();sendPending();return}
  state=null;const errors=liveErrors();
- shell(`<main class="survey-start"><section class="start-card"><p class="eyebrow">KEVIN GNADE &amp; FAAS HENSSEN · HVA</p><h1>${esc(ui.startTitle)}</h1><p class="start-lead">${esc(ui.startText)}</p><div class="start-facts"><span>${esc(ui.duration)}</span><span>Anoniem · geen naam of e-mail</span></div>${!IS_TEST&&errors.length?`<p class="error">${esc(ui.blocked)}</p>`:''}${old&&!old.complete?`<button class="secondary" id="resume">Verder met je enquête</button>`:''}<button class="primary" id="start" ${!IS_TEST&&errors.length?'disabled':''}>${esc(ui.start)} <span aria-hidden="true">→</span></button><details class="privacy-details"><summary>Over dit onderzoek en je gegevens</summary><p>Je kunt op ieder moment stoppen. We vragen geen naam of e-mail. Je antwoorden krijgen een willekeurige code, zodat je later op dit apparaat verder kunt gaan.</p><p>${esc(ui.privacy)}</p><p>${esc(CONFIG.privacy.retention)} ${esc(CONFIG.privacy.contact)}</p></details></section></main>`);
+ shell(`<main class="survey-start"><section class="start-card"><p class="eyebrow">KEVIN GNADE &amp; FAAS HENSSEN · HVA</p><h1>${esc(ui.startTitle)}</h1><p class="start-lead">${esc(ui.startText)}</p><div class="start-facts"><span>${esc(ui.duration)}</span><span>Anoniem · geen naam of e-mail</span></div>${!IS_TEST&&errors.length?`<p class="error">${esc(ui.blocked)}</p>`:''}${old&&!old.complete?`<button class="secondary" id="resume">Verder met uw enquête</button>`:''}<button class="primary" id="start" ${!IS_TEST&&errors.length?'disabled':''}>${esc(ui.start)} <span aria-hidden="true">→</span></button><details class="privacy-details"><summary>Over dit onderzoek en uw gegevens</summary><p>U kunt op ieder moment stoppen. We vragen geen naam of e-mail. Uw antwoorden krijgen een willekeurige code, zodat u later op dit apparaat verder kunt gaan.</p><p>${esc(ui.privacy)}</p><p>${esc(CONFIG.privacy.retention)} ${esc(CONFIG.privacy.contact)}</p></details></section></main>`);
  $('#start').onclick=async()=>{state=newState();await begin()};if($('#resume'))$('#resume').onclick=async()=>{state=old;await begin()}
 }
-async function begin(){shell(`<main class="center"><div class="welcome"><div class="spinner"></div><p>${esc(ui.loading)}</p></div></main>`);try{await preload();enteredAt=performance.now();persist();render();checkpoint()}catch(e){shell(`<main class="center"><section class="welcome"><div class="eyebrow">Laden onderbroken</div><h1>We kunnen het beeld nog niet laden.</h1><p>Je antwoorden zijn op dit apparaat bewaard. Probeer het opnieuw om verder te gaan.</p><p class="error">${esc(e.message)}</p><button class="primary" id="reload-images">Opnieuw proberen</button><button class="link" id="back-start">Terug naar start</button></section></main>`);$('#reload-images').onclick=begin;$('#back-start').onclick=welcome}}
+async function begin(){shell(`<main class="center"><div class="welcome"><div class="spinner"></div><p>${esc(ui.loading)}</p></div></main>`);try{await preload();enteredAt=performance.now();persist();render();checkpoint()}catch(e){shell(`<main class="center"><section class="welcome"><div class="eyebrow">Laden onderbroken</div><h1>We kunnen het beeld nog niet laden.</h1><p>Uw antwoorden zijn op dit apparaat bewaard. Probeer het opnieuw om verder te gaan.</p><p class="error">${esc(e.message)}</p><button class="primary" id="reload-images">Opnieuw proberen</button><button class="link" id="back-start">Terug naar start</button></section></main>`);$('#reload-images').onclick=begin;$('#back-start').onclick=welcome}}
 function accountTime(){if(!state||!enteredAt)return;const now=performance.now(),ms=now-enteredAt;state.blockMs[current()?.block||'G']=(state.blockMs[current()?.block||'G']||0)+ms;state.activeMs+=ms;enteredAt=now}
 function selected(q){return state.answers[q.variable||q.id]}
 function optionsHTML(q){const value=selected(q),multi=q.type==='multi';return `<div class="options ${multi?'multi':''}" role="${multi?'group':'radiogroup'}" aria-label="${esc(q.text)}">${order(q).filter(o=>!(q.hiddenOptions||[]).includes(o[0])).map(([code,label,sub])=>`${q.dividerBefore===code?`<div class="option-divider" aria-hidden="true"><span>${esc(q.dividerLabel||'')}</span></div>`:''}<button type="button" class="option" role="${multi?'checkbox':'radio'}" aria-checked="${multi?(value||[]).includes(code):value===code}" data-option="${esc(code)}"><span class="indicator" aria-hidden="true"></span><span>${esc(labelFor(q,code,label))}${typeof sub==='string'?`<small>${esc(sub)}</small>`:''}</span></button>`).join('')}</div>`}
@@ -1641,13 +1641,13 @@ const qIndex=id=>CONFIG.questions.findIndex(q=>q.id===id);
 function previousQuestionIndex(){const floor=state.cardSeen?qIndex('Q26'):state.answers.Q15!==undefined?qIndex('Q15')+1:state.answers.Q14?qIndex('Q14')+1:0;for(let i=state.index-1;i>=floor;i--){const q=CONFIG.questions[i];if(!eligible(q,state.answers.Q04,state.answers))continue;return i}return -1}
 function backToCard(){return state.cardSeen&&state.index===qIndex('Q26')}
 function goPreviousQuestion(){if(backToCard()){accountTime();state.index=qIndex('Q25');showInfoCard();return}const i=previousQuestionIndex();if(i<0)return;accountTime();state.index=i;render();checkpoint()}
-function navigationNote(){if(state.index===qIndex('Q15'))return 'De eerste klik staat vast. Je kunt vanaf de volgende vraag terug binnen dit onderdeel.';if(state.index===qIndex('Q26'))return 'Antwoorden van vóór de informatiekaart staan vast.';return ''}
+function navigationNote(){if(state.index===qIndex('Q15'))return 'De eerste klik staat vast. U kunt vanaf de volgende vraag terug binnen dit onderdeel.';if(state.index===qIndex('Q26'))return 'Antwoorden van vóór de informatiekaart staan vast.';return ''}
 const VIEW_CLASS={compact:'compact-mode',breedte:'',overzicht:'overview-mode'};
 function attentionView(){return state?.answers?.Q14_WEERGAVE||'breedte'}
 function toggleWebsiteView(){const study=$('.study'),button=$('#expand-site');if(!study||!button)return;const expanded=study.classList.toggle('website-expanded');button.textContent=expanded?'← Terug naar vragen':'Website groter bekijken';button.setAttribute('aria-expanded',String(expanded));if(!expanded)$('#question-heading')?.focus({preventScroll:true});else button.focus({preventScroll:true})}
 function textCount(q,value){const n=String(value||'').trim().length;return n<q.minLength&&q.minLength>1?'Minimaal '+q.minLength+' tekens.':n+' / '+q.maxLength+' tekens'}
-function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[0])}</span><span>5 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat je oog als eerste trekt, niet om waar je naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${hintText(q)?`<p class="muted" style="font-size:13px">${esc(hintText(q))}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
-function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Aanwijzen · er opent niets':selectionMode?'Afbeelding van de website · klik om aan te wijzen':'Echte website · kies ‘Terug naar aanwijzen’ om te klikken'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Bekijk de echte website':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste je aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
+function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[0])}</span><span>5 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat uw oog als eerste trekt, niet om waar u naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${hintText(q)?`<p class="muted" style="font-size:13px">${esc(hintText(q))}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier uw aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
+function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Aanwijzen · er opent niets':selectionMode?'Afbeelding van de website · klik om aan te wijzen':'Echte website · kies ‘Terug naar aanwijzen’ om te klikken'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Bekijk de echte website':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste uw aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
 function render(){
  questionAt=performance.now();showCard=false;const q=current();state.last=q.id;persist();
  const priorPage=currentPage,priorScroll=$('#viewport')?.scrollTop||0;if(priorPage){state.sitePositions??={};state.sitePositions[priorPage]=priorScroll}
@@ -1665,7 +1665,7 @@ function changed(){persist();$('#next').disabled=!valid(current());scheduleCheck
 function next(){const q=current();if(!valid(q))return;accountTime();if(q.afterCard&&!state.cardSeen){showInfoCard();checkpoint();return}advance()}
 function advance(){if(state.index===CONFIG.questions.length-1){state.complete=true;state.ended=new Date().toISOString();checkpoint();thanks();return}state.index++;while(current()&&!eligible(current(),state.answers.Q04,state.answers)){const s=current();if(s.type==='multi'&&(s.onlyHR||s.audience)&&!(s.skipStudent&&state.answers.Q04==='5'))state.answers[s.id]=[s.autoValue||'8'];else delete state.answers[s.id];state.index++}{const c=current();if(c&&(c.onlyHR||c.audience)&&JSON.stringify(state.answers[c.id])===JSON.stringify([c.autoValue||'8']))delete state.answers[c.id]}{const c=current(),ch=CONFIG.chapters?.[c?.block];if(ch&&!(state.chaptersSeen||[]).includes(c.block)){checkpoint();showChapter(c.block);return}}enteredAt=performance.now();render();checkpoint()}
 function showChapter(block){const ch=CONFIG.chapters[block];shell(`<main class="question-only chapter-screen"><section class="panel fade"><span class="chapter-label">${esc(ch.label)}</span><h1 id="question-heading" tabindex="-1">${esc(ch.title)}</h1><p class="chapter-text">${esc(ch.text)}</p><div class="actions"><button id="chapter-next" class="primary">Verder →</button></div></section></main>`,state.index/CONFIG.questions.length*100);$('#question-heading')?.focus({preventScroll:true});$('#chapter-next').onclick=()=>{state.chaptersSeen=[...(state.chaptersSeen||[]),block];enteredAt=performance.now();render();checkpoint()}}
-function attentionText(q){const a=state.answers;if(a[q.id+'_X']===undefined)return '';const pg=a[q.id+'_PAGINA']||q.page,sec=variant(pg).sections.find(s=>s.id===sectionAt(pg,a[q.id+'_Y']));return 'Vastgelegd: '+(sec?sec.label.toLowerCase():'een plek')+'. Ga verder wanneer je klaar bent.'}
+function attentionText(q){const a=state.answers;if(a[q.id+'_X']===undefined)return '';const pg=a[q.id+'_PAGINA']||q.page,sec=variant(pg).sections.find(s=>s.id===sectionAt(pg,a[q.id+'_Y']));return 'Vastgelegd: '+(sec?sec.label.toLowerCase():'een plek')+'. Ga verder wanneer u klaar bent.'}
 /* Rechte lijn: alle rijen van een schaalblok hetzelfde antwoord. Markeren, niet verwijderen. */
 function qualityFlags(r){const flag=q=>{const v=q.rows.map(x=>r[x[0]]);return v.length>2&&v.every(Number.isInteger)&&v.every(x=>x===v[0])?1:0};const m=CONFIG.questions.find(q=>q.type==='matrix'),s=CONFIG.questions.find(q=>q.type==='semantic');const o={RECHTE_LIJN_MATRIX:flag(m),RECHTE_LIJN_GEVOEL:flag(s)};o.KWALITEIT_VLAG=r.SNELHEID_VLAG||o.RECHTE_LIJN_MATRIX||o.RECHTE_LIJN_GEVOEL?1:0;return o}
 function partLabel(){const p=CONFIG.parts?.[current()?.block]||1;return 'Deel '+p+' van 3'}
