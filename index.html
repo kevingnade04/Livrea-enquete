@@ -3,7 +3,7 @@
 <script>
 /* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
 const CONFIG = {
-  "VERSION": "2026-10-21.20",
+  "VERSION": "2026-10-21.21",
   "APPS_SCRIPT_URL": "",
   "CONTROLEGROEP_AAN": false,
   "LIVE_GEREED": false,
@@ -1394,9 +1394,9 @@ const CONFIG = {
     {
       "id": "Q24",
       "block": "G",
-      "type": "single",
-      "text": "Wat zou u als eerste verbeteren aan de website?",
-      "hint": "Kies het verbeterpunt dat voor u het belangrijkst is.",
+      "type": "multi",
+      "text": "Wat zou u verbeteren aan de website?",
+      "hint": "Kies maximaal drie verbeterpunten die voor u het belangrijkst zijn.",
       "shuffle": true,
       "comment": "Q24_TOELICHTING",
       "commentRequiredFor": [
@@ -1445,6 +1445,11 @@ const CONFIG = {
           "Geen verbeterpunt",
           true
         ]
+      ],
+      "prefix": "Q24_",
+      "max": 3,
+      "exclusive": [
+        "9"
       ]
     }
   ],
@@ -1692,7 +1697,7 @@ function render(){
  $('#question-heading')?.focus({preventScroll:true});updateStatus()
 }
 function initThumbs(){document.querySelectorAll('[data-thumb-src]').forEach(el=>{const w=el.clientWidth,h=Number(el.dataset.height)/Number(el.dataset.width)*w;el.style.backgroundImage=`url("${el.dataset.thumbSrc.replace(/["\\]/g,'')}")`;el.style.backgroundPosition=`center -${Number(el.dataset.start)/100*h}px`})}
-function valid(q){const v=selected(q);if(q.type==='attention')return state.clicks.some(c=>c.VRAAG===q.id);if(q.type==='click'&&state.answers[q.id+'_ANDERS']===1)return (state.answers[q.comment]||'').trim().length>=10;if(q.commentRequiredFor&&(q.commentRequiredFor||[]).includes(selected(q)))return (state.answers[q.comment]||'').trim().length>=5;if(q.type==='multi')return Array.isArray(v)&&v.length>0&&(!q.max||v.length<=q.max);if(q.type==='semantic'||q.type==='matrix')return q.rows.every(r=>Number.isInteger(state.answers[r[0]]));if(q.type==='open')return typeof v==='string'&&v.trim().length>=q.minLength;return v!==undefined&&v!==null&&v!==''}
+function valid(q){const v=selected(q);if(q.type==='attention')return state.clicks.some(c=>c.VRAAG===q.id);if(q.type==='click'&&state.answers[q.id+'_ANDERS']===1)return (state.answers[q.comment]||'').trim().length>=10;if(q.commentRequiredFor&&[].concat(selected(q)??[]).some(v=>(q.commentRequiredFor||[]).includes(String(v))))return (state.answers[q.comment]||'').trim().length>=5;if(q.type==='multi')return Array.isArray(v)&&v.length>0&&(!q.max||v.length<=q.max);if(q.type==='semantic'||q.type==='matrix')return q.rows.every(r=>Number.isInteger(state.answers[r[0]]));if(q.type==='open')return typeof v==='string'&&v.trim().length>=q.minLength;return v!==undefined&&v!==null&&v!==''}
 function bindPanel(q){if($('#show-site'))$('#show-site').onclick=toggleWebsiteView;document.querySelectorAll('[data-option]').forEach(b=>b.onclick=()=>{const code=b.dataset.option;if(q.id==='Q04'&&state.answers.Q04!==code){delete state.answers.Q05;delete state.answers.Q07;if(['5','11'].includes(code))delete state.answers.Q06;}if(q.type==='multi'){let arr=[...(selected(q)||[])];if(arr.includes(code))arr=arr.filter(x=>x!==code);else if((q.exclusive||[]).includes(code))arr=[code];else{arr=arr.filter(x=>!(q.exclusive||[]).includes(x));if(q.max&&arr.length>=q.max)return;arr.push(code)}state.answers[q.id]=arr}else state.answers[q.id]=code;updateChoices(q);changed()});document.querySelectorAll('[data-scale]').forEach(b=>b.onclick=()=>{state.answers[b.dataset.scale]=Number(b.dataset.value);document.querySelectorAll(`[data-scale="${b.dataset.scale}"]`).forEach(x=>x.setAttribute('aria-checked',x===b));changed()});document.querySelectorAll('[data-memory]').forEach(b=>b.onclick=()=>{state.answers.MEEST_BIJGEBLEVEN=b.dataset.memory;document.querySelectorAll('[data-memory]').forEach(x=>x.setAttribute('aria-checked',x===b));changed()});if($('#open'))$('#open').oninput=e=>{state.answers[q.variable||q.id]=e.target.value;$('#charcount').textContent=textCount(q,e.target.value);changed()};if($('#comment'))$('#comment').oninput=e=>{state.answers[q.comment]=e.target.value;changed()};if($('#noleave'))$('#noleave').onclick=()=>{clearSelection(q,'Q19_NIET_AFHAKEN');clearSelectionFeedback(q)};if($('#back'))$('#back').onclick=goPreviousQuestion;if($('#other-page'))$('#other-page').onclick=()=>{clearSelection(q,q.id+'_ANDERS');['#noattraction','#noleave'].forEach(s=>$(s)?.setAttribute('aria-pressed','false'));$('#other-page').setAttribute('aria-pressed','true');$('.click-study')?.classList.add('has-selection');$('#click-status').textContent=chosenText(q);$('#comment')?.focus()};if($('#noattraction'))$('#noattraction').onclick=()=>{clearSelection(q,'Q18_GEEN');clearSelectionFeedback(q)};$('#next').onclick=next}
 function updateChoices(q){const v=selected(q);document.querySelectorAll('[data-option]').forEach(b=>{const on=q.type==='multi'?(v||[]).includes(b.dataset.option):v===b.dataset.option;b.setAttribute('aria-checked',on);b.disabled=q.type==='multi'&&q.max&&(v||[]).length>=q.max&&!on&&!(q.exclusive||[]).includes(b.dataset.option)})}
 function changed(){persist();$('#next').disabled=!valid(current());scheduleCheckpoint()}
@@ -1769,7 +1774,7 @@ function insightsHTML(rows){
  ${table(['Groep','Contactintentie (Q20)','% 4–5','Aanbeveling 0–10 (Q21)','Kaartinformatie op de site te vinden (Q23)','% 4–5'],groups.map(([n,f])=>{const rs=rows.filter(f);return [n,fmt(mean(rs,'Q20')),top2(rs,'Q20'),fmt(mean(rs,'Q21')),fmt(mean(rs,'Q23')),top2(rs,'Q23')]}))}
  ${table(['Wetenschappelijke onderbouwing gezien (Q22)','n','%'],optDist(Q('Q22'),rows))}
  <h3>6 · Prioriteiten voor de website</h3>
- ${table(['Eerste verbeterpunt (Q24)','n','%'],optDist(Q('Q24'),rows))}
+ ${table(['Verbeterpunten (Q24, max. 3)','%'],multiDist(Q('Q24')))}
  <h3>7 · Samenstelling en kwaliteit</h3>
  ${table(['Kenmerk','Aantal'],[['HR',rows.filter(groups[1][1]).length],['Beslissers',rows.filter(groups[2][1]).length],['Kerndoelgroep (HR, 50–500)',rows.filter(r=>Number(r.DOELGROEP)===1).length],['Afnames in deze selectie',rows.length],['Met kwaliteitsvlag',rows.filter(r=>Number(r.KWALITEIT_VLAG)===1).length]])}
  ${table(['Wervingskanaal','Aantal'],Object.entries(rows.reduce((o,r)=>{const b=String(r.BRON||'(onbekend)');o[b]=(o[b]||0)+1;return o},{})).sort((a,b)=>b[1]-a[1]))}
