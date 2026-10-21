@@ -3,9 +3,9 @@
 <script>
 /* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
 const CONFIG = {
-  "VERSION": "2026-10-21.19",
+  "VERSION": "2026-10-21.20",
   "APPS_SCRIPT_URL": "",
-  "CONTROLEGROEP_AAN": true,
+  "CONTROLEGROEP_AAN": false,
   "LIVE_GEREED": false,
   "SCREENSHOTS_ECHT": true,
   "CLAIM_GEVERIFIEERD": false,
@@ -13,10 +13,6 @@ const CONFIG = {
     "title": "Wetenschappelijke onderbouwing",
     "text": "",
     "source": ""
-  },
-  "control": {
-    "title": "Over LIVREA",
-    "text": "LIVREA is een softwarebedrijf met een Italiaans moederbedrijf. Het platform bestaat uit zes modules: Magic Mirror, Relationships, Role Maps, Dream Team, Talent Acquisition en Feedback. Organisaties gebruiken het om vaardigheden van medewerkers in kaart te brengen, teams samen te stellen en ontwikkeling te volgen."
   },
   "privacy": {
     "contact": "",
@@ -1225,136 +1221,94 @@ const CONFIG = {
     {
       "id": "Q15",
       "block": "C",
-      "type": "scale",
-      "text": "Hoe duidelijk is voor u wat LIVREA aanbiedt?",
-      "min": 1,
-      "max": 5,
-      "ends": [
-        "Helemaal niet duidelijk",
-        "Helemaal duidelijk"
+      "type": "semantic",
+      "text": "Welk gevoel geeft deze homepage u?",
+      "page": "home",
+      "rows": [
+        [
+          "Q15_MODERN",
+          "Gedateerd",
+          "Eigentijds"
+        ],
+        [
+          "Q15_MENSELIJK",
+          "Afstandelijk",
+          "Persoonlijk"
+        ],
+        [
+          "Q15_DUIDELIJK",
+          "Vaag",
+          "Concreet"
+        ],
+        [
+          "Q15_BETROUWBAAR",
+          "Wekt weinig vertrouwen",
+          "Wekt vertrouwen"
+        ],
+        [
+          "Q15_NEDERLANDS",
+          "Voelt buitenlands",
+          "Voelt Nederlands"
+        ]
       ],
-      "hint": "Op basis van wat u net heeft gezien."
+      "hint": "Ga af op uw eerste gevoel. Kies per regel de positie die er het dichtst bij ligt.",
+      "shuffle": false
     },
     {
       "id": "Q16",
       "block": "C",
       "type": "scale",
-      "text": "Wat is uw eerste indruk van de website?",
-      "min": 1,
-      "max": 5,
-      "ends": [
-        "Zeer negatief",
-        "Zeer positief"
-      ],
-      "comment": "Q16_TOELICHTING",
-      "page": "home",
-      "hint": "Bekijk de website opnieuw als u dat wilt."
-    },
-    {
-      "id": "Q17",
-      "block": "D",
-      "type": "semantic",
-      "text": "Hoe komt de website op u over?",
-      "page": "home",
-      "rows": [
-        [
-          "Q17_MODERN",
-          "Ouderwets",
-          "Modern"
-        ],
-        [
-          "Q17_MENSELIJK",
-          "Onpersoonlijk",
-          "Menselijk"
-        ],
-        [
-          "Q17_DUIDELIJK",
-          "Onduidelijk",
-          "Duidelijk"
-        ],
-        [
-          "Q17_BETROUWBAAR",
-          "Onbetrouwbaar",
-          "Betrouwbaar"
-        ],
-        [
-          "Q17_NEDERLANDS",
-          "Internationaal gericht",
-          "Nederlands gericht"
-        ]
-      ],
-      "hint": "Kies voor elke regel de positie die het best past bij uw indruk.",
-      "shuffle": false
-    },
-    {
-      "id": "Q18",
-      "block": "D",
-      "type": "click",
-      "text": "Welk onderdeel nodigt u het meest uit om verder te kijken?",
-      "page": "home",
-      "noAttraction": true,
-      "comment": "Q18_TOELICHTING",
-      "hint": "Klik in de website op het onderdeel dat u het meest uitnodigt om verder te kijken. U kunt scrollen en via Homepage en Product wisselen."
-    },
-    {
-      "id": "Q19",
-      "block": "D",
-      "type": "click",
-      "text": "Bij welk onderdeel zou u besluiten de website te verlaten?",
-      "page": "home",
-      "noLeave": true,
-      "comment": "Q19_TOELICHTING",
-      "hint": "Klik in de website op het punt waar u zou afhaken en de website zou verlaten. U kunt scrollen en via Homepage en Product wisselen."
-    },
-    {
-      "id": "Q20",
-      "block": "E",
-      "type": "scale",
-      "text": "Hoe duidelijk is het voor u voor welke organisaties LIVREA bedoeld is?",
-      "page": "product",
+      "text": "Is u na deze homepage duidelijk wat LIVREA precies aanbiedt?",
       "min": 1,
       "max": 5,
       "ends": [
         "Helemaal niet duidelijk",
-        "Helemaal duidelijk"
+        "Volkomen duidelijk"
       ],
-      "comment": "Q20_TOELICHTING",
-      "hint": "Bekijk hiervoor de productpagina."
+      "hint": "Ga uit van wat u net op de homepage heeft gezien."
     },
     {
-      "id": "Q21",
+      "id": "Q17",
+      "block": "C",
+      "type": "scale",
+      "text": "Na het zien van de homepage: in hoeverre zou u verder willen kijken op deze website?",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Ik zou wegklikken",
+        "Ik wil zeker verder kijken"
+      ],
+      "textByGroup": {
+        "organisatie": "Stel dat u voor uw organisatie zoekt naar hulp bij talentontwikkeling en op deze homepage belandt. In hoeverre zou u verder kijken op de website?",
+        "werk": "Na het zien van de homepage: in hoeverre zou u verder willen kijken op deze website?",
+        "toekomst": "Na het zien van de homepage: in hoeverre zou u verder willen kijken op deze website?"
+      },
+      "comment": "Q17_TOELICHTING",
+      "commentLabel": "Wat maakt dat u wel of niet verder zou kijken? (optioneel)"
+    },
+    {
+      "id": "Q18",
       "block": "E",
-      "type": "single",
+      "type": "scale",
       "page": "product",
-      "text": "Welk beeld krijgt u van LIVREA: waar draait het bij dit bedrijf vooral om?",
-      "hint": "Kies het antwoord dat het best past bij wat u heeft gezien.",
-      "shuffle": true,
-      "options": [
-        [
-          "1",
-          "Technologie en data"
-        ],
-        [
-          "2",
-          "De mens en zijn talenten"
-        ],
-        [
-          "3",
-          "Efficiëntie en kostenbesparing"
-        ],
-        [
-          "4",
-          "Het oplossen van HR-problemen"
-        ],
-        [
-          "9",
-          "Weet ik niet",
-          true
-        ]
-      ]
+      "text": "In hoeverre denkt u dat LIVREA een organisatie verder kan helpen bij de ontwikkeling van medewerkers?",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Helemaal niet",
+        "Zeker wel"
+      ],
+      "textByGroup": {
+        "organisatie": "In hoeverre denkt u dat LIVREA uw organisatie verder kan helpen bij een HR-vraagstuk waar u nu mee te maken heeft?",
+        "werk": "In hoeverre denkt u dat LIVREA uw organisatie verder kan helpen bij de ontwikkeling van medewerkers?",
+        "toekomst": "In hoeverre denkt u dat LIVREA een organisatie verder kan helpen bij de ontwikkeling van medewerkers?"
+      },
+      "hint": "Bekijk gerust eerst de productpagina. Het gaat erom of u nieuwsgierig bent geworden: zou dit iets kunnen zijn?",
+      "comment": "Q18_TOELICHTING",
+      "commentLabel": "Waarom wel of niet? (optioneel)"
     },
     {
-      "id": "Q22",
+      "id": "Q19",
       "variable": "MEEST_BIJGEBLEVEN",
       "block": "F",
       "type": "open",
@@ -1364,7 +1318,7 @@ const CONFIG = {
       "hint": "Noem het onderdeel of de boodschap die u zich herinnert. U kunt ook “niets in het bijzonder” invullen."
     },
     {
-      "id": "Q23",
+      "id": "Q20",
       "block": "F",
       "type": "scale",
       "text": "Hoe waarschijnlijk is het dat u contact zou opnemen met LIVREA?",
@@ -1381,7 +1335,7 @@ const CONFIG = {
       }
     },
     {
-      "id": "Q24",
+      "id": "Q21",
       "block": "F",
       "type": "scale",
       "text": "Hoe waarschijnlijk is het dat u LIVREA zou aanbevelen aan een collega of bekende?",
@@ -1391,7 +1345,7 @@ const CONFIG = {
         "Zeer onwaarschijnlijk",
         "Zeer waarschijnlijk"
       ],
-      "comment": "Q24_TOELICHTING",
+      "comment": "Q21_TOELICHTING",
       "nps": true,
       "textByGroup": {
         "organisatie": "Hoe waarschijnlijk is het dat u LIVREA zou aanbevelen aan een collega of iemand in uw netwerk?",
@@ -1400,7 +1354,7 @@ const CONFIG = {
       }
     },
     {
-      "id": "Q25",
+      "id": "Q22",
       "block": "G",
       "type": "single",
       "text": "Heeft u op de website informatie gezien over een wetenschappelijke onderbouwing?",
@@ -1423,32 +1377,28 @@ const CONFIG = {
       "afterCard": true
     },
     {
-      "id": "Q26",
+      "id": "Q23",
       "block": "G",
       "type": "scale",
-      "text": "Hoe waarschijnlijk is het nu dat u contact zou opnemen met LIVREA?",
-      "controlText": "Hoe waarschijnlijk is het nu dat u contact zou opnemen met LIVREA?",
+      "text": "In hoeverre kon u deze informatie ook uit de website halen die u net heeft bekeken?",
       "min": 1,
       "max": 5,
       "ends": [
-        "Zeer onwaarschijnlijk",
-        "Zeer waarschijnlijk"
+        "Bijna niets ervan",
+        "Bijna alles"
       ],
-      "comment": "Q26_TOELICHTING",
-      "textByGroup": {
-        "organisatie": "Hoe waarschijnlijk is het nu dat u contact zou opnemen met LIVREA?",
-        "werk": "En nu: stel dat uw organisatie ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat u dan contact zou opnemen met LIVREA?",
-        "toekomst": "En nu: stel dat u later voor een werkgever ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat u dan contact zou opnemen met LIVREA?"
-      }
+      "hint": "Denk aan de homepage en de productpagina.",
+      "comment": "Q23_TOELICHTING",
+      "commentLabel": "Wat miste u op de website? (optioneel)"
     },
     {
-      "id": "Q27",
+      "id": "Q24",
       "block": "G",
       "type": "single",
       "text": "Wat zou u als eerste verbeteren aan de website?",
       "hint": "Kies het verbeterpunt dat voor u het belangrijkst is.",
       "shuffle": true,
-      "comment": "Q27_TOELICHTING",
+      "comment": "Q24_TOELICHTING",
       "commentRequiredFor": [
         "10"
       ],
@@ -1511,7 +1461,6 @@ const CONFIG = {
     "B": "Talentontwikkeling",
     "BV": "HR-software",
     "C": "Uw eerste indruk",
-    "D": "Uw ervaring met de website",
     "E": "Het aanbod verkennen",
     "F": "Wat blijft hangen?",
     "G": "Tot slot"
@@ -1526,8 +1475,8 @@ const CONFIG = {
       "1": "HR met 50–500 medewerkers"
     },
     "CONDITIE": {
-      "1": "Wetenschapsclaim",
-      "2": "Controle"
+      "1": "Informatiekaart",
+      "2": "Controle (niet in gebruik)"
     },
     "DEVICE": {
       "desktop": "Desktop",
@@ -1582,10 +1531,40 @@ const CONFIG = {
     "B": 1,
     "BV": 1,
     "C": 2,
-    "D": 2,
     "E": 2,
     "F": 3,
     "G": 3
+  },
+  "card": {
+    "title": "Dit is LIVREA",
+    "lead": "LIVREA is een Nederlands HR-techbedrijf uit Nieuwegein. Het brengt het Talent Experience Platform van het Italiaanse Smartpeg naar Nederland: software én advies om de talenten van medewerkers zichtbaar te maken en verder te ontwikkelen.",
+    "sections": [
+      {
+        "title": "Waar LIVREA voor staat",
+        "text": "‘Het versterken van talenten van mensen, het hart van de nieuwe bedrijfsvoering.’ De mens staat centraal: iedereen heeft eigen talenten, en het succes van iedere medewerker is het succes van de organisatie. LIVREA combineert menselijke en artificiële intelligentie, gericht op welzijn én bedrijfsresultaat."
+      },
+      {
+        "title": "Wat het platform doet",
+        "items": [
+          "Soft skills, hard skills en persoonlijkheid van medewerkers in kaart brengen",
+          "Doorlopende 360°-feedback",
+          "Potentieel ontdekken en ontwikkel- en loopbaanpaden uitzetten, met microlearning",
+          "Teams samenstellen die elkaar aanvullen: de juiste persoon op de juiste plek",
+          "Bij werving kijken wie echt bij functie en team past"
+        ]
+      },
+      {
+        "title": "Waarom LIVREA",
+        "items": [
+          "Eén platform met zes modules: Magic Mirror, Relationships, Role Maps, Dream Team, Talent Acquisition en Feedback",
+          "Datagedreven, met vooraf ingestelde rollen en vaardigheden per sector",
+          "In de cloud, modulair en op maat, met snelle persoonlijke ondersteuning",
+          "Voor bedrijfsleven, banken en verzekeraars, zorg en publieke sector"
+        ]
+      }
+    ],
+    "tagline": "Always develop talents.",
+    "source": "Gebaseerd op livrea.nl (homepage en Over ons), oktober 2026."
   }
 };
 </script>
@@ -1613,6 +1592,11 @@ const CONFIG = {
 .point-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:#1d2733eb;color:#fff;font-size:12px;font-weight:600;padding:8px 14px;border-radius:20px;pointer-events:none;z-index:6;white-space:nowrap;box-shadow:0 4px 14px #0003}
 @media(max-width:800px){.point-hint{bottom:16px;font-size:11px}}
 .insights h3{font-size:15px;margin:26px 0 8px;letter-spacing:-.2px}.insights table{margin-bottom:12px}
+.info-card h1{margin-bottom:10px}.info-lead{font-size:18px;line-height:1.65;color:#2b3140;margin:0 0 22px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info-block{background:var(--soft,#f6f3f7);border-radius:12px;padding:16px 18px;border-top:3px solid var(--accent)}
+.info-block h2{font-size:14px;letter-spacing:.2px;margin:0 0 8px}.info-block p,.info-block li{font-size:14px;line-height:1.6;color:#353b47;margin:0}.info-block ul{margin:0;padding-left:18px}.info-block li+li{margin-top:5px}
+.info-tagline{font-weight:700;color:var(--accent);margin:18px 0 2px;font-size:15px}.info-source{font-size:12px;color:var(--muted);margin:0 0 6px}
+@media(max-width:900px){.info-grid{grid-template-columns:1fr}.info-lead{font-size:16px}}
 /* Hoofdstukscherm */
 .chapter-screen .panel{padding:44px 40px}.chapter-label{display:inline-block;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:650;margin-bottom:14px}.chapter-screen h1{font-size:clamp(28px,3vw,38px);margin:0 0 14px}.chapter-text{font-size:17px;line-height:1.7;max-width:58ch;color:var(--ink)}
 @media(max-width:800px){.chapter-screen .panel{padding:30px 22px}}
@@ -1669,10 +1653,10 @@ function labelFor(q,code,label){return q.labelsByGroup?.[groupKey()]?.[code]||la
 function isLeader(){const a=state?.answers||{};return a.Q04==='3'||(a.Q04==='1'&&a.Q05==='1')}
 function roleKey(m){return m&&isLeader()&&m.leidinggevend!==undefined?'leidinggevend':groupKey()}
 function hintText(q){return q.hintByGroup?.[roleKey(q.hintByGroup)]||q.hint||''}
-function questionText(q){if(q.textByGroup){return q.textByGroup[roleKey(q.textByGroup)]}return q.id==='Q26'&&state.condition===2?q.controlText:q.text}
+function questionText(q){if(q.textByGroup){return q.textByGroup[roleKey(q.textByGroup)]}return q.text}
 function order(q){if(!state.orders[q.id]){const arr=q.type==='semantic'?q.rows:q.options||[];state.orders[q.id]=q.type==='semantic'?shuffle(arr).map(x=>x[0]):(q.shuffle?[...shuffle(arr.filter(x=>x[2]!==true)),...arr.filter(x=>x[2]===true)]:arr).map(x=>x[0]);persist()}return state.orders[q.id].map(id=>(q.rows||q.options).find(x=>x[0]===id))}
 async function preload(){const urls=[...new Set(Object.values(CONFIG.pages).map(p=>p[state?.device||DEVICE].src))];await Promise.all(urls.map(src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve();im.onerror=()=>reject(new Error('Afbeelding ontbreekt: '+src));im.src=src})));imagesReady=true}
-function liveErrors(){const r=[];if(!CONFIG.LIVE_GEREED)r.push('LIVE_GEREED staat nog uit');if(!CONFIG.SCREENSHOTS_ECHT)r.push('echte screenshots ontbreken');if(!CONFIG.CLAIM_GEVERIFIEERD||!CONFIG.claim.text||!CONFIG.claim.source)r.push('de onderbouwde wetenschapsclaim ontbreekt');if(!/^https:\/\/script.google.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(CONFIG.APPS_SCRIPT_URL))r.push('de opslag-URL ontbreekt');return r}
+function liveErrors(){const r=[];if(!CONFIG.LIVE_GEREED)r.push('LIVE_GEREED staat nog uit');if(!CONFIG.SCREENSHOTS_ECHT)r.push('echte screenshots ontbreken');if(!/^https:\/\/script.google.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(CONFIG.APPS_SCRIPT_URL))r.push('de opslag-URL ontbreekt');return r}
 function welcome(){
  let old;try{old=JSON.parse(localStorage.getItem(STORE))}catch{}
  if(old?.complete){state=old;thanks();sendPending();return}
@@ -1687,16 +1671,17 @@ function optionsHTML(q){const value=selected(q),multi=q.type==='multi';return `<
 function scaleHTML(key,min,max,ends,nps=false,showEnds=true){return `<div class="scale ${nps?'nps':''}" role="radiogroup" aria-label="${esc(key)}">${Array.from({length:max-min+1},(_,i)=>i+min).map(v=>`<button type="button" role="radio" data-scale="${key}" data-value="${v}" aria-label="${v}${v===min?' — '+ends[0]:v===max?' — '+ends[1]:''}" aria-checked="${state.answers[key]===v}" >${v}</button>`).join('')}</div>${showEnds?`<div class="ends"><span>${nps?min+' · ':''}${esc(ends[0])}</span><span>${nps?max+' · ':''}${esc(ends[1])}</span></div>`:''}`} 
 function memoryHTML(q){return `<div class="thumbs" role="radiogroup" aria-label="${esc(q.text)}">${state.seen.map(id=>{let entry;Object.keys(CONFIG.pages).forEach(p=>{const v=variant(p),s=v.sections.find(s=>s.id===id);if(s)entry={p,v,s}});if(!entry)return '';const {p,v,s}=entry;const crop=s.thumb||{start:s.start,end:Math.min(s.start+12,s.end)};return `<button class="thumb" role="radio" aria-checked="${selected(q)===id}" data-memory="${id}"><div class="thumb-crop" data-thumb-src="${esc(v.src)}" data-width="${v.width}" data-height="${v.height}" data-start="${crop.start}"></div><span>${esc(s.label)} · ${p==='home'?'Homepage':'Productpagina'}</span></button>`}).join('')}</div><button class="option" role="radio" aria-checked="${selected(q)==='99'}" data-memory="99" style="margin-top:12px"><span class="indicator"></span>${esc(q.none[1])}</button>`}
 const qIndex=id=>CONFIG.questions.findIndex(q=>q.id===id);
-function previousQuestionIndex(){const floor=state.cardSeen?qIndex('Q26'):state.answers.Q15!==undefined?qIndex('Q15')+1:state.answers.Q14?qIndex('Q14')+1:0;for(let i=state.index-1;i>=floor;i--){const q=CONFIG.questions[i];if(!eligible(q,state.answers.Q04,state.answers))continue;return i}return -1}
-function backToCard(){return state.cardSeen&&state.index===qIndex('Q26')}
-function goPreviousQuestion(){if(backToCard()){accountTime();state.index=qIndex('Q25');showInfoCard();return}const i=previousQuestionIndex();if(i<0)return;accountTime();state.index=i;render();checkpoint()}
-function navigationNote(){if(state.index===qIndex('Q15'))return 'De eerste klik staat vast. U kunt vanaf de volgende vraag terug binnen dit onderdeel.';if(state.index===qIndex('Q26'))return 'Antwoorden van vóór de informatiekaart staan vast.';return ''}
+function previousQuestionIndex(){const floor=0;for(let i=state.index-1;i>=floor;i--){const q=CONFIG.questions[i];if(!eligible(q,state.answers.Q04,state.answers))continue;return i}return -1}
+function cardIndex(){return qIndex(CONFIG.questions.find(q=>q.afterCard).id)}
+function backToCard(){return state.cardSeen&&state.index===cardIndex()+1}
+function goPreviousQuestion(){if(backToCard()){accountTime();state.index=cardIndex();showInfoCard();return}const i=previousQuestionIndex();if(i<0)return;accountTime();state.index=i;render();checkpoint()}
+function navigationNote(){return ''}
 const VIEW_CLASS={compact:'compact-mode',breedte:'',overzicht:'overview-mode'};
 function attentionView(){return state?.answers?.Q14_WEERGAVE||'compact'}
 function toggleWebsiteView(){const study=$('.study'),button=$('#expand-site');if(!study||!button)return;const expanded=study.classList.toggle('website-expanded');button.textContent=expanded?'← Terug naar vragen':'Website groter bekijken';button.setAttribute('aria-expanded',String(expanded));if(!expanded)$('#question-heading')?.focus({preventScroll:true});else button.focus({preventScroll:true})}
 function textCount(q,value){const n=String(value||'').trim().length;return n<q.minLength&&q.minLength>1?'Minimaal '+q.minLength+' tekens.':n+' / '+q.maxLength+' tekens'}
-function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[0])}</span><span>5 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat uw oog als eerste trekt, niet om waar u naartoe zou willen. Er opent niets; misgeklikt? Klik gewoon opnieuw.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${hintText(q)?`<p class="muted" style="font-size:13px">${esc(hintText(q))}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier uw aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
-function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Aanwijzen · er opent niets':selectionMode?'Afbeelding van de website · klik om aan te wijzen':'Echte website · kies ‘Terug naar aanwijzen’ om te klikken'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Bekijk de echte website':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste uw aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
+function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[0])}</span><span>5 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat uw oog als eerste trekt, niet om waar u naartoe zou willen. Er opent niets; misgeklikt? Klik gewoon opnieuw.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${hintText(q)?`<p class="muted" style="font-size:13px">${esc(hintText(q))}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.variable==='MEEST_BIJGEBLEVEN'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.commentLabel||(q.type==='attention'?'Wat trok hier uw aandacht? (optioneel)':ui.comment))}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id===CONFIG.questions[CONFIG.questions.length-1].id?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
+function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Aanwijzen · er opent niets':selectionMode?'Afbeelding van de website · klik om aan te wijzen':'Echte website · scroll en klik gerust rond'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Bekijk de echte website':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste uw aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
 function render(){
  questionAt=performance.now();showCard=false;const q=current();state.last=q.id;persist();
  const priorPage=currentPage,priorScroll=$('#viewport')?.scrollTop||0;if(priorPage){state.sitePositions??={};state.sitePositions[priorPage]=priorScroll}
@@ -1723,7 +1708,7 @@ function chosenText(q){const a=state.answers;if(a[q.id+'_ANDERS']===1)return 'Be
 function clearSelectionFeedback(q){$('.click-study')?.classList.add('has-selection');if(q.id==='Q18'||q.id==='Q19')$('#other-page')?.setAttribute('aria-pressed','false');const el=$('#click-status');if(el)el.textContent=chosenText(q)}
 function clearSelection(q,flag){state.answers[q.id+'_ANDERS']=0;if(q.id==='Q18')state.answers.Q18_GEEN=0;else state.answers.Q19_NIET_AFHAKEN=0;state.answers[q.id]=1;state.answers[flag]=1;['X','Y','MS','SECTIE','PAGINA'].forEach(k=>delete state.answers[q.id+'_'+k]);state.clicks.filter(c=>c.VRAAG===q.id).forEach(c=>c.GESELECTEERD=0);$('#click-dot')?.remove();if(q.id==='Q18')$('#noattraction')?.setAttribute('aria-pressed','true');else $('#noleave')?.setAttribute('aria-pressed','true');changed()}
 
-function showInfoCard(){showCard=true;const claim=state.condition===1,card=claim?CONFIG.claim:CONFIG.control,text=card.text||ui.previewClaim;shell(`<main class="question-only information-screen"><section class="panel"><div class="question-meta"><span class="block-label">Aanvullende informatie</span><span class="question-number">LEESKAART</span></div><h1>${esc(card.title)}</h1><p class="muted">Lees de tekst en ga daarna verder.</p><article class="information-copy"><span class="reading-rule" aria-hidden="true"></span><p>${esc(text)}</p>${claim&&card.source?`<details class="source-details"><summary>Bron bekijken</summary><a href="${esc(safeURL(card.source))}" target="_blank" rel="noopener noreferrer">${esc(card.source)}</a></details>`:''}</article>${!card.text?'<p class="preview-note">Proefversie · inhoud en bron nog te bevestigen</p>':''}<div class="actions"><button id="card-next" class="primary">Verder →</button></div></section></main>`,state.index/CONFIG.questions.length*100);$('#card-next').onclick=()=>{state.cardSeen=true;state.answers.KAART_GEZIEN=1;accountTime();advance()}}
+function showInfoCard(){showCard=true;const k=CONFIG.card,claim=CONFIG.CLAIM_GEVERIFIEERD&&CONFIG.claim.text&&CONFIG.claim.source;shell(`<main class="question-only information-screen"><section class="panel info-card"><div class="question-meta"><span class="block-label">Over LIVREA</span><span class="question-number">LEESKAART</span></div><h1>${esc(k.title)}</h1><p class="info-lead">${esc(k.lead)}</p><div class="info-grid">${k.sections.map(s=>`<article class="info-block"><h2>${esc(s.title)}</h2>${s.text?`<p>${esc(s.text)}</p>`:''}${s.items?`<ul>${s.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</article>`).join('')}${claim?`<article class="info-block"><h2>${esc(CONFIG.claim.title)}</h2><p>${esc(CONFIG.claim.text)}</p><details class="source-details"><summary>Bron bekijken</summary><a href="${esc(safeURL(CONFIG.claim.source))}" target="_blank" rel="noopener noreferrer">${esc(CONFIG.claim.source)}</a></details></article>`:''}</div><p class="info-tagline">${esc(k.tagline)}</p><p class="info-source">${esc(k.source)}</p><div class="actions"><button id="card-back" class="secondary">← Vorige vraag</button><button id="card-next" class="primary">Verder →</button></div></section></main>`,state.index/CONFIG.questions.length*100);$('#card-next').onclick=()=>{state.cardSeen=true;state.answers.KAART_GEZIEN=1;accountTime();advance()};$('#card-back').onclick=()=>{showCard=false;if(state.cardSeen)state.answers.TERUG_NA_KAART=1;render();checkpoint()}}
 
 function safeURL(s){try{const u=new URL(s);return u.protocol==='https:'?u.href:'#'}catch{return '#'}}
 function mountPage(q,priorPage,priorScroll,forcedScroll){const vp=$('#viewport'),wrap=$('#image-wrap'),v=variant(q.page);if(CONFIG.LIVE_VERKENNING&&q.type!=='attention'&&!(q.type==='click'&&selectionMode)){wrap.classList.add('live-wrap');wrap.innerHTML=`<iframe class="live-site" title="LIVREA — vrij verkennen" sandbox="allow-scripts allow-same-origin allow-forms" src="${esc(CONFIG.pages[q.page].url)}" referrerpolicy="no-referrer" allow="fullscreen"></iframe>`;vp.classList.add('live-viewport');bindNavigation(q);if($('.study')?.classList.contains('website-expanded')){$('#expand-site').textContent='← Terug naar vragen';$('#expand-site').setAttribute('aria-expanded','true')}return}wrap.classList.remove('live-wrap');vp.classList.remove('live-viewport');wrap.innerHTML=`<img class="site-image" id="site-image" src="${esc(v.src)}" alt="${esc(CONFIG.pages[q.page].title)}" draggable="false">`;const image=$('#site-image');let loaded=false;image.onload=()=>{if(loaded||!image.isConnected)return;loaded=true;vp.scrollTop=forcedScroll??(priorPage===q.page?priorScroll:state.sitePositions?.[q.page]||0);if(q.type==='attention'){if(!state.answers[q.id]&&!$('.point-hint')){const hint=document.createElement('div');hint.className='point-hint';hint.setAttribute('aria-hidden','true');hint.textContent='Klik op wat als eerste opvalt · er opent niets';$('.browser')?.appendChild(hint)}questionAt=performance.now();if(!state.answers.Q14)state.answers.Q14_WEERGAVE=attentionView()}trackView(q.page);drawSelected(q);if(q.type!=='attention')mountLinks(q)};if(image.complete)image.onload();vp.onscroll=()=>{trackView(q.page);state.sitePositions??={};state.sitePositions[q.page]=vp.scrollTop;persist()};vp.onwheel=()=>animationId++;vp.ontouchstart=()=>animationId++;vp.onkeydown=e=>{if(['PageDown','PageUp','Home','End','ArrowDown','ArrowUp',' '].includes(e.key))animationId++};if(q.type==='click'&&selectionMode||q.type==='attention')bindClick(q);bindNavigation(q)}
@@ -1738,7 +1723,7 @@ function dot(x,y,keyboard=false){$('#click-dot')?.remove();const el=document.cre
 function sectionAt(page,y){return variant(page).sections.find(s=>y>=s.start&&(y<s.end||s.end===100))?.id||''}
 function bindClick(q){const vp=$('#viewport');let keypos=null;vp.onclick=e=>{const im=$('#site-image');if(!im||!im.naturalWidth)return;const r=im.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*100,y=(e.clientY-r.top)/r.height*100;if(x>=0&&x<=100&&y>=0&&y<=100)recordClick(q,x,y,'pointer')};vp.onkeydown=e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' '].includes(e.key))return;e.preventDefault();const im=$('#site-image');if(!im)return;if(!keypos)keypos={x:50,y:(vp.scrollTop+vp.clientHeight/2)/im.clientHeight*100};const step=e.shiftKey?1:.25;if(e.key==='ArrowLeft')keypos.x-=step;if(e.key==='ArrowRight')keypos.x+=step;if(e.key==='ArrowUp')keypos.y-=step;if(e.key==='ArrowDown')keypos.y+=step;keypos.x=Math.max(0,Math.min(100,keypos.x));keypos.y=Math.max(0,Math.min(100,keypos.y));if(e.key==='Enter'||e.key===' ')recordClick(q,keypos.x,keypos.y,'keyboard');else{dot(keypos.x,keypos.y,true);const py=keypos.y/100*im.clientHeight;if(py<vp.scrollTop||py>vp.scrollTop+vp.clientHeight)vp.scrollTop=py-vp.clientHeight/2}}}
 function recordClick(q,x,y,method){if(state.clicks.length>=CONFIG.limits.clicks)return;const prior=state.clicks.filter(c=>c.VRAAG===q.id).length;if(q.type==='attention'&&prior>=CONFIG.limits.attentionClicks){$('#click-status').textContent=CONFIG.ui.maxChanges;return}const ms=Math.round(performance.now()-questionAt);state.clicks.filter(c=>c.VRAAG===q.id).forEach(c=>c.GESELECTEERD=0);state.clicks.push({KLIK_ID:uid(),VRAAG:q.id,PAGINA:q.page,SECTIE:sectionAt(q.page,y),X:Math.round(x*10000)/10000,Y:Math.round(y*10000)/10000,MS:ms,GEVONDEN:null,GESELECTEERD:1,INPUT_METHOD:method});state.answers[q.id]=1;if(q.type!=='attention')state.answers[q.id+'_ANDERS']=0;state.answers[q.id+'_X']=x;state.answers[q.id+'_Y']=y;if(q.type!=='attention'||!prior)state.answers[q.id+'_MS']=ms;state.answers[q.id+'_PAGINA']=q.page;if(q.type==='attention'){if(!prior){state.answers[q.id+'_EERSTE_X']=x;state.answers[q.id+'_EERSTE_Y']=y}state.answers[q.id+'_WIJZIGINGEN']=prior}if(q.id==='Q18'){state.answers.Q18_GEEN=0;$('#noattraction')?.setAttribute('aria-pressed','false')}if(q.noLeave){state.answers.Q19_NIET_AFHAKEN=0;state.answers.Q19_SECTIE=sectionAt(q.page,y);$('#noleave')?.setAttribute('aria-pressed','false')}if(q.type==='attention'&&!prior){const vp=$('#viewport'),im=$('#site-image');state.answers[q.id+'_GESCROLD']=vp&&vp.scrollTop>20?1:0;state.answers[q.id+'_SCROLL_PCT']=vp&&im&&im.clientHeight?Math.round(vp.scrollTop/im.clientHeight*1000)/10:0;$('.point-hint')?.remove()}dot(x,y);$('.attention-study')?.classList.add('has-selection');if(q.type==='attention'&&matchMedia('(max-width:800px)').matches)$('.attention-study .panel')?.scrollIntoView({block:'start',behavior:reduced?'auto':'smooth'});$('#click-status').textContent=q.type==='attention'?attentionText(q):chosenText(q);if(q.type==='click'){$('.click-study')?.classList.add('has-selection');if(matchMedia('(max-width:800px)').matches&&!$('.study')?.classList.contains('website-expanded'))setTimeout(()=>$('.click-study .panel')?.scrollIntoView({block:'start',behavior:reduced?'auto':'smooth'}),350);['#noattraction','#noleave','#other-page'].forEach(s=>$(s)?.setAttribute('aria-pressed','false'))}changed();if(q.type==='click'&&$('.study')?.classList.contains('website-expanded'))setTimeout(()=>{if($('.study')?.classList.contains('website-expanded'))toggleWebsiteView();$('#next')?.scrollIntoView({block:'center',behavior:reduced?'auto':'smooth'})},650)}
-function derive(){const a=state.answers,hr=['1','2'].includes(a.Q04),r={RESPONDENT_ID:state.id,VERSIE:CONFIG.VERSION,TEST:state.test,CONDITIE:state.condition,DEVICE:state.device,STARTTIJD:state.started,EINDTIJD:state.ended,TOTALE_DUUR_SEC:Math.round(((state.complete?Date.parse(state.ended):Date.now())-Date.parse(state.started))/100)/10,ACTIEVE_DUUR_SEC:Math.round(state.activeMs/100)/10,SCHERMBREEDTE:state.screenWidth,BROWSER:state.browser,AFGEROND:state.complete?1:0,LAATSTE_VRAAG:state.last,SEGMENT:a.Q04?(hr?1:2):null,DOELGROEP:a.Q04?(hr&&['2','3'].includes(a.Q06)?1:0):null,MAX_SCROLL_HOME:state.scroll.home,MAX_SCROLL_PRODUCT:state.scroll.product,GEZIENE_SECTIES:state.seen.join('|'),TOESTEMMING:1};Object.entries(a).forEach(([k,v])=>{if(!Array.isArray(v))r[k]=v});CONFIG.questions.filter(q=>q.type==='multi').forEach(q=>{if(a[q.id])q.options.forEach(([code])=>r[q.prefix+code]=a[q.id].includes(code)?1:0)});Object.keys(CONFIG.blocks).forEach(b=>r['TIJD_BLOK_'+b+'_SEC']=Math.round((state.blockMs[b]||0)/100)/10);if(a.Q04)r.PERSPECTIEF=perspective(a.Q04,a.Q06);r.FEEDBACK_SITUATIE=feedbackSituation(a);if(a.Q04)r.BESLISSER=a.Q04==='3'||(a.Q04==='1'&&a.Q05==='1')?1:0;{const mq=CONFIG.questions.find(q=>q.type==='matrix'),vals=mq.rows.map(x=>a[x[0]]).filter(Number.isInteger);if(vals.length===mq.rows.length){r.TO_BELANG_GEM=Math.round(vals.reduce((s,v)=>s+v,0)/vals.length*100)/100;if(Number.isInteger(a.Q09))r.TO_GAP=Math.round((r.TO_BELANG_GEM-a.Q09)*100)/100}}if(a.Q24!==undefined)r.NPS_GROEP=a.Q24<=6?1:a.Q24<=8?2:3;if(a.Q23!==undefined&&a.Q26!==undefined)r.USP_EFFECT=a.Q26-a.Q23;r.SNELHEID_VLAG=state.complete&&r.TOTALE_DUUR_SEC<CONFIG.limits.minimumDuration?1:0;r.BRON=state.source||'';Object.assign(r,qualityFlags(r));return r}
+function derive(){const a=state.answers,hr=['1','2'].includes(a.Q04),r={RESPONDENT_ID:state.id,VERSIE:CONFIG.VERSION,TEST:state.test,CONDITIE:state.condition,DEVICE:state.device,STARTTIJD:state.started,EINDTIJD:state.ended,TOTALE_DUUR_SEC:Math.round(((state.complete?Date.parse(state.ended):Date.now())-Date.parse(state.started))/100)/10,ACTIEVE_DUUR_SEC:Math.round(state.activeMs/100)/10,SCHERMBREEDTE:state.screenWidth,BROWSER:state.browser,AFGEROND:state.complete?1:0,LAATSTE_VRAAG:state.last,SEGMENT:a.Q04?(hr?1:2):null,DOELGROEP:a.Q04?(hr&&['2','3'].includes(a.Q06)?1:0):null,MAX_SCROLL_HOME:state.scroll.home,MAX_SCROLL_PRODUCT:state.scroll.product,GEZIENE_SECTIES:state.seen.join('|'),TOESTEMMING:1};Object.entries(a).forEach(([k,v])=>{if(!Array.isArray(v))r[k]=v});CONFIG.questions.filter(q=>q.type==='multi').forEach(q=>{if(a[q.id])q.options.forEach(([code])=>r[q.prefix+code]=a[q.id].includes(code)?1:0)});Object.keys(CONFIG.blocks).forEach(b=>r['TIJD_BLOK_'+b+'_SEC']=Math.round((state.blockMs[b]||0)/100)/10);if(a.Q04)r.PERSPECTIEF=perspective(a.Q04,a.Q06);r.FEEDBACK_SITUATIE=feedbackSituation(a);if(a.Q04)r.BESLISSER=a.Q04==='3'||(a.Q04==='1'&&a.Q05==='1')?1:0;{const mq=CONFIG.questions.find(q=>q.type==='matrix'),vals=mq.rows.map(x=>a[x[0]]).filter(Number.isInteger);if(vals.length===mq.rows.length){r.TO_BELANG_GEM=Math.round(vals.reduce((s,v)=>s+v,0)/vals.length*100)/100;if(Number.isInteger(a.Q09))r.TO_GAP=Math.round((r.TO_BELANG_GEM-a.Q09)*100)/100}}if(a.Q21!==undefined)r.NPS_GROEP=a.Q21<=6?1:a.Q21<=8?2:3;r.SNELHEID_VLAG=state.complete&&r.TOTALE_DUUR_SEC<CONFIG.limits.minimumDuration?1:0;r.BRON=state.source||'';Object.assign(r,qualityFlags(r));return r}
 function scheduleCheckpoint(){clearTimeout(saveTimer);saveTimer=setTimeout(checkpoint,800)}
 function checkpoint(){if(!state)return;accountTime();state.sequence++;state.pending={version:CONFIG.VERSION,id:state.id,receipt:state.receipt,seq:state.sequence,respondent:derive(),clicks:state.clicks};persist();sendPending()}
 function jsonp(args){return new Promise((resolve,reject)=>{if(!CONFIG.APPS_SCRIPT_URL)return reject(new Error('Geen opslag-URL'));const name='cb_'+uid().replaceAll('-','');const s=document.createElement('script');let timeout;const clean=()=>{clearTimeout(timeout);s.remove();delete window[name]};window[name]=data=>{clean();resolve(data)};s.onerror=()=>{clean();reject(new Error('Geen verbinding met opslag'))};timeout=setTimeout(()=>{clean();reject(new Error('Opslag reageert niet'))},18000);const u=new URL(CONFIG.APPS_SCRIPT_URL);Object.entries({...args,callback:name}).forEach(([k,v])=>u.searchParams.set(k,String(v)));s.referrerPolicy='no-referrer';s.src=u.href;document.head.appendChild(s)})}
@@ -1748,7 +1733,7 @@ function updateStatus(){const el=$('#storage-note');if(el)el.textContent=storage
 function thanks(){enteredAt=0;shell(`<main class="center"><section class="welcome completion"><span class="completion-mark" aria-hidden="true">✓</span><div class="eyebrow">${esc(ui.complete)}</div><h1>${esc(ui.thanks)}</h1><p class="lead muted">${esc(ui.thanksText)}</p><p class="status" id="storage-note" aria-live="polite"></p><button class="secondary" id="retry" ${CONFIG.APPS_SCRIPT_URL?'':'disabled'}>${esc(ui.retry)}</button><button class="link" id="backup">${esc(ui.backup)}</button>${IS_TEST?`<p><button id="restart" class="link">${esc(ui.restart)}</button></p>`:''}</section></main>`,100);$('#retry').onclick=()=>sendPending();$('#backup').onclick=()=>download('onderzoeksbackup-'+state.id+'.json',JSON.stringify(state.pending||{version:CONFIG.VERSION,id:state.id,receipt:state.receipt,seq:state.sequence,respondent:derive(),clicks:state.clicks},null,2),'application/json');if($('#restart'))$('#restart').onclick=()=>{localStorage.removeItem(STORE);state=null;welcome()};updateStatus()}
 window.addEventListener('online',sendPending);document.addEventListener('visibilitychange',()=>{if(document.hidden){if(state&&!state.complete){accountTime();checkpoint()}enteredAt=0}else if(state&&!state.complete)enteredAt=performance.now()});window.addEventListener('pagehide',()=>{if(state){accountTime();checkpoint()}});setInterval(()=>{if(state&&!state.complete&&!document.hidden)checkpoint()},15000);
 /* ---------------- CODEBOEK + SERVERSCHEMA UIT CONFIG ---------------- */
-function buildSchema(){const f={},book=[];function add(code,text,type='number',values=null,min=0,max=1e9){f[code]={type,values,min,max,maxLength:CONFIG.limits.text,integer:type==='number'&&!!values};book.push({CODE:code,VRAAGTEKST:text,TYPE:type,WAARDEN:values?JSON.stringify(values):''})}const meta={RESPONDENT_ID:'Willekeurige respondentcode',VERSIE:'Onderzoeksversie',STARTTIJD:'Starttijd UTC (ISO)',EINDTIJD:'Eindtijd UTC (ISO)',BROWSER:'Browserfamilie',LAATSTE_VRAAG:'Laatst bereikt scherm; geen bewezen afhaaksectie',GEZIENE_SECTIES:'Daadwerkelijk getoonde secties, gescheiden door |'};Object.entries(meta).forEach(([k,v])=>add(k,v,'text'));['TEST','CONDITIE','DEVICE','SEGMENT','DOELGROEP','NPS_GROEP'].forEach(k=>add(k,k,k==='DEVICE'?'text':'number',CONFIG.labels[k]));['TOESTEMMING','AFGEROND','SNELHEID_VLAG','RECHTE_LIJN_MATRIX','RECHTE_LIJN_GEVOEL','KWALITEIT_VLAG','Q14_GESCROLD','Q19_NIET_AFHAKEN','Q18_GEEN','Q18_ANDERS','Q19_ANDERS','KAART_GEZIEN'].forEach(k=>add(k,k,'number',{'0':'Nee','1':'Ja'},0,1));['TOTALE_DUUR_SEC','ACTIEVE_DUUR_SEC','SCHERMBREEDTE'].forEach(k=>add(k,k));['MAX_SCROLL_HOME','MAX_SCROLL_PRODUCT'].forEach(k=>add(k,'Maximale zichtbare onderrand, inclusief automatische scroll','number',null,0,100));Object.keys(CONFIG.blocks).forEach(k=>add('TIJD_BLOK_'+k+'_SEC','Actieve tijd blok '+k));CONFIG.questions.forEach(q=>{if(q.type==='multi')q.options.forEach(([code,label])=>add(q.prefix+code,q.text+' — '+label,'number',{'0':'Niet gekozen','1':'Gekozen'},0,1));else if(q.type==='semantic')q.rows.forEach(([code,l,r])=>{add(code,q.text+' '+l+' – '+r,'number',null,1,5);f[code].integer=true;});else if(q.type==='matrix'){q.rows.forEach(([code,l])=>{add(code,'Talentontwikkeling — '+l+' (1–5; HR/directie: geen prioriteit – topprioriteit; overigen: niet belangrijk – zeer belangrijk; tekst per PERSPECTIEF)','number',null,1,5);f[code].integer=true});add(q.perspective,'Perspectief van Q07/Q08 (afgeleid uit Q04): organisatie, eigen werk of (toekomstig) werk','number',CONFIG.labels[q.perspective],1,3)}else if(q.type==='memory'){const vals={'99':q.none[1]};Object.values(CONFIG.pages).forEach(p=>Object.values(p).filter(v=>v?.sections).forEach(v=>v.sections.forEach(s=>vals[s.id]=s.label)));add('MEEST_BIJGEBLEVEN',q.text,'text',vals)}else if(['click','attention'].includes(q.type)){add(q.id,q.text,'number',{'1':'Afgerond'},1,1);add(q.id+'_X','Klik x%, volledige afbeelding','number',null,0,100);add(q.id+'_Y','Klik y%, volledige afbeelding','number',null,0,100);add(q.id+'_MS',q.type==='attention'?'Tijd tot de allereerste klik (ms)':'Tijd tot geselecteerde klik (ms)');if(q.type==='attention'){add(q.id+'_EERSTE_X','Allereerste klik x% (vóór eventueel verplaatsen)','number',null,0,100);add(q.id+'_EERSTE_Y','Allereerste klik y% (vóór eventueel verplaatsen)','number',null,0,100);add(q.id+'_WIJZIGINGEN','Aantal keer verplaatst (0 = niet verplaatst)','number',null,0,CONFIG.limits.attentionClicks);f[q.id+'_WIJZIGINGEN'].integer=true}add(q.id+'_PAGINA','Pagina van de geselecteerde klik','text',{home:'Homepage',product:'Productpagina'})}else if(q.type==='scale'){add(q.id,q.text,'number',null,q.min,q.max);f[q.id].integer=true;}else if(q.type==='open')add(q.variable||q.id,q.text,'text');else add(q.id,q.text,'text',Object.fromEntries(q.options.map(x=>[x[0],x[1]])));if(q.comment)add(q.comment,q.text+' — toelichting','text')});add('Q14_WEERGAVE','Weergave bij de eerste klik','text',{compact:'Overzicht (verkleind)',breedte:'Groot (volle breedte)',overzicht:'Hele pagina'});add('Q19_SECTIE','Aangewezen afhaaksectie; geen werkelijk vertrek','text');add('BESLISSER','Beslisser (directie, of HR met leiding/management als taak)','number',{'0':'Nee','1':'Ja'},0,1);add('FEEDBACK_SITUATIE','Situatie gesprekken (Q07 optie 3 + Q07B), om Q08_FEEDBACK naast de huidige praktijk te leggen','number',CONFIG.labels.FEEDBACK_SITUATIE,0,5);add('BRON','Wervingskanaal uit de link (?bron=…), leeg als onbekend','text');add('Q14_SCROLL_PCT','Scrollpositie bij de eerste klik (% van de pagina); 0 = bovenaan','number',null,0,100);add('TO_BELANG_GEM','Gemiddeld belang van de onderdelen van talentontwikkeling (Q08, 1–5)','number',null,1,5);add('TO_GAP','Behoeftekloof: TO_BELANG_GEM − Q09 tevredenheid (positief = belangrijker dan tevreden)','number',null,-4,4);add('USP_EFFECT','Q26 − Q23; verandering in uitgesproken intentie','number',null,-4,4);book.push({CODE:'KLIKS',VRAAGTEKST:'Alle pogingen, GESELECTEERD=1 voor laatste bevestigde selectie; Q14 eerste klik. DEVICE nooit mengen.',TYPE:'dataset',WAARDEN:'X/Y 0–100; MS vanaf zichtbaar worden van de opname/vraag; GEVONDEN is leeg; geen goed/fout-score; INPUT_METHOD pointer/keyboard'});return {version:CONFIG.VERSION,fields:f,codebook:book,limits:CONFIG.limits,controlGroup:CONFIG.CONTROLEGROEP_AAN,questions:CONFIG.questions.map(q=>({id:q.id,type:q.type,page:q.page,variable:q.variable,correct:q.correct,options:q.options,rows:q.rows?q.rows.map(r=>r[0]):undefined,prefix:q.prefix,onlyHR:q.onlyHR,audience:q.audience,showIf:q.showIf,skipIf:q.skipIf,autoIf:q.autoIf,autoValue:q.autoValue,skipStudent:q.skipStudent,exclusive:q.exclusive,max:q.max,minLength:q.minLength})),targets:Object.fromEntries(Object.entries(CONFIG.pages.home).filter(([k,v])=>v?.targets).map(([k,v])=>[k,v.targets])),sections:Object.fromEntries(['desktop','mobile'].map(d=>[d,Object.fromEntries(Object.entries(CONFIG.pages).map(([p,v])=>[p,v[d].sections]))]))}}
+function buildSchema(){const f={},book=[];function add(code,text,type='number',values=null,min=0,max=1e9){f[code]={type,values,min,max,maxLength:CONFIG.limits.text,integer:type==='number'&&!!values};book.push({CODE:code,VRAAGTEKST:text,TYPE:type,WAARDEN:values?JSON.stringify(values):''})}const meta={RESPONDENT_ID:'Willekeurige respondentcode',VERSIE:'Onderzoeksversie',STARTTIJD:'Starttijd UTC (ISO)',EINDTIJD:'Eindtijd UTC (ISO)',BROWSER:'Browserfamilie',LAATSTE_VRAAG:'Laatst bereikt scherm; geen bewezen afhaaksectie',GEZIENE_SECTIES:'Daadwerkelijk getoonde secties, gescheiden door |'};Object.entries(meta).forEach(([k,v])=>add(k,v,'text'));['TEST','CONDITIE','DEVICE','SEGMENT','DOELGROEP','NPS_GROEP'].forEach(k=>add(k,k,k==='DEVICE'?'text':'number',CONFIG.labels[k]));['TOESTEMMING','AFGEROND','SNELHEID_VLAG','RECHTE_LIJN_MATRIX','RECHTE_LIJN_GEVOEL','KWALITEIT_VLAG','Q14_GESCROLD','KAART_GEZIEN','TERUG_NA_KAART'].forEach(k=>add(k,k,'number',{'0':'Nee','1':'Ja'},0,1));['TOTALE_DUUR_SEC','ACTIEVE_DUUR_SEC','SCHERMBREEDTE'].forEach(k=>add(k,k));['MAX_SCROLL_HOME','MAX_SCROLL_PRODUCT'].forEach(k=>add(k,'Maximale zichtbare onderrand, inclusief automatische scroll','number',null,0,100));Object.keys(CONFIG.blocks).forEach(k=>add('TIJD_BLOK_'+k+'_SEC','Actieve tijd blok '+k));CONFIG.questions.forEach(q=>{if(q.type==='multi')q.options.forEach(([code,label])=>add(q.prefix+code,q.text+' — '+label,'number',{'0':'Niet gekozen','1':'Gekozen'},0,1));else if(q.type==='semantic')q.rows.forEach(([code,l,r])=>{add(code,q.text+' '+l+' – '+r,'number',null,1,5);f[code].integer=true;});else if(q.type==='matrix'){q.rows.forEach(([code,l])=>{add(code,'Talentontwikkeling — '+l+' (1–5; HR/directie: geen prioriteit – topprioriteit; overigen: niet belangrijk – zeer belangrijk; tekst per PERSPECTIEF)','number',null,1,5);f[code].integer=true});add(q.perspective,'Perspectief van Q07/Q08 (afgeleid uit Q04): organisatie, eigen werk of (toekomstig) werk','number',CONFIG.labels[q.perspective],1,3)}else if(q.type==='memory'){const vals={'99':q.none[1]};Object.values(CONFIG.pages).forEach(p=>Object.values(p).filter(v=>v?.sections).forEach(v=>v.sections.forEach(s=>vals[s.id]=s.label)));add('MEEST_BIJGEBLEVEN',q.text,'text',vals)}else if(['click','attention'].includes(q.type)){add(q.id,q.text,'number',{'1':'Afgerond'},1,1);add(q.id+'_X','Klik x%, volledige afbeelding','number',null,0,100);add(q.id+'_Y','Klik y%, volledige afbeelding','number',null,0,100);add(q.id+'_MS',q.type==='attention'?'Tijd tot de allereerste klik (ms)':'Tijd tot geselecteerde klik (ms)');if(q.type==='attention'){add(q.id+'_EERSTE_X','Allereerste klik x% (vóór eventueel verplaatsen)','number',null,0,100);add(q.id+'_EERSTE_Y','Allereerste klik y% (vóór eventueel verplaatsen)','number',null,0,100);add(q.id+'_WIJZIGINGEN','Aantal keer verplaatst (0 = niet verplaatst)','number',null,0,CONFIG.limits.attentionClicks);f[q.id+'_WIJZIGINGEN'].integer=true}add(q.id+'_PAGINA','Pagina van de geselecteerde klik','text',{home:'Homepage',product:'Productpagina'})}else if(q.type==='scale'){add(q.id,q.text,'number',null,q.min,q.max);f[q.id].integer=true;}else if(q.type==='open')add(q.variable||q.id,q.text,'text');else add(q.id,q.text,'text',Object.fromEntries(q.options.map(x=>[x[0],x[1]])));if(q.comment)add(q.comment,q.text+' — toelichting','text')});add('Q14_WEERGAVE','Weergave bij de eerste klik','text',{compact:'Overzicht (verkleind)',breedte:'Groot (volle breedte)',overzicht:'Hele pagina'});add('BESLISSER','Beslisser (directie, of HR met leiding/management als taak)','number',{'0':'Nee','1':'Ja'},0,1);add('FEEDBACK_SITUATIE','Situatie gesprekken (Q07 optie 3 + Q07B), om Q08_FEEDBACK naast de huidige praktijk te leggen','number',CONFIG.labels.FEEDBACK_SITUATIE,0,5);add('BRON','Wervingskanaal uit de link (?bron=…), leeg als onbekend','text');add('Q14_SCROLL_PCT','Scrollpositie bij de eerste klik (% van de pagina); 0 = bovenaan','number',null,0,100);add('TO_BELANG_GEM','Gemiddeld belang van de onderdelen van talentontwikkeling (Q08, 1–5)','number',null,1,5);add('TO_GAP','Behoeftekloof: TO_BELANG_GEM − Q09 tevredenheid (positief = belangrijker dan tevreden)','number',null,-4,4);book.push({CODE:'KLIKS',VRAAGTEKST:'Alle pogingen, GESELECTEERD=1 voor laatste bevestigde selectie; Q14 eerste klik. DEVICE nooit mengen.',TYPE:'dataset',WAARDEN:'X/Y 0–100; MS vanaf zichtbaar worden van de opname/vraag; GEVONDEN is leeg; geen goed/fout-score; INPUT_METHOD pointer/keyboard'});return {version:CONFIG.VERSION,fields:f,codebook:book,limits:CONFIG.limits,controlGroup:CONFIG.CONTROLEGROEP_AAN,questions:CONFIG.questions.map(q=>({id:q.id,type:q.type,page:q.page,variable:q.variable,correct:q.correct,options:q.options,rows:q.rows?q.rows.map(r=>r[0]):undefined,prefix:q.prefix,onlyHR:q.onlyHR,audience:q.audience,showIf:q.showIf,skipIf:q.skipIf,autoIf:q.autoIf,autoValue:q.autoValue,skipStudent:q.skipStudent,exclusive:q.exclusive,max:q.max,minLength:q.minLength})),targets:Object.fromEntries(Object.entries(CONFIG.pages.home).filter(([k,v])=>v?.targets).map(([k,v])=>[k,v.targets])),sections:Object.fromEntries(['desktop','mobile'].map(d=>[d,Object.fromEntries(Object.entries(CONFIG.pages).map(([p,v])=>[p,v[d].sections]))]))}}
 
 /* ---------------- INZICHTEN PER DEELVRAAG ---------------- */
 function insightsHTML(rows){
@@ -1774,19 +1759,17 @@ function insightsHTML(rows){
  ${table(['Naamsbekendheid (Q12)','%'],multiDist(Q('Q12')))}
  ${table(['Groep','Belang website voor eerste indruk (Q13)','% 4–5'],groups.map(([n,f])=>[n,fmt(mean(rows.filter(f),'Q13')),top2(rows.filter(f),'Q13')]))}
  <h3>3 · Eerste indruk</h3>
- ${table(['Groep','Duidelijk aanbod (Q15)','% 4–5','Eerste indruk (Q16)','% 4–5'],groups.map(([n,f])=>{const rs=rows.filter(f);return [n,fmt(mean(rs,'Q15')),top2(rs,'Q15'),fmt(mean(rs,'Q16')),top2(rs,'Q16')]}))}
- <p class="muted">Eerste klik: mediane tijd ${msMed}; ${cell(pct(rows.filter(r=>has(r,'Q14_GESCROLD')),r=>Number(r.Q14_GESCROLD)===1))}% scrolde eerst. Zie de heatmap hieronder.</p>
+ ${table(['Groep','Duidelijk aanbod (Q16)','% 4–5','Wil verder kijken (Q17)','% 4–5'],groups.map(([n,f])=>{const rs=rows.filter(f);return [n,fmt(mean(rs,'Q16')),top2(rs,'Q16'),fmt(mean(rs,'Q17')),top2(rs,'Q17')]}))}
+ <p class="muted">Eerste klik: mediane tijd ${msMed}; ${cell(pct(rows.filter(r=>has(r,'Q14_GESCROLD')),r=>Number(r.Q14_GESCROLD)===1))}% scrolde eerst; ${cell(pct(rows.filter(r=>has(r,'Q14_WIJZIGINGEN')),r=>Number(r.Q14_WIJZIGINGEN)>0))}% verplaatste de klik. Zie de heatmap hieronder.</p>
  ${table(['Meest aangewezen bij eerste klik (Q14)','Aantal'],sections('Q14'))}
- <h3>4 · Beleving en klantreis</h3>
- ${table(['Gevoel (Q17), 1 = links, 5 = rechts','HR','Overig','Alle'],sem.rows.map(([k,l,r])=>[l+' → '+r,fmt(mean(rows.filter(groups[1][1]),k)),fmt(mean(rows.filter(groups[3][1]),k)),fmt(mean(rows,k))]))}
- ${table(['Nodigt uit om verder te kijken (Q18)','Aantal'],sections('Q18'))}
- ${table(['Afhaakpunt (Q19)','Aantal'],sections('Q19'))}
- ${table(['Waar draait LIVREA om? (Q21)','n','%'],optDist(Q('Q21'),rows))}
- <p class="muted">Voor wie bedoeld (Q20): ${fmt(mean(rows,'Q20'))} · % 4–5 ${top2(rows,'Q20')}.</p>
- <h3>5 · Intentie en onderbouwing</h3>
- ${table(['Groep','Contactintentie (Q23)','Aanbeveling 0–10 (Q24)','Intentie na kaart (Q26)','Verandering'],groups.map(([n,f])=>{const rs=rows.filter(f);return [n,fmt(mean(rs,'Q23')),fmt(mean(rs,'Q24')),fmt(mean(rs,'Q26')),fmt(mean(rs,'USP_EFFECT'))]}))}
+ <h3>4 · Beleving en relevantie</h3>
+ ${table(['Gevoel (Q15), 1 = links, 5 = rechts','HR','Overig','Alle'],sem.rows.map(([k,l,r])=>[l+' → '+r,fmt(mean(rows.filter(groups[1][1]),k)),fmt(mean(rows.filter(groups[3][1]),k)),fmt(mean(rows,k))]))}
+ ${table(['Kan LIVREA helpen (Q18)','Organisatie','Eigen werk','(Toekomstig) werk','Alle'],[['Gemiddelde',...persp.map(rs=>fmt(mean(rs,'Q18'))),fmt(mean(rows,'Q18'))],['% 4–5',...persp.map(rs=>top2(rs,'Q18')),top2(rows,'Q18')]])}
+ <h3>5 · Intentie en boodschap</h3>
+ ${table(['Groep','Contactintentie (Q20)','% 4–5','Aanbeveling 0–10 (Q21)','Kaartinformatie op de site te vinden (Q23)','% 4–5'],groups.map(([n,f])=>{const rs=rows.filter(f);return [n,fmt(mean(rs,'Q20')),top2(rs,'Q20'),fmt(mean(rs,'Q21')),fmt(mean(rs,'Q23')),top2(rs,'Q23')]}))}
+ ${table(['Wetenschappelijke onderbouwing gezien (Q22)','n','%'],optDist(Q('Q22'),rows))}
  <h3>6 · Prioriteiten voor de website</h3>
- ${table(['Eerste verbeterpunt (Q27)','n','%'],optDist(Q('Q27'),rows))}
+ ${table(['Eerste verbeterpunt (Q24)','n','%'],optDist(Q('Q24'),rows))}
  <h3>7 · Samenstelling en kwaliteit</h3>
  ${table(['Kenmerk','Aantal'],[['HR',rows.filter(groups[1][1]).length],['Beslissers',rows.filter(groups[2][1]).length],['Kerndoelgroep (HR, 50–500)',rows.filter(r=>Number(r.DOELGROEP)===1).length],['Afnames in deze selectie',rows.length],['Met kwaliteitsvlag',rows.filter(r=>Number(r.KWALITEIT_VLAG)===1).length]])}
  ${table(['Wervingskanaal','Aantal'],Object.entries(rows.reduce((o,r)=>{const b=String(r.BRON||'(onbekend)');o[b]=(o[b]||0)+1;return o},{})).sort((a,b)=>b[1]-a[1]))}
@@ -1816,7 +1799,7 @@ function drawQuestionSummary(){const q=CONFIG.questions.find(q=>q.id===$('#summa
  if(['attention','click'].includes(q.type))body+='<p class="muted">Klikposities staan in Klikpatronen; toelichtingen en selectiecodes staan in de respondent-CSV.</p>';
  $('#question-summary').innerHTML=body
 }
-function drawDashboard(){const rows=filteredRows(),nps=rows.filter(r=>has(r,'Q24')),npsScore=nps.length?100*(nps.filter(r=>Number(r.Q24)>=9).length-nps.filter(r=>Number(r.Q24)<=6).length)/nps.length:null;const paired=rows.filter(r=>has(r,'Q23')&&has(r,'Q26'));$('#dashboard-body').innerHTML=`<div class="metrics">${metric(rows.length,'Totaal · huidige selectie')}${metric(rows.filter(r=>Number(r.SEGMENT)===1).length,'HR')}${metric(rows.filter(r=>Number(r.SEGMENT)===2).length,'Overig')}${metric(rows.filter(r=>Number(r.DOELGROEP)===1).length,'Kerndoelgroep')}${metric(rows.filter(r=>Number(r.BESLISSER)===1).length,'Beslissers')}${metric(rows.filter(r=>Number(r.AFGEROND)===1).length,'Afgerond')}${metric(fmt(mean(rows,'TO_BELANG_GEM')),'Belang talentontwikkeling · gem. Q08')}${metric(fmt(mean(rows,'Q09')),'Tevredenheid huidige aanpak · Q09')}${metric(fmt(mean(rows,'TO_GAP')),'Behoeftekloof · belang − tevredenheid')}${metric(fmt(mean(rows,'Q15')),'Duidelijkheid aanbod · Q15')}${metric(fmt(mean(rows,'Q16')),'Eerste indruk · Q16')}${metric(fmt(mean(rows,'Q20')),'Inzicht in passend aanbod · Q20')}${metric(fmt(npsScore),'Aanbevelingsindex · n='+nps.length)}${metric(fmt(mean(paired,'Q23')),'Intentie vóór · gekoppelde n='+paired.length)}${metric(fmt(mean(paired,'Q26')),'Intentie na · gekoppelde n='+paired.length)}${metric(fmt(mean(paired,'USP_EFFECT')),'Gemiddelde verandering')}</div><section class="panel"><h2>Verandering per conditie</h2><p class="muted">Alleen respondenten met zowel Q23 als Q26. Vergelijking is verkennend; controleer groepsgrootte en uitval.</p><div class="table-wrap"><table><thead><tr><th>Conditie</th><th>n</th><th>Vóór</th><th>Na</th><th>USP_EFFECT</th></tr></thead><tbody>${[1,2].map(c=>{const r=paired.filter(r=>Number(r.CONDITIE)===c);return `<tr><td>${esc(CONFIG.labels.CONDITIE[c])}</td><td>${r.length}</td><td>${fmt(mean(r,'Q23'))}</td><td>${fmt(mean(r,'Q26'))}</td><td>${fmt(mean(r,'USP_EFFECT'))}</td></tr>`}).join('')}</tbody></table></div><p>Verschil in gemiddelde verandering (claim − controle): <strong>${fmt(mean(paired.filter(r=>Number(r.CONDITIE)===1),'USP_EFFECT')===null||mean(paired.filter(r=>Number(r.CONDITIE)===2),'USP_EFFECT')===null?null:mean(paired.filter(r=>Number(r.CONDITIE)===1),'USP_EFFECT')-mean(paired.filter(r=>Number(r.CONDITIE)===2),'USP_EFFECT'))}</strong></p></section><section class="panel" style="margin-top:20px"><h2>Aangegeven afhaakpunt · Q19</h2><div id="drop-table"></div><h2 style="margin-top:25px">Onvoltooide afnames</h2><p class="muted">Laatst bereikte vraag; de respondent kan later nog terugkomen.</p><div id="actual-drop"></div></section><section class="panel" style="margin-top:20px"><h2>Klikpatronen · ${getFilters().device==='mobile'?'mobiel':'desktop'}</h2><label>Websitepagina<select id="filter-page" class="keyinput"><option value="home">Homepage</option><option value="product">Productpagina</option></select></label><label>Klikvraag<select id="filter-question" class="keyinput"><option value="Q14">Q14 · eerste aandacht</option><option value="Q18">Q18 · uitnodigend onderdeel</option><option value="Q19">Q19 · aangegeven vertrekpunt</option></select></label><p class="status" id="heat-count"></p><div class="heatbox"><div class="heat" id="heat"><img id="heat-img" alt="Screenshot met klikpatronen"><canvas id="heat-canvas" aria-label="Heatmap"></canvas></div></div></section>`;$('#dashboard-body').insertAdjacentHTML('beforeend',insightsHTML(rows));$('#dashboard-body').insertAdjacentHTML('beforeend',`<section class="panel" style="margin-top:24px"><h2>Antwoorden per vraag</h2><label>Vraag<select id="summary-question">${CONFIG.questions.map(q=>`<option value="${q.id}">${q.id} · ${esc(q.text)}</option>`).join('')}</select></label><div id="question-summary"></div></section>`);$('#summary-question').onchange=drawQuestionSummary;drawQuestionSummary();const drops={};rows.forEach(r=>{if(Number(r.Q19_NIET_AFHAKEN)===1)drops['Ik zou niet afhaken']=(drops['Ik zou niet afhaken']||0)+1;else if(r.Q19_SECTIE)drops[r.Q19_SECTIE]=(drops[r.Q19_SECTIE]||0)+1});const actual={};rows.filter(r=>Number(r.AFGEROND)!==1).forEach(r=>actual[r.LAATSTE_VRAAG]=(actual[r.LAATSTE_VRAAG]||0)+1);const table=o=>Object.keys(o).length?`<table><thead><tr><th>Antwoord / scherm</th><th>Aantal</th></tr></thead><tbody>${Object.entries(o).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${v}</td></tr>`).join('')}</tbody></table>`:`<p class="muted">${esc(ui.empty)}</p>`;$('#drop-table').innerHTML=table(drops);$('#actual-drop').innerHTML=table(actual);$('#filter-question').onchange=()=>{const first=$('#filter-question').value==='Q14';$('#filter-page').disabled=first;if(first)$('#filter-page').value='home';drawHeatmap()};$('#filter-page').onchange=drawHeatmap;$('#filter-page').disabled=true;drawHeatmap()}
+function drawDashboard(){const rows=filteredRows(),nps=rows.filter(r=>has(r,'Q21')),npsScore=nps.length?100*(nps.filter(r=>Number(r.Q21)>=9).length-nps.filter(r=>Number(r.Q21)<=6).length)/nps.length:null;$('#dashboard-body').innerHTML=`<div class="metrics">${metric(rows.length,'Totaal · huidige selectie')}${metric(rows.filter(r=>Number(r.SEGMENT)===1).length,'HR')}${metric(rows.filter(r=>Number(r.SEGMENT)===2).length,'Overig')}${metric(rows.filter(r=>Number(r.DOELGROEP)===1).length,'Kerndoelgroep')}${metric(rows.filter(r=>Number(r.BESLISSER)===1).length,'Beslissers')}${metric(rows.filter(r=>Number(r.AFGEROND)===1).length,'Afgerond')}${metric(fmt(mean(rows,'TO_BELANG_GEM')),'Belang talentontwikkeling · gem. Q08')}${metric(fmt(mean(rows,'Q09')),'Tevredenheid huidige aanpak · Q09')}${metric(fmt(mean(rows,'TO_GAP')),'Behoeftekloof · belang − tevredenheid')}${metric(fmt(mean(rows,'Q16')),'Duidelijk aanbod · Q16')}${metric(fmt(mean(rows,'Q17')),'Wil verder kijken · Q17')}${metric(fmt(mean(rows,'Q18')),'Kan LIVREA helpen · Q18')}${metric(fmt(mean(rows,'Q20')),'Contactintentie · Q20')}${metric(fmt(npsScore),'Aanbevelingsindex · n='+nps.length)}${metric(fmt(mean(rows,'Q23')),'Kaartinformatie op de site te vinden · Q23')}</div><section class="panel"><h2>Onvoltooide afnames</h2><p class="muted">Laatst bereikte vraag; de respondent kan later nog terugkomen.</p><div id="actual-drop"></div></section><section class="panel" style="margin-top:20px"><h2>Klikpatronen · ${getFilters().device==='mobile'?'mobiel':'desktop'}</h2><label>Websitepagina<select id="filter-page" class="keyinput"><option value="home">Homepage</option><option value="product">Productpagina</option></select></label><label>Klikvraag<select id="filter-question" class="keyinput"><option value="Q14">Q14 · eerste aandacht</option></select></label><p class="status" id="heat-count"></p><div class="heatbox"><div class="heat" id="heat"><img id="heat-img" alt="Screenshot met klikpatronen"><canvas id="heat-canvas" aria-label="Heatmap"></canvas></div></div></section>`;$('#dashboard-body').insertAdjacentHTML('beforeend',insightsHTML(rows));$('#dashboard-body').insertAdjacentHTML('beforeend',`<section class="panel" style="margin-top:24px"><h2>Antwoorden per vraag</h2><label>Vraag<select id="summary-question">${CONFIG.questions.map(q=>`<option value="${q.id}">${q.id} · ${esc(q.text)}</option>`).join('')}</select></label><div id="question-summary"></div></section>`);$('#summary-question').onchange=drawQuestionSummary;drawQuestionSummary();const actual={};rows.filter(r=>Number(r.AFGEROND)!==1).forEach(r=>actual[r.LAATSTE_VRAAG]=(actual[r.LAATSTE_VRAAG]||0)+1);const table=o=>Object.keys(o).length?`<table><thead><tr><th>Antwoord / scherm</th><th>Aantal</th></tr></thead><tbody>${Object.entries(o).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${v}</td></tr>`).join('')}</tbody></table>`:`<p class="muted">${esc(ui.empty)}</p>`;$('#actual-drop').innerHTML=table(actual);$('#filter-question').onchange=()=>{const first=$('#filter-question').value==='Q14';$('#filter-page').disabled=first;if(first)$('#filter-page').value='home';drawHeatmap()};$('#filter-page').onchange=drawHeatmap;$('#filter-page').disabled=true;drawHeatmap()}
 function drawHeatmap(){const f=getFilters(),im=$('#heat-img'),canvas=$('#heat-canvas'),v=CONFIG.pages[f.page][f.device],clicks=filteredClicks().filter(c=>c.VRAAG===f.question&&c.PAGINA===f.page);$('#heat-count').textContent=clicks.length+' geselecteerde klikken · '+(f.device==='mobile'?'mobiel':'desktop')+' · '+(f.page==='home'?'homepage':'productpagina');im.onload=()=>{const w=Math.min(1100,v.width),h=Math.round(w*v.height/v.width);canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,w,h);if(!clicks.length)return;const off=document.createElement('canvas');off.width=w;off.height=h;const c=off.getContext('2d');c.filter='blur(12px)';clicks.forEach(p=>{c.beginPath();c.fillStyle='rgba(0,0,0,.32)';c.arc(Number(p.X)/100*w,Number(p.Y)/100*h,20,0,Math.PI*2);c.fill()});const pixels=c.getImageData(0,0,w,h),d=pixels.data;let max=1;for(let i=3;i<d.length;i+=4)max=Math.max(max,d[i]);for(let i=0;i<d.length;i+=4){const a=d[i+3]/max;if(a<.025){d[i+3]=0;continue}d[i]=Math.round(255*Math.min(1,a*2));d[i+1]=Math.round(220*(1-Math.abs(a-.5)*2));d[i+2]=Math.round(255*Math.max(0,1-a*2));d[i+3]=Math.round(Math.min(.8,a)*255)}ctx.putImageData(pixels,0,0)};im.src=v.src;if(im.complete)im.onload()}
 function exportCSV(name,rows){const keys=rows.length?Object.keys(rows[0]):name==='Respondenten'?Object.keys(buildSchema().fields):[];const safe=v=>{let s=String(v??'');if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"'};download(name+'.csv','\ufeff'+[keys,...rows.map(r=>keys.map(k=>r[k]))].map(row=>row.map(safe).join(';')).join('\r\n'),'text/csv;charset=utf-8')}
 if(IS_ADMIN){adminLogin();const key=sessionStorage.getItem('research-admin-key');if(key){$('#admin-key').value=key;$('#admin-load').click()}}else welcome();
