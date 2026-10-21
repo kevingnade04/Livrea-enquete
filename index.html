@@ -3,7 +3,7 @@
 <script>
 /* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
 const CONFIG = {
-  "VERSION": "2026-10-21.12",
+  "VERSION": "2026-10-21.13",
   "APPS_SCRIPT_URL": "",
   "CONTROLEGROEP_AAN": true,
   "LIVE_GEREED": false,
@@ -873,7 +873,7 @@ const CONFIG = {
       "type": "matrix",
       "text": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor jouw organisatie?",
       "textByGroup": {
-        "organisatie": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor jouw organisatie?",
+        "organisatie": "Hoe hoog staan deze thema’s de komende twee jaar op de agenda van jouw organisatie?",
         "werk": "Hoe belangrijk vind jij deze onderdelen van ontwikkeling in je eigen werk?",
         "toekomst": "Hoe belangrijk vind jij deze onderdelen bij een toekomstige werkgever?"
       },
@@ -886,62 +886,69 @@ const CONFIG = {
       "rows": [
         [
           "Q08_WERVING",
-          "De juiste mensen aannemen"
+          "Nieuwe medewerkers aannemen die echt bij functie en team passen"
         ],
         [
           "Q08_LEREN",
-          "Nieuwe vaardigheden leren"
+          "Medewerkers snel nieuwe vaardigheden laten leren, bijvoorbeeld rond AI en digitalisering"
         ],
         [
           "Q08_FEEDBACK",
-          "Regelmatige feedback en ontwikkelgesprekken"
+          "Doorlopend feedback geven in plaats van één jaargesprek"
         ],
         [
           "Q08_TALENTEN",
-          "Talenten van medewerkers in kaart brengen"
+          "Inzicht hebben in welke talenten en skills er in de organisatie zitten"
         ],
         [
           "Q08_DOORGROEI",
-          "Doorgroeien naar een andere of hogere functie"
+          "Vacatures intern invullen in plaats van extern werven"
         ],
         [
           "Q08_TEAMS",
-          "Teams goed samenstellen"
+          "Teams samenstellen op basis van wie elkaar aanvult"
         ],
         [
           "Q08_BEHOUD",
-          "Goede medewerkers behouden"
+          "Voorkomen dat goede medewerkers vertrekken"
         ],
         [
           "Q08_WELZIJN",
-          "Welzijn en werkplezier"
+          "Werkdruk en verzuim beperken met aandacht voor welzijn"
         ]
       ],
       "labelsByGroup": {
         "werk": {
-          "Q08_WERVING": "Goede nieuwe collega’s die bij het team passen",
-          "Q08_LEREN": "Nieuwe vaardigheden leren",
-          "Q08_FEEDBACK": "Regelmatig feedback en ontwikkelgesprekken krijgen",
-          "Q08_TALENTEN": "Dat mijn talenten en vaardigheden gezien worden",
-          "Q08_DOORGROEI": "Kunnen doorgroeien naar een andere of hogere functie",
-          "Q08_TEAMS": "In een goed samengesteld team werken",
-          "Q08_BEHOUD": "Dat mijn werkgever investeert om mij te behouden",
-          "Q08_WELZIJN": "Welzijn en werkplezier"
+          "Q08_WERVING": "Nieuwe collega’s die echt bij het team passen",
+          "Q08_LEREN": "Nieuwe vaardigheden leren, bijvoorbeeld rond AI en digitalisering",
+          "Q08_FEEDBACK": "Doorlopend feedback krijgen in plaats van één jaargesprek",
+          "Q08_TALENTEN": "Dat mijn talenten en skills gezien en benut worden",
+          "Q08_DOORGROEI": "Binnen de organisatie kunnen doorgroeien in plaats van te moeten vertrekken",
+          "Q08_TEAMS": "In een team werken waarin we elkaar aanvullen",
+          "Q08_BEHOUD": "Dat mijn werkgever moeite doet om mij te behouden",
+          "Q08_WELZIJN": "Aandacht voor werkdruk en welzijn"
         },
         "toekomst": {
-          "Q08_WERVING": "Een zorgvuldig sollicitatie- en selectieproces",
-          "Q08_LEREN": "Nieuwe vaardigheden kunnen leren",
-          "Q08_FEEDBACK": "Regelmatig feedback en ontwikkelgesprekken krijgen",
-          "Q08_TALENTEN": "Dat mijn talenten en vaardigheden gezien worden",
-          "Q08_DOORGROEI": "Kunnen doorgroeien naar een andere of hogere functie",
-          "Q08_TEAMS": "In een goed samengesteld team werken",
-          "Q08_BEHOUD": "Dat de werkgever investeert om mij te behouden",
-          "Q08_WELZIJN": "Welzijn en werkplezier"
+          "Q08_WERVING": "Een sollicitatieproces dat kijkt of ik echt bij functie en team pas",
+          "Q08_LEREN": "Nieuwe vaardigheden kunnen leren, bijvoorbeeld rond AI en digitalisering",
+          "Q08_FEEDBACK": "Doorlopend feedback krijgen in plaats van één jaargesprek",
+          "Q08_TALENTEN": "Dat mijn talenten en skills gezien en benut worden",
+          "Q08_DOORGROEI": "Binnen de organisatie kunnen doorgroeien",
+          "Q08_TEAMS": "In een team werken waarin we elkaar aanvullen",
+          "Q08_BEHOUD": "Dat de werkgever moeite doet om mij te behouden",
+          "Q08_WELZIJN": "Aandacht voor werkdruk en welzijn"
         }
       },
       "hintByGroup": {
         "toekomst": "Talentontwikkeling gaat over hoe medewerkers leren en groeien in hun werk. Geef per onderdeel aan hoe belangrijk het voor jou is; er zijn geen goede of foute antwoorden.",
-        "werk": "Geef per onderdeel aan hoe belangrijk het voor jou is. Er zijn geen goede of foute antwoorden."
+        "werk": "Geef per onderdeel aan hoe belangrijk het voor jou is. Er zijn geen goede of foute antwoorden.",
+        "organisatie": "Denk aan de prioriteiten van je organisatie, niet aan wat er nu al goed gaat. Er zijn geen goede of foute antwoorden."
+      },
+      "endsByGroup": {
+        "organisatie": [
+          "Geen prioriteit",
+          "Topprioriteit"
+        ]
       }
     },
     {
@@ -1573,7 +1580,7 @@ const VIEW_CLASS={compact:'compact-mode',breedte:'',overzicht:'overview-mode'};
 function attentionView(){return state?.answers?.Q14_WEERGAVE||'breedte'}
 function toggleWebsiteView(){const study=$('.study'),button=$('#expand-site');if(!study||!button)return;const expanded=study.classList.toggle('website-expanded');button.textContent=expanded?'← Terug naar vragen':'Website groter bekijken';button.setAttribute('aria-expanded',String(expanded));if(!expanded)$('#question-heading')?.focus({preventScroll:true});else button.focus({preventScroll:true})}
 function textCount(q,value){const n=String(value||'').trim().length;return n<q.minLength&&q.minLength>1?'Minimaal '+q.minLength+' tekens.':n+' / '+q.maxLength+' tekens'}
-function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc(q.ends[0])}</span><span>5 · ${esc(q.ends[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat je oog als eerste trekt, niet om waar je naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${hintText(q)?`<p class="muted" style="font-size:13px">${esc(hintText(q))}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
+function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[0])}</span><span>5 · ${esc((q.endsByGroup?.[groupKey()]||q.ends)[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat je oog als eerste trekt, niet om waar je naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${hintText(q)?`<p class="muted" style="font-size:13px">${esc(hintText(q))}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
 function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Aanwijzen · er opent niets':selectionMode?'Afbeelding van de website · klik om aan te wijzen':'Echte website · kies ‘Terug naar aanwijzen’ om te klikken'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Bekijk de echte website':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste je aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
 function render(){
  questionAt=performance.now();showCard=false;const q=current();state.last=q.id;persist();
@@ -1626,7 +1633,7 @@ function updateStatus(){const el=$('#storage-note');if(el)el.textContent=storage
 function thanks(){enteredAt=0;shell(`<main class="center"><section class="welcome completion"><span class="completion-mark" aria-hidden="true">✓</span><div class="eyebrow">${esc(ui.complete)}</div><h1>${esc(ui.thanks)}</h1><p class="lead muted">${esc(ui.thanksText)}</p><p class="status" id="storage-note" aria-live="polite"></p><button class="secondary" id="retry" ${CONFIG.APPS_SCRIPT_URL?'':'disabled'}>${esc(ui.retry)}</button><button class="link" id="backup">${esc(ui.backup)}</button>${IS_TEST?`<p><button id="restart" class="link">${esc(ui.restart)}</button></p>`:''}</section></main>`,100);$('#retry').onclick=()=>sendPending();$('#backup').onclick=()=>download('onderzoeksbackup-'+state.id+'.json',JSON.stringify(state.pending||{version:CONFIG.VERSION,id:state.id,receipt:state.receipt,seq:state.sequence,respondent:derive(),clicks:state.clicks},null,2),'application/json');if($('#restart'))$('#restart').onclick=()=>{localStorage.removeItem(STORE);state=null;welcome()};updateStatus()}
 window.addEventListener('online',sendPending);document.addEventListener('visibilitychange',()=>{if(document.hidden){if(state&&!state.complete){accountTime();checkpoint()}enteredAt=0}else if(state&&!state.complete)enteredAt=performance.now()});window.addEventListener('pagehide',()=>{if(state){accountTime();checkpoint()}});setInterval(()=>{if(state&&!state.complete&&!document.hidden)checkpoint()},15000);
 /* ---------------- CODEBOEK + SERVERSCHEMA UIT CONFIG ---------------- */
-function buildSchema(){const f={},book=[];function add(code,text,type='number',values=null,min=0,max=1e9){f[code]={type,values,min,max,maxLength:CONFIG.limits.text,integer:type==='number'&&!!values};book.push({CODE:code,VRAAGTEKST:text,TYPE:type,WAARDEN:values?JSON.stringify(values):''})}const meta={RESPONDENT_ID:'Willekeurige respondentcode',VERSIE:'Onderzoeksversie',STARTTIJD:'Starttijd UTC (ISO)',EINDTIJD:'Eindtijd UTC (ISO)',BROWSER:'Browserfamilie',LAATSTE_VRAAG:'Laatst bereikt scherm; geen bewezen afhaaksectie',GEZIENE_SECTIES:'Daadwerkelijk getoonde secties, gescheiden door |'};Object.entries(meta).forEach(([k,v])=>add(k,v,'text'));['TEST','CONDITIE','DEVICE','SEGMENT','DOELGROEP','NPS_GROEP'].forEach(k=>add(k,k,k==='DEVICE'?'text':'number',CONFIG.labels[k]));['TOESTEMMING','AFGEROND','SNELHEID_VLAG','RECHTE_LIJN_MATRIX','RECHTE_LIJN_GEVOEL','KWALITEIT_VLAG','Q14_GESCROLD','Q19_NIET_AFHAKEN','Q18_GEEN','Q18_ANDERS','Q19_ANDERS','KAART_GEZIEN'].forEach(k=>add(k,k,'number',{'0':'Nee','1':'Ja'},0,1));['TOTALE_DUUR_SEC','ACTIEVE_DUUR_SEC','SCHERMBREEDTE'].forEach(k=>add(k,k));['MAX_SCROLL_HOME','MAX_SCROLL_PRODUCT'].forEach(k=>add(k,'Maximale zichtbare onderrand, inclusief automatische scroll','number',null,0,100));Object.keys(CONFIG.blocks).forEach(k=>add('TIJD_BLOK_'+k+'_SEC','Actieve tijd blok '+k));CONFIG.questions.forEach(q=>{if(q.type==='multi')q.options.forEach(([code,label])=>add(q.prefix+code,q.text+' — '+label,'number',{'0':'Niet gekozen','1':'Gekozen'},0,1));else if(q.type==='semantic')q.rows.forEach(([code,l,r])=>{add(code,q.text+' '+l+' – '+r,'number',null,1,5);f[code].integer=true;});else if(q.type==='matrix'){q.rows.forEach(([code,l])=>{add(code,'Belang talentontwikkeling — '+l+' (1 niet belangrijk – 5 zeer belangrijk)','number',null,1,5);f[code].integer=true});add(q.perspective,'Perspectief van Q07/Q08 (afgeleid uit Q04): organisatie, eigen werk of (toekomstig) werk','number',CONFIG.labels[q.perspective],1,3)}else if(q.type==='memory'){const vals={'99':q.none[1]};Object.values(CONFIG.pages).forEach(p=>Object.values(p).filter(v=>v?.sections).forEach(v=>v.sections.forEach(s=>vals[s.id]=s.label)));add('MEEST_BIJGEBLEVEN',q.text,'text',vals)}else if(['click','attention'].includes(q.type)){add(q.id,q.text,'number',{'1':'Afgerond'},1,1);add(q.id+'_X','Klik x%, volledige afbeelding','number',null,0,100);add(q.id+'_Y','Klik y%, volledige afbeelding','number',null,0,100);add(q.id+'_MS','Tijd tot geselecteerde klik (ms)');add(q.id+'_PAGINA','Pagina van de geselecteerde klik','text',{home:'Homepage',product:'Productpagina'})}else if(q.type==='scale'){add(q.id,q.text,'number',null,q.min,q.max);f[q.id].integer=true;}else if(q.type==='open')add(q.variable||q.id,q.text,'text');else add(q.id,q.text,'text',Object.fromEntries(q.options.map(x=>[x[0],x[1]])));if(q.comment)add(q.comment,q.text+' — toelichting','text')});add('Q14_WEERGAVE','Weergave bij de eerste klik','text',{compact:'Overzicht (verkleind)',breedte:'Groot (volle breedte)',overzicht:'Hele pagina'});add('Q19_SECTIE','Aangewezen afhaaksectie; geen werkelijk vertrek','text');add('BESLISSER','Beslisser (directie, of HR met leiding/management als taak)','number',{'0':'Nee','1':'Ja'},0,1);add('BRON','Wervingskanaal uit de link (?bron=…), leeg als onbekend','text');add('Q14_SCROLL_PCT','Scrollpositie bij de eerste klik (% van de pagina); 0 = bovenaan','number',null,0,100);add('TO_BELANG_GEM','Gemiddeld belang van de onderdelen van talentontwikkeling (Q08, 1–5)','number',null,1,5);add('TO_GAP','Behoeftekloof: TO_BELANG_GEM − Q09 tevredenheid (positief = belangrijker dan tevreden)','number',null,-4,4);add('USP_EFFECT','Q26 − Q23; verandering in uitgesproken intentie','number',null,-4,4);book.push({CODE:'KLIKS',VRAAGTEKST:'Alle pogingen, GESELECTEERD=1 voor laatste bevestigde selectie; Q14 eerste klik. DEVICE nooit mengen.',TYPE:'dataset',WAARDEN:'X/Y 0–100; MS vanaf zichtbaar worden van de opname/vraag; GEVONDEN is leeg; geen goed/fout-score; INPUT_METHOD pointer/keyboard'});return {version:CONFIG.VERSION,fields:f,codebook:book,limits:CONFIG.limits,controlGroup:CONFIG.CONTROLEGROEP_AAN,questions:CONFIG.questions.map(q=>({id:q.id,type:q.type,page:q.page,variable:q.variable,correct:q.correct,options:q.options,rows:q.rows?q.rows.map(r=>r[0]):undefined,prefix:q.prefix,onlyHR:q.onlyHR,audience:q.audience,autoValue:q.autoValue,skipStudent:q.skipStudent,exclusive:q.exclusive,max:q.max,minLength:q.minLength})),targets:Object.fromEntries(Object.entries(CONFIG.pages.home).filter(([k,v])=>v?.targets).map(([k,v])=>[k,v.targets])),sections:Object.fromEntries(['desktop','mobile'].map(d=>[d,Object.fromEntries(Object.entries(CONFIG.pages).map(([p,v])=>[p,v[d].sections]))]))}}
+function buildSchema(){const f={},book=[];function add(code,text,type='number',values=null,min=0,max=1e9){f[code]={type,values,min,max,maxLength:CONFIG.limits.text,integer:type==='number'&&!!values};book.push({CODE:code,VRAAGTEKST:text,TYPE:type,WAARDEN:values?JSON.stringify(values):''})}const meta={RESPONDENT_ID:'Willekeurige respondentcode',VERSIE:'Onderzoeksversie',STARTTIJD:'Starttijd UTC (ISO)',EINDTIJD:'Eindtijd UTC (ISO)',BROWSER:'Browserfamilie',LAATSTE_VRAAG:'Laatst bereikt scherm; geen bewezen afhaaksectie',GEZIENE_SECTIES:'Daadwerkelijk getoonde secties, gescheiden door |'};Object.entries(meta).forEach(([k,v])=>add(k,v,'text'));['TEST','CONDITIE','DEVICE','SEGMENT','DOELGROEP','NPS_GROEP'].forEach(k=>add(k,k,k==='DEVICE'?'text':'number',CONFIG.labels[k]));['TOESTEMMING','AFGEROND','SNELHEID_VLAG','RECHTE_LIJN_MATRIX','RECHTE_LIJN_GEVOEL','KWALITEIT_VLAG','Q14_GESCROLD','Q19_NIET_AFHAKEN','Q18_GEEN','Q18_ANDERS','Q19_ANDERS','KAART_GEZIEN'].forEach(k=>add(k,k,'number',{'0':'Nee','1':'Ja'},0,1));['TOTALE_DUUR_SEC','ACTIEVE_DUUR_SEC','SCHERMBREEDTE'].forEach(k=>add(k,k));['MAX_SCROLL_HOME','MAX_SCROLL_PRODUCT'].forEach(k=>add(k,'Maximale zichtbare onderrand, inclusief automatische scroll','number',null,0,100));Object.keys(CONFIG.blocks).forEach(k=>add('TIJD_BLOK_'+k+'_SEC','Actieve tijd blok '+k));CONFIG.questions.forEach(q=>{if(q.type==='multi')q.options.forEach(([code,label])=>add(q.prefix+code,q.text+' — '+label,'number',{'0':'Niet gekozen','1':'Gekozen'},0,1));else if(q.type==='semantic')q.rows.forEach(([code,l,r])=>{add(code,q.text+' '+l+' – '+r,'number',null,1,5);f[code].integer=true;});else if(q.type==='matrix'){q.rows.forEach(([code,l])=>{add(code,'Talentontwikkeling — '+l+' (1–5; HR/directie: geen prioriteit – topprioriteit; overigen: niet belangrijk – zeer belangrijk; tekst per PERSPECTIEF)','number',null,1,5);f[code].integer=true});add(q.perspective,'Perspectief van Q07/Q08 (afgeleid uit Q04): organisatie, eigen werk of (toekomstig) werk','number',CONFIG.labels[q.perspective],1,3)}else if(q.type==='memory'){const vals={'99':q.none[1]};Object.values(CONFIG.pages).forEach(p=>Object.values(p).filter(v=>v?.sections).forEach(v=>v.sections.forEach(s=>vals[s.id]=s.label)));add('MEEST_BIJGEBLEVEN',q.text,'text',vals)}else if(['click','attention'].includes(q.type)){add(q.id,q.text,'number',{'1':'Afgerond'},1,1);add(q.id+'_X','Klik x%, volledige afbeelding','number',null,0,100);add(q.id+'_Y','Klik y%, volledige afbeelding','number',null,0,100);add(q.id+'_MS','Tijd tot geselecteerde klik (ms)');add(q.id+'_PAGINA','Pagina van de geselecteerde klik','text',{home:'Homepage',product:'Productpagina'})}else if(q.type==='scale'){add(q.id,q.text,'number',null,q.min,q.max);f[q.id].integer=true;}else if(q.type==='open')add(q.variable||q.id,q.text,'text');else add(q.id,q.text,'text',Object.fromEntries(q.options.map(x=>[x[0],x[1]])));if(q.comment)add(q.comment,q.text+' — toelichting','text')});add('Q14_WEERGAVE','Weergave bij de eerste klik','text',{compact:'Overzicht (verkleind)',breedte:'Groot (volle breedte)',overzicht:'Hele pagina'});add('Q19_SECTIE','Aangewezen afhaaksectie; geen werkelijk vertrek','text');add('BESLISSER','Beslisser (directie, of HR met leiding/management als taak)','number',{'0':'Nee','1':'Ja'},0,1);add('BRON','Wervingskanaal uit de link (?bron=…), leeg als onbekend','text');add('Q14_SCROLL_PCT','Scrollpositie bij de eerste klik (% van de pagina); 0 = bovenaan','number',null,0,100);add('TO_BELANG_GEM','Gemiddeld belang van de onderdelen van talentontwikkeling (Q08, 1–5)','number',null,1,5);add('TO_GAP','Behoeftekloof: TO_BELANG_GEM − Q09 tevredenheid (positief = belangrijker dan tevreden)','number',null,-4,4);add('USP_EFFECT','Q26 − Q23; verandering in uitgesproken intentie','number',null,-4,4);book.push({CODE:'KLIKS',VRAAGTEKST:'Alle pogingen, GESELECTEERD=1 voor laatste bevestigde selectie; Q14 eerste klik. DEVICE nooit mengen.',TYPE:'dataset',WAARDEN:'X/Y 0–100; MS vanaf zichtbaar worden van de opname/vraag; GEVONDEN is leeg; geen goed/fout-score; INPUT_METHOD pointer/keyboard'});return {version:CONFIG.VERSION,fields:f,codebook:book,limits:CONFIG.limits,controlGroup:CONFIG.CONTROLEGROEP_AAN,questions:CONFIG.questions.map(q=>({id:q.id,type:q.type,page:q.page,variable:q.variable,correct:q.correct,options:q.options,rows:q.rows?q.rows.map(r=>r[0]):undefined,prefix:q.prefix,onlyHR:q.onlyHR,audience:q.audience,autoValue:q.autoValue,skipStudent:q.skipStudent,exclusive:q.exclusive,max:q.max,minLength:q.minLength})),targets:Object.fromEntries(Object.entries(CONFIG.pages.home).filter(([k,v])=>v?.targets).map(([k,v])=>[k,v.targets])),sections:Object.fromEntries(['desktop','mobile'].map(d=>[d,Object.fromEntries(Object.entries(CONFIG.pages).map(([p,v])=>[p,v[d].sections]))]))}}
 
 /* ---------------- INZICHTEN PER DEELVRAAG ---------------- */
 function insightsHTML(rows){
