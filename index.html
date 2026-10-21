@@ -3,7 +3,7 @@
 <script>
 /* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
 const CONFIG = {
-  "VERSION": "2026-10-21.16",
+  "VERSION": "2026-10-21.17",
   "APPS_SCRIPT_URL": "",
   "CONTROLEGROEP_AAN": true,
   "LIVE_GEREED": false,
@@ -1101,7 +1101,7 @@ const CONFIG = {
       "text": "Stel dat uw organisatie software voor talentontwikkeling zoekt. Waar zou u als eerste gaan kijken?",
       "textByGroup": {
         "organisatie": "Stel dat uw organisatie software voor talentontwikkeling zoekt. Waar zou u als eerste gaan kijken?",
-        "werk": "Stel dat u voor uw organisatie mee moet zoeken naar software voor talentontwikkeling. Waar zou u als eerste gaan kijken?",
+        "werk": "Stel dat uw organisatie software voor talentontwikkeling zoekt en u wordt bij de keuze betrokken. Waar zou u als eerste gaan kijken?",
         "toekomst": "Stel dat u later voor een werkgever software voor talentontwikkeling moet zoeken. Waar zou u als eerste gaan kijken?"
       },
       "hint": "Kies wat u als eerste zou doen.",
@@ -1149,6 +1149,17 @@ const CONFIG = {
         "werk": {
           "3": "Bij de leverancier waar we al mee werken"
         }
+      },
+      "audience": [
+        "1",
+        "3",
+        "10"
+      ],
+      "skipIf": {
+        "q": "Q06",
+        "anyOf": [
+          "8"
+        ]
       }
     },
     {
