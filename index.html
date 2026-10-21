@@ -3,7 +3,7 @@
 <script>
 /* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
 const CONFIG = {
-  "VERSION": "2026-10-21.10",
+  "VERSION": "2026-10-21.11",
   "APPS_SCRIPT_URL": "",
   "CONTROLEGROEP_AAN": true,
   "LIVE_GEREED": false,
@@ -856,6 +856,12 @@ const CONFIG = {
         "organisatie": "Wat doet jouw organisatie op dit moment aan talentontwikkeling?",
         "werk": "Wat doet jouw werkgever op dit moment aan jouw ontwikkeling?",
         "toekomst": "Wat doet jouw organisatie op dit moment aan talentontwikkeling?"
+      },
+      "labelsByGroup": {
+        "werk": {
+          "7": "Software of een online platform voor ontwikkeling",
+          "10": "Hier wordt (nog) weinig aan gedaan"
+        }
       }
     },
     {
@@ -865,8 +871,8 @@ const CONFIG = {
       "text": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor jouw organisatie?",
       "textByGroup": {
         "organisatie": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor jouw organisatie?",
-        "werk": "Hoe belangrijk vind jij deze onderdelen van talentontwikkeling in je werk?",
-        "toekomst": "Hoe belangrijk vind jij deze onderdelen van talentontwikkeling voor je (toekomstige) werk?"
+        "werk": "Hoe belangrijk vind jij deze onderdelen van ontwikkeling in je eigen werk?",
+        "toekomst": "Hoe belangrijk vind jij deze onderdelen bij een toekomstige werkgever?"
       },
       "hint": "Geef per onderdeel aan hoe belangrijk het is. Er zijn geen goede of foute antwoorden.",
       "ends": [
@@ -907,7 +913,29 @@ const CONFIG = {
           "Q08_WELZIJN",
           "Welzijn en werkplezier"
         ]
-      ]
+      ],
+      "labelsByGroup": {
+        "werk": {
+          "Q08_WERVING": "Goede nieuwe collega’s die bij het team passen",
+          "Q08_LEREN": "Nieuwe vaardigheden leren",
+          "Q08_FEEDBACK": "Regelmatig feedback en ontwikkelgesprekken krijgen",
+          "Q08_TALENTEN": "Dat mijn talenten en vaardigheden gezien worden",
+          "Q08_DOORGROEI": "Kunnen doorgroeien naar een andere of hogere functie",
+          "Q08_TEAMS": "In een goed samengesteld team werken",
+          "Q08_BEHOUD": "Dat mijn werkgever investeert om mij te behouden",
+          "Q08_WELZIJN": "Welzijn en werkplezier"
+        },
+        "toekomst": {
+          "Q08_WERVING": "Een zorgvuldig sollicitatie- en selectieproces",
+          "Q08_LEREN": "Nieuwe vaardigheden kunnen leren",
+          "Q08_FEEDBACK": "Regelmatig feedback en ontwikkelgesprekken krijgen",
+          "Q08_TALENTEN": "Dat mijn talenten en vaardigheden gezien worden",
+          "Q08_DOORGROEI": "Kunnen doorgroeien naar een andere of hogere functie",
+          "Q08_TEAMS": "In een goed samengesteld team werken",
+          "Q08_BEHOUD": "Dat de werkgever investeert om mij te behouden",
+          "Q08_WELZIJN": "Welzijn en werkplezier"
+        }
+      }
     },
     {
       "id": "Q09",
@@ -1011,7 +1039,16 @@ const CONFIG = {
           "Weet ik niet",
           true
         ]
-      ]
+      ],
+      "labelsByGroup": {
+        "toekomst": {
+          "2": "Vragen in mijn netwerk of aan (toekomstige) collega’s",
+          "3": "Bij de leverancier waar de organisatie al mee werkt"
+        },
+        "werk": {
+          "3": "Bij de leverancier waar we al mee werken"
+        }
+      }
     },
     {
       "id": "Q12",
@@ -1224,7 +1261,12 @@ const CONFIG = {
       "ends": [
         "Zeer onwaarschijnlijk",
         "Zeer waarschijnlijk"
-      ]
+      ],
+      "textByGroup": {
+        "organisatie": "Hoe waarschijnlijk is het dat je contact zou opnemen met LIVREA?",
+        "werk": "Stel dat jouw organisatie ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?",
+        "toekomst": "Stel dat je later voor een werkgever ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?"
+      }
     },
     {
       "id": "Q24",
@@ -1275,7 +1317,12 @@ const CONFIG = {
         "Zeer onwaarschijnlijk",
         "Zeer waarschijnlijk"
       ],
-      "comment": "Q26_TOELICHTING"
+      "comment": "Q26_TOELICHTING",
+      "textByGroup": {
+        "organisatie": "Hoe waarschijnlijk is het nu dat je contact zou opnemen met LIVREA?",
+        "werk": "En nu: stel dat jouw organisatie ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?",
+        "toekomst": "En nu: stel dat je later voor een werkgever ondersteuning zoekt bij talentontwikkeling. Hoe waarschijnlijk is het dat je dan contact zou opnemen met LIVREA?"
+      }
     },
     {
       "id": "Q27",
@@ -1484,7 +1531,10 @@ function isHR(){return ['1','2'].includes(state?.answers.Q04)}
 /* Wie krijgt welke vraag: onlyHR = HR (1,2); audience = lijst met Q04-codes; skipStudent = niet voor studenten. */
 function eligible(q,q04){q04=String(q04??'');if(q.skipStudent&&q04==='5')return false;if(q.onlyHR&&!['1','2'].includes(q04))return false;if(q.audience&&!q.audience.includes(q04))return false;return true}
 function perspective(q04){q04=String(q04??'');return ['1','2','3'].includes(q04)?1:['5','11'].includes(q04)?3:2}
-function questionText(q){if(q.textByGroup){const p=perspective(state?.answers.Q04);return q.textByGroup[p===1?'organisatie':p===3?'toekomst':'werk']}return q.id==='Q26'&&state.condition===2?q.controlText:q.text}
+function groupKey(){const p=perspective(state?.answers.Q04);return p===1?'organisatie':p===3?'toekomst':'werk'}
+/* Rij- en optieteksten per perspectief; codes blijven gelijk zodat groepen vergelijkbaar zijn. */
+function labelFor(q,code,label){return q.labelsByGroup?.[groupKey()]?.[code]||label}
+function questionText(q){if(q.textByGroup){return q.textByGroup[groupKey()]}return q.id==='Q26'&&state.condition===2?q.controlText:q.text}
 function order(q){if(!state.orders[q.id]){const arr=q.type==='semantic'?q.rows:q.options||[];state.orders[q.id]=q.type==='semantic'?shuffle(arr).map(x=>x[0]):(q.shuffle?[...shuffle(arr.filter(x=>x[2]!==true)),...arr.filter(x=>x[2]===true)]:arr).map(x=>x[0]);persist()}return state.orders[q.id].map(id=>(q.rows||q.options).find(x=>x[0]===id))}
 async function preload(){const urls=[...new Set(Object.values(CONFIG.pages).map(p=>p[state?.device||DEVICE].src))];await Promise.all(urls.map(src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve();im.onerror=()=>reject(new Error('Afbeelding ontbreekt: '+src));im.src=src})));imagesReady=true}
 function liveErrors(){const r=[];if(!CONFIG.LIVE_GEREED)r.push('LIVE_GEREED staat nog uit');if(!CONFIG.SCREENSHOTS_ECHT)r.push('echte screenshots ontbreken');if(!CONFIG.CLAIM_GEVERIFIEERD||!CONFIG.claim.text||!CONFIG.claim.source)r.push('de onderbouwde wetenschapsclaim ontbreekt');if(!/^https:\/\/script.google.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(CONFIG.APPS_SCRIPT_URL))r.push('de opslag-URL ontbreekt');return r}
@@ -1498,7 +1548,7 @@ function welcome(){
 async function begin(){shell(`<main class="center"><div class="welcome"><div class="spinner"></div><p>${esc(ui.loading)}</p></div></main>`);try{await preload();enteredAt=performance.now();persist();render();checkpoint()}catch(e){shell(`<main class="center"><section class="welcome"><div class="eyebrow">Laden onderbroken</div><h1>We kunnen het beeld nog niet laden.</h1><p>Je antwoorden zijn op dit apparaat bewaard. Probeer het opnieuw om verder te gaan.</p><p class="error">${esc(e.message)}</p><button class="primary" id="reload-images">Opnieuw proberen</button><button class="link" id="back-start">Terug naar start</button></section></main>`);$('#reload-images').onclick=begin;$('#back-start').onclick=welcome}}
 function accountTime(){if(!state||!enteredAt)return;const now=performance.now(),ms=now-enteredAt;state.blockMs[current()?.block||'G']=(state.blockMs[current()?.block||'G']||0)+ms;state.activeMs+=ms;enteredAt=now}
 function selected(q){return state.answers[q.variable||q.id]}
-function optionsHTML(q){const value=selected(q),multi=q.type==='multi';return `<div class="options ${multi?'multi':''}" role="${multi?'group':'radiogroup'}" aria-label="${esc(q.text)}">${order(q).filter(o=>!(q.hiddenOptions||[]).includes(o[0])).map(([code,label,sub])=>`${q.dividerBefore===code?`<div class="option-divider" aria-hidden="true"><span>${esc(q.dividerLabel||'')}</span></div>`:''}<button type="button" class="option" role="${multi?'checkbox':'radio'}" aria-checked="${multi?(value||[]).includes(code):value===code}" data-option="${esc(code)}"><span class="indicator" aria-hidden="true"></span><span>${esc(label)}${typeof sub==='string'?`<small>${esc(sub)}</small>`:''}</span></button>`).join('')}</div>`}
+function optionsHTML(q){const value=selected(q),multi=q.type==='multi';return `<div class="options ${multi?'multi':''}" role="${multi?'group':'radiogroup'}" aria-label="${esc(q.text)}">${order(q).filter(o=>!(q.hiddenOptions||[]).includes(o[0])).map(([code,label,sub])=>`${q.dividerBefore===code?`<div class="option-divider" aria-hidden="true"><span>${esc(q.dividerLabel||'')}</span></div>`:''}<button type="button" class="option" role="${multi?'checkbox':'radio'}" aria-checked="${multi?(value||[]).includes(code):value===code}" data-option="${esc(code)}"><span class="indicator" aria-hidden="true"></span><span>${esc(labelFor(q,code,label))}${typeof sub==='string'?`<small>${esc(sub)}</small>`:''}</span></button>`).join('')}</div>`}
 function scaleHTML(key,min,max,ends,nps=false,showEnds=true){return `<div class="scale ${nps?'nps':''}" role="radiogroup" aria-label="${esc(key)}">${Array.from({length:max-min+1},(_,i)=>i+min).map(v=>`<button type="button" role="radio" data-scale="${key}" data-value="${v}" aria-label="${v}${v===min?' — '+ends[0]:v===max?' — '+ends[1]:''}" aria-checked="${state.answers[key]===v}" >${v}</button>`).join('')}</div>${showEnds?`<div class="ends"><span>${nps?min+' · ':''}${esc(ends[0])}</span><span>${nps?max+' · ':''}${esc(ends[1])}</span></div>`:''}`} 
 function memoryHTML(q){return `<div class="thumbs" role="radiogroup" aria-label="${esc(q.text)}">${state.seen.map(id=>{let entry;Object.keys(CONFIG.pages).forEach(p=>{const v=variant(p),s=v.sections.find(s=>s.id===id);if(s)entry={p,v,s}});if(!entry)return '';const {p,v,s}=entry;const crop=s.thumb||{start:s.start,end:Math.min(s.start+12,s.end)};return `<button class="thumb" role="radio" aria-checked="${selected(q)===id}" data-memory="${id}"><div class="thumb-crop" data-thumb-src="${esc(v.src)}" data-width="${v.width}" data-height="${v.height}" data-start="${crop.start}"></div><span>${esc(s.label)} · ${p==='home'?'Homepage':'Productpagina'}</span></button>`}).join('')}</div><button class="option" role="radio" aria-checked="${selected(q)==='99'}" data-memory="99" style="margin-top:12px"><span class="indicator"></span>${esc(q.none[1])}</button>`}
 const qIndex=id=>CONFIG.questions.findIndex(q=>q.id===id);
@@ -1510,7 +1560,7 @@ const VIEW_CLASS={compact:'compact-mode',breedte:'',overzicht:'overview-mode'};
 function attentionView(){return state?.answers?.Q14_WEERGAVE||'breedte'}
 function toggleWebsiteView(){const study=$('.study'),button=$('#expand-site');if(!study||!button)return;const expanded=study.classList.toggle('website-expanded');button.textContent=expanded?'← Terug naar vragen':'Website groter bekijken';button.setAttribute('aria-expanded',String(expanded));if(!expanded)$('#question-heading')?.focus({preventScroll:true});else button.focus({preventScroll:true})}
 function textCount(q,value){const n=String(value||'').trim().length;return n<q.minLength&&q.minLength>1?'Minimaal '+q.minLength+' tekens.':n+' / '+q.maxLength+' tekens'}
-function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc(q.ends[0])}</span><span>5 · ${esc(q.ends[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(label)}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat je oog als eerste trekt, niet om waar je naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${q.hint?`<p class="muted" style="font-size:13px">${esc(q.hint)}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
+function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc(q.ends[0])}</span><span>5 · ${esc(q.ends[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(labelFor(q,code,label))}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="status chosen" id="click-status" aria-live="polite">${esc(chosenText(q))}</p><div class="click-alt">${q.noAttraction?`<button type="button" class="link-option" id="noattraction" aria-pressed="${state.answers.Q18_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button type="button" class="link-option" id="noleave" aria-pressed="${state.answers.Q19_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}<button type="button" class="link-option" id="other-page" aria-pressed="${state.answers[q.id+'_ANDERS']===1}">Het staat niet op deze pagina’s</button></div>`;if(q.type==='attention')body=`<p class="attention-note">Het gaat om wat je oog als eerste trekt, niet om waar je naartoe zou willen. Er opent niets.</p><p class="status chosen" id="click-status" aria-live="polite">${esc(attentionText(q))}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div>${IS_TEST?`<span class="question-number">${q.id}</span>`:''}</div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${q.hint?`<p class="muted" style="font-size:13px">${esc(q.hint)}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q22'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:backToCard()?`<button class="secondary" id="back">← Terug naar de informatie</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q27'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
 function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Aanwijzen · er opent niets':selectionMode?'Afbeelding van de website · klik om aan te wijzen':'Echte website · kies ‘Terug naar aanwijzen’ om te klikken'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Bekijk de echte website':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste je aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
 function render(){
  questionAt=performance.now();showCard=false;const q=current();state.last=q.id;persist();
