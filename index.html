@@ -818,11 +818,7 @@ const CONFIG = {
         ],
         [
           "3",
-          "Een jaarlijks functionerings- of beoordelingsgesprek"
-        ],
-        [
-          "11",
-          "Doorlopend feedback of regelmatige korte check-ins"
+          "Functionerings- of beoordelingsgesprekken"
         ],
         [
           "4",
@@ -864,12 +860,10 @@ const CONFIG = {
       "labelsByGroup": {
         "werk": {
           "2": "Een persoonlijk ontwikkelplan",
-          "3": "Een jaarlijks functionerings- of beoordelingsgesprek",
           "5": "Mijn vaardigheden en talenten in kaart brengen",
           "6": "Doorgroeimogelijkheden binnen de organisatie",
           "7": "Software of een online platform voor ontwikkeling",
-          "10": "Hier wordt (nog) weinig aan gedaan",
-          "11": "Doorlopend feedback of regelmatige korte check-ins"
+          "10": "Hier wordt (nog) weinig aan gedaan"
         }
       }
     },
@@ -888,22 +882,17 @@ const CONFIG = {
       "showIf": {
         "q": "Q07",
         "anyOf": [
-          "3",
-          "11"
+          "3"
         ]
       },
-      "text": "Hoe vaak vindt zo’n gesprek over functioneren of ontwikkeling nu plaats?",
+      "text": "Hoe vaak vindt zo’n functionerings- of beoordelingsgesprek plaats?",
       "textByGroup": {
-        "organisatie": "Hoe vaak spreekt een medewerker bij jullie nu met zijn leidinggevende over functioneren of ontwikkeling?",
-        "werk": "Hoe vaak spreek jij nu met je leidinggevende over je functioneren of ontwikkeling?",
-        "toekomst": "Hoe vaak vindt zo’n gesprek over functioneren of ontwikkeling nu plaats?"
+        "leidinggevend": "Hoe vaak voer jij zo’n functionerings- of beoordelingsgesprek met een medewerker?",
+        "organisatie": "Hoe vaak heeft een medewerker bij jullie zo’n functionerings- of beoordelingsgesprek?",
+        "werk": "Hoe vaak heb jij zo’n functionerings- of beoordelingsgesprek met je leidinggevende?",
+        "toekomst": "Hoe vaak vindt zo’n functionerings- of beoordelingsgesprek plaats?"
       },
-      "hint": "Tel alles mee: het jaargesprek én tussentijdse check-ins. Kies wat het meest voorkomt.",
       "options": [
-        [
-          "6",
-          "Minder dan één keer per jaar"
-        ],
         [
           "1",
           "Eén keer per jaar"
@@ -921,6 +910,10 @@ const CONFIG = {
           "Maandelijks of vaker"
         ],
         [
+          "6",
+          "Minder dan één keer per jaar"
+        ],
+        [
           "5",
           "Geen vast ritme, alleen als er aanleiding is"
         ],
@@ -928,7 +921,13 @@ const CONFIG = {
           "9",
           "Weet ik niet"
         ]
-      ]
+      ],
+      "hintByGroup": {
+        "leidinggevend": "Denk aan een gemiddelde medewerker die jij aanstuurt. Is het jaarlijks, of vaker?",
+        "organisatie": "Denk aan wat voor de meeste medewerkers geldt. Is het jaarlijks, of vaker?",
+        "werk": "Is het jaarlijks, of vaker? Kies wat het meest voorkomt.",
+        "toekomst": ""
+      }
     },
     {
       "id": "Q08",
@@ -1617,8 +1616,11 @@ function perspective(q04){q04=String(q04??'');return ['1','2','3'].includes(q04)
 function groupKey(){const p=perspective(state?.answers.Q04);return p===1?'organisatie':p===3?'toekomst':'werk'}
 /* Rij- en optieteksten per perspectief; codes blijven gelijk zodat groepen vergelijkbaar zijn. */
 function labelFor(q,code,label){return q.labelsByGroup?.[groupKey()]?.[code]||label}
-function hintText(q){return q.hintByGroup?.[groupKey()]||q.hint||''}
-function questionText(q){if(q.textByGroup){return q.textByGroup[groupKey()]}return q.id==='Q26'&&state.condition===2?q.controlText:q.text}
+/* Leidinggevend: directie, of HR met leiding/management als taak (zelfde regel als BESLISSER). Alleen gebruikt waar een vraag een eigen tekst voor leidinggevenden heeft. */
+function isLeader(){const a=state?.answers||{};return a.Q04==='3'||(a.Q04==='1'&&a.Q05==='1')}
+function roleKey(m){return m&&isLeader()&&m.leidinggevend!==undefined?'leidinggevend':groupKey()}
+function hintText(q){return q.hintByGroup?.[roleKey(q.hintByGroup)]||q.hint||''}
+function questionText(q){if(q.textByGroup){return q.textByGroup[roleKey(q.textByGroup)]}return q.id==='Q26'&&state.condition===2?q.controlText:q.text}
 function order(q){if(!state.orders[q.id]){const arr=q.type==='semantic'?q.rows:q.options||[];state.orders[q.id]=q.type==='semantic'?shuffle(arr).map(x=>x[0]):(q.shuffle?[...shuffle(arr.filter(x=>x[2]!==true)),...arr.filter(x=>x[2]===true)]:arr).map(x=>x[0]);persist()}return state.orders[q.id].map(id=>(q.rows||q.options).find(x=>x[0]===id))}
 async function preload(){const urls=[...new Set(Object.values(CONFIG.pages).map(p=>p[state?.device||DEVICE].src))];await Promise.all(urls.map(src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve();im.onerror=()=>reject(new Error('Afbeelding ontbreekt: '+src));im.src=src})));imagesReady=true}
 function liveErrors(){const r=[];if(!CONFIG.LIVE_GEREED)r.push('LIVE_GEREED staat nog uit');if(!CONFIG.SCREENSHOTS_ECHT)r.push('echte screenshots ontbreken');if(!CONFIG.CLAIM_GEVERIFIEERD||!CONFIG.claim.text||!CONFIG.claim.source)r.push('de onderbouwde wetenschapsclaim ontbreekt');if(!/^https:\/\/script.google.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(CONFIG.APPS_SCRIPT_URL))r.push('de opslag-URL ontbreekt');return r}
@@ -1717,7 +1719,7 @@ function insightsHTML(rows){
  <h3>1 · Behoefte bij organisaties</h3>
  ${table(['Onderdeel talentontwikkeling (Q08)','Organisatie','Eigen werk','(Toekomstig) werk','Alle'],m.rows.map(([k,l])=>[l,...persp.map(rs=>fmt(mean(rs,k))),fmt(mean(rows,k))]).sort((a,b)=>parseFloat(String(b[4]).replace(',','.'))-parseFloat(String(a[4]).replace(',','.'))))}
  ${table(['','Organisatie','Eigen werk','(Toekomstig) werk'],[['Tevredenheid huidige aanpak (Q09)',...persp.map(rs=>fmt(mean(rs,'Q09')))],['Behoeftekloof TO_GAP',...persp.map(rs=>fmt(mean(rs,'TO_GAP')))]])}
- ${table(['Wat doet de organisatie (Q07)','%'],multiDist(Q('Q07')).slice(0,7))}${(()=>{const v=rows.filter(r=>Q('Q07').options.some(o=>Number(r['Q07_'+o[0]])===1)&&Number(r.Q07_8)!==1);const only=v.filter(r=>Number(r.Q07_3)===1&&Number(r.Q07_11)!==1).length,cont=v.filter(r=>Number(r.Q07_11)===1).length;return `<p class="muted">Feedbackcultuur: ${v.length?Math.round(100*only/v.length):'—'}% alleen een jaargesprek, ${v.length?Math.round(100*cont/v.length):'—'}% doorlopende feedback (n=${v.length}). Vergelijk met de prioriteit ‘doorlopend feedback’ in Q08.</p>`})()}${table(['Hoe vaak een gesprek (Q07B)','n','%'],optDist(Q('Q07B'),rows.filter(r=>has(r,'Q07B'))))}
+ ${table(['Wat doet de organisatie (Q07)','%'],multiDist(Q('Q07')).slice(0,7))}${(()=>{const q=Q('Q07B'),b=rows.filter(r=>has(r,'Q07B')),L=b.filter(r=>Number(r.BESLISSER)===1),M=b.filter(r=>Number(r.BESLISSER)!==1),pc=(rs,k)=>rs.length?Math.round(100*rs.filter(r=>String(r.Q07B)===k).length/rs.length)+'%':'—';return table(['Hoe vaak een functionerings- of beoordelingsgesprek (Q07B)','Voert ze (leidinggevend)','Overig','Alle'],q.options.map(o=>[o[1],pc(L,o[0]),pc(M,o[0]),pc(b,o[0])]))+`<p class="muted">n = ${L.length} leidinggevend, ${M.length} overig. Alleen gevraagd na Q07 ‘functionerings- of beoordelingsgesprekken’. Leg het aandeel ‘één keer per jaar of minder’ naast de prioriteit ‘doorlopend feedback’ in Q08.</p>`})()}
  <h3>2 · Oriëntatie op HR-software</h3>
  ${table(['Waar als eerste zoeken (Q11)','n','%'],optDist(Q('Q11'),rows))}
  ${table(['Naamsbekendheid (Q12)','%'],multiDist(Q('Q12')))}
