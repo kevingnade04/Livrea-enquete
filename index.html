@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>LIVREA · Onderzoek van Kevin & Faas</title>
+<script>
+/* CONFIG — pas hier de onderzoeksinhoud aan. Exporteer daarna ResearchConfig.gs via ?admin=1. */
+const CONFIG = {
+  "VERSION": "2026-10-21.6",
+  "APPS_SCRIPT_URL": "",
+  "CONTROLEGROEP_AAN": true,
+  "LIVE_GEREED": false,
+  "SCREENSHOTS_ECHT": true,
+  "CLAIM_GEVERIFIEERD": false,
+  "claim": {
+    "title": "Wetenschappelijke onderbouwing",
+    "text": "",
+    "source": ""
+  },
+  "control": {
+    "title": "Over LIVREA",
+    "text": "LIVREA is een aanbieder van software voor organisaties. Op de website zijn de onderdelen van het platform en de beschikbare contactmogelijkheden te vinden."
+  },
+  "privacy": {
+    "contact": "",
+    "retention": "De onderzoeksgegevens worden na afronding van het schoolonderzoek binnen zes maanden verwijderd."
+  },
+  "ui": {
+    "brand": "LIVREA · Onderzoek",
+    "eyebrow": "COMMERCIELE ECONOMIE · HOGESCHOOL VAN AMSTERDAM",
+    "startTitle": "Onderzoek naar LIVREA",
+    "startText": "Met deze enquête onderzoeken wij hoe je LIVREA ervaart.",
+    "duration": "Circa 6–8 minuten",
+    "consent": "Ik doe vrijwillig mee en geef toestemming om mijn antwoorden en interacties voor dit schoolonderzoek te gebruiken.",
+    "privacy": "We vragen geen naam of e-mailadres. We registreren antwoorden, klikken, scrollen en tijdsduur onder een willekeurige code. Vul geen persoonsgegevens in open antwoorden in. Je kunt stoppen door dit venster te sluiten; reeds gegeven antwoorden blijven voor afhaakanalyse bewaard. Tijdens vrij verkennen laad je de echte LIVREA-website, met de eigen cookiekeuzes van die website. Je antwoorden worden niet aan LIVREA doorgegeven. Klikken en scrollen binnen die externe website kunnen wij niet uitlezen; aangewezen plekken in de vaste opnamen worden wel vastgelegd.",
+    "start": "Start de enquête",
+    "next": "Volgende",
+    "back": "Terug",
+    "confirm": "Dit is mijn keuze",
+    "finish": "Onderzoek afronden",
+    "thanks": "Bedankt voor je deelname.",
+    "thanksText": "Met jouw antwoorden kunnen we ons advies aan LIVREA verder onderbouwen. Bedankt voor de tijd die je hiervoor hebt genomen.",
+    "test": "TESTVERSIE · geen echte onderzoeksafname",
+    "noContact": "Geen naam of e-mail",
+    "complete": "Onderzoek afgerond",
+    "completedSuffix": "% voltooid",
+    "choiceRecorded": "Keuze vastgelegd.",
+    "choiceEditable": "Keuze vastgelegd. Je kunt deze nog aanpassen.",
+    "maxChanges": "Maximum aantal wijzigingen bereikt. Bevestig je laatste keuze.",
+    "moreInfo": "Aanvullende informatie",
+    "sourceLabel": "Bron bekijken ↗",
+    "minChars": "tekens minimaal",
+    "previewClaim": "De wetenschapsclaim en bron moeten nog door LIVREA worden bevestigd. Deze proefkaart bevat daarom geen uitspraken over bewezen resultaten.",
+    "noSheets": "Google Sheets nog niet gekoppeld",
+    "storageBlocked": "Opslag op dit apparaat is geblokkeerd. Houd dit venster open en download na afloop de back-up.",
+    "blocked": "Deze versie is nog niet vrijgegeven voor echte afnames. Open ?test=1 om de tool te proberen.",
+    "loading": "Afbeeldingen voorbereiden…",
+    "noLeave": "Ik zou verder blijven kijken",
+    "exposureInstruction": "Wat trekt als eerste je aandacht?",
+    "exposureReady": "Klik op één plek. Je kunt scrollen.",
+    "clickHelp": "Scroll door de pagina en klik op het onderdeel. Wil je eerst rondkijken op de echte website? Kies ‘Echte website verkennen’.",
+    "savedLocal": "Lokaal bewaard",
+    "sending": "Antwoorden versturen…",
+    "saved": "Opslag bevestigd",
+    "pending": "Nog niet bevestigd; houd dit venster open of probeer opnieuw.",
+    "retry": "Opnieuw versturen",
+    "backup": "Download mijn onderzoeksback-up",
+    "resume": "Verdergaan",
+    "restart": "Nieuwe proefafname",
+    "resumeText": "Er staat een onafgeronde afname op dit apparaat.",
+    "adminTitle": "Onderzoeksresultaten",
+    "adminIntro": "Voer de beheersleutel in. Deze blijft alleen in deze browsertab bewaard.",
+    "key": "Beheersleutel",
+    "login": "Resultaten laden",
+    "logout": "Uitloggen",
+    "configExport": "Download ResearchConfig.gs",
+    "empty": "Nog geen gegevens voor deze selectie.",
+    "neutralHint": "Lees deze tekst voordat je verdergaat.",
+    "comment": "Toelichting (optioneel)",
+    "openHint": "Minimaal 10 tekens. Vermeld geen namen of andere persoonsgegevens.",
+    "positiveNone": "Geen onderdeel nodigt mij uit om verder te kijken"
+  },
+  "pages": {
+    "home": {
+      "url": "https://livrea.nl/",
+      "title": "Livrea – Talent Experience Platform",
+      "desktop": {
+        "src": "img/home-desktop.webp",
+        "width": 1348,
+        "height": 8904,
+        "sections": [
+          {
+            "id": "H1",
+            "label": "Eerste scherm",
+            "start": 0,
+            "end": 17.3,
+            "thumb": {
+              "start": 0,
+              "end": 9
+            }
+          },
+          {
+            "id": "H2",
+            "label": "Platform en talenten",
+            "start": 17.3,
+            "end": 37.2,
+            "thumb": {
+              "start": 17.3,
+              "end": 26.3
+            }
+          },
+          {
+            "id": "H3",
+            "label": "Talenten en technologie",
+            "start": 37.2,
+            "end": 55.7,
+            "thumb": {
+              "start": 37.2,
+              "end": 46.2
+            }
+          },
+          {
+            "id": "H4",
+            "label": "Skills en ontwikkeling",
+            "start": 55.7,
+            "end": 70.8,
+            "thumb": {
+              "start": 55.7,
+              "end": 64.7
+            }
+          },
+          {
+            "id": "H5",
+            "label": "Demo en contact",
+            "start": 70.8,
+            "end": 100,
+            "thumb": {
+              "start": 70.8,
+              "end": 79.8
+            }
+          }
+        ],
+        "targets": [
+          {
+            "x": 80.93471810089021,
+            "y": 0.6064690026954178,
+            "w": 17.28486646884273,
+            "h": 0.5727762803234502
+          },
+          {
+            "x": 64.91097922848664,
+            "y": 0.43800539083557954,
+            "w": 7.195845697329377,
+            "h": 0.9097035040431267
+          },
+          {
+            "x": 51.48367952522255,
+            "y": 12.859389038634323,
+            "w": 24.554896142433236,
+            "h": 0.6626235399820306
+          },
+          {
+            "x": 37.68545994065282,
+            "y": 69.07008086253369,
+            "w": 24.554896142433236,
+            "h": 0.6626235399820306
+          },
+          {
+            "x": 37.68545994065282,
+            "y": 92.90206648697215,
+            "w": 24.554896142433236,
+            "h": 0.6626235399820306
+          },
+          {
+            "x": 26.706231454005934,
+            "y": 97.09119496855347,
+            "w": 5.934718100890208,
+            "h": 0.39308176100628933
+          },
+          {
+            "x": 2.0771513353115725,
+            "y": 96.86657681940702,
+            "w": 14.094955489614245,
+            "h": 0.6738544474393532
+          }
+        ],
+        "links": [
+          {
+            "label": "Homepage",
+            "page": "home",
+            "x": 1,
+            "y": 0,
+            "w": 23,
+            "h": 1.6
+          },
+          {
+            "label": "Livrea Software Modules",
+            "page": "product",
+            "x": 40,
+            "y": 0.4,
+            "w": 19,
+            "h": 1.1
+          },
+          {
+            "label": "Contact",
+            "page": "home",
+            "section": "H5",
+            "x": 64.9,
+            "y": 0.43,
+            "w": 7.2,
+            "h": 0.92
+          },
+          {
+            "x": 80.93471810089021,
+            "y": 0.6064690026954178,
+            "w": 17.28486646884273,
+            "h": 0.5727762803234502,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 64.91097922848664,
+            "y": 0.43800539083557954,
+            "w": 7.195845697329377,
+            "h": 0.9097035040431267,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 51.48367952522255,
+            "y": 12.859389038634323,
+            "w": 24.554896142433236,
+            "h": 0.6626235399820306,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 37.68545994065282,
+            "y": 69.07008086253369,
+            "w": 24.554896142433236,
+            "h": 0.6626235399820306,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 37.68545994065282,
+            "y": 92.90206648697215,
+            "w": 24.554896142433236,
+            "h": 0.6626235399820306,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 26.706231454005934,
+            "y": 97.09119496855347,
+            "w": 5.934718100890208,
+            "h": 0.39308176100628933,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 2.0771513353115725,
+            "y": 96.86657681940702,
+            "w": 14.094955489614245,
+            "h": 0.6738544474393532,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          }
+        ]
+      },
+      "mobile": {
+        "src": "img/home-mobile.jpg",
+        "width": 375,
+        "height": 8244,
+        "sections": [
+          {
+            "id": "H1",
+            "label": "Eerste scherm",
+            "start": 0,
+            "end": 14.6,
+            "thumb": {
+              "start": 0,
+              "end": 3.8
+            }
+          },
+          {
+            "id": "H2",
+            "label": "Platform en talenten",
+            "start": 14.6,
+            "end": 33.8,
+            "thumb": {
+              "start": 14.6,
+              "end": 18.4
+            }
+          },
+          {
+            "id": "H3",
+            "label": "Talenten en technologie",
+            "start": 33.8,
+            "end": 54,
+            "thumb": {
+              "start": 33.8,
+              "end": 37.599999999999994
+            }
+          },
+          {
+            "id": "H4",
+            "label": "Skills en ontwikkeling",
+            "start": 54,
+            "end": 72.3,
+            "thumb": {
+              "start": 54,
+              "end": 57.8
+            }
+          },
+          {
+            "id": "H5",
+            "label": "Demo en contact",
+            "start": 72.3,
+            "end": 100,
+            "thumb": {
+              "start": 72.3,
+              "end": 76.1
+            }
+          }
+        ],
+        "targets": [
+          {
+            "x": 24,
+            "y": 7.217370208636583,
+            "w": 52,
+            "h": 0.61863173216885
+          },
+          {
+            "x": 24,
+            "y": 71.08199902959728,
+            "w": 52,
+            "h": 0.61863173216885
+          },
+          {
+            "x": 24,
+            "y": 87.6394953905871,
+            "w": 52,
+            "h": 0.61863173216885
+          },
+          {
+            "x": 36.8,
+            "y": 94.12906356137796,
+            "w": 26.666666666666668,
+            "h": 0.3396409509946628
+          },
+          {
+            "x": 25.333333333333336,
+            "y": 91.95778748180496,
+            "w": 49.333333333333336,
+            "h": 0.7520621057738962
+          }
+        ],
+        "links": [
+          {
+            "label": "Homepage",
+            "page": "home",
+            "x": 2,
+            "y": 0,
+            "w": 52,
+            "h": 1.1
+          },
+          {
+            "x": 24,
+            "y": 7.217370208636583,
+            "w": 52,
+            "h": 0.61863173216885,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 24,
+            "y": 71.08199902959728,
+            "w": 52,
+            "h": 0.61863173216885,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 24,
+            "y": 87.6394953905871,
+            "w": 52,
+            "h": 0.61863173216885,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 36.8,
+            "y": 94.12906356137796,
+            "w": 26.666666666666668,
+            "h": 0.3396409509946628,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          },
+          {
+            "x": 25.333333333333336,
+            "y": 91.95778748180496,
+            "w": 49.333333333333336,
+            "h": 0.7520621057738962,
+            "label": "Demo en contact",
+            "page": "home",
+            "section": "H5"
+          }
+        ]
+      }
+    },
+    "product": {
+      "url": "https://livrea.nl/livrea-software/",
+      "title": "Livrea Software Modules",
+      "desktop": {
+        "src": "img/product-desktop.webp",
+        "width": 1348,
+        "height": 9457,
+        "sections": [
+          {
+            "id": "P1",
+            "label": "Zes modules",
+            "start": 0,
+            "end": 13.7,
+            "thumb": {
+              "start": 0,
+              "end": 9
+            }
+          },
+          {
+            "id": "P2",
+            "label": "Magic Mirror en Relationships",
+            "start": 13.7,
+            "end": 38.2,
+            "thumb": {
+              "start": 13.7,
+              "end": 22.7
+            }
+          },
+          {
+            "id": "P3",
+            "label": "Role Maps en Dream Team",
+            "start": 38.2,
+            "end": 68.7,
+            "thumb": {
+              "start": 38.2,
+              "end": 47.2
+            }
+          },
+          {
+            "id": "P4",
+            "label": "Talent Acquisition en Feedback",
+            "start": 68.7,
+            "end": 100,
+            "thumb": {
+              "start": 68.7,
+              "end": 77.7
+            }
+          }
+        ],
+        "targets": [],
+        "links": [
+          {
+            "label": "Homepage",
+            "page": "home",
+            "x": 1,
+            "y": 0,
+            "w": 23,
+            "h": 1.6
+          },
+          {
+            "label": "Livrea Software Modules",
+            "page": "product",
+            "x": 40,
+            "y": 0.4,
+            "w": 19,
+            "h": 1.1
+          },
+          {
+            "label": "Contact",
+            "page": "home",
+            "section": "H5",
+            "x": 64.9,
+            "y": 0.43,
+            "w": 7.2,
+            "h": 0.92
+          }
+        ]
+      },
+      "mobile": {
+        "src": "img/product-mobile.jpg",
+        "width": 375,
+        "height": 9731,
+        "sections": [
+          {
+            "id": "P1",
+            "label": "Zes modules",
+            "start": 0,
+            "end": 8.1,
+            "thumb": {
+              "start": 0,
+              "end": 3.8
+            }
+          },
+          {
+            "id": "P2",
+            "label": "Magic Mirror en Relationships",
+            "start": 8.1,
+            "end": 33.1,
+            "thumb": {
+              "start": 8.1,
+              "end": 11.899999999999999
+            }
+          },
+          {
+            "id": "P3",
+            "label": "Role Maps en Dream Team",
+            "start": 33.1,
+            "end": 64.9,
+            "thumb": {
+              "start": 33.1,
+              "end": 36.9
+            }
+          },
+          {
+            "id": "P4",
+            "label": "Talent Acquisition en Feedback",
+            "start": 64.9,
+            "end": 100,
+            "thumb": {
+              "start": 64.9,
+              "end": 68.7
+            }
+          }
+        ],
+        "targets": [],
+        "links": [
+          {
+            "label": "Homepage",
+            "page": "home",
+            "x": 2,
+            "y": 0,
+            "w": 52,
+            "h": 1.1
+          }
+        ]
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "block": "A",
+      "type": "single",
+      "text": "Wat is je geslacht?",
+      "shuffle": false,
+      "options": [
+        [
+          "1",
+          "Man"
+        ],
+        [
+          "2",
+          "Vrouw"
+        ],
+        [
+          "3",
+          "Anders"
+        ],
+        [
+          "9",
+          "Wil ik niet zeggen"
+        ]
+      ]
+    },
+    {
+      "id": "Q02",
+      "block": "A",
+      "type": "single",
+      "text": "Wat is je leeftijd?",
+      "options": [
+        [
+          "1",
+          "Jonger dan 25"
+        ],
+        [
+          "2",
+          "25–34"
+        ],
+        [
+          "3",
+          "35–44"
+        ],
+        [
+          "4",
+          "45–54"
+        ],
+        [
+          "5",
+          "55+"
+        ],
+        [
+          "9",
+          "Wil ik niet zeggen"
+        ]
+      ]
+    },
+    {
+      "id": "Q03",
+      "block": "A",
+      "type": "single",
+      "text": "Wat is je hoogst afgeronde opleiding?",
+      "options": [
+        [
+          "0",
+          "Geen afgeronde opleiding"
+        ],
+        [
+          "1",
+          "Basisonderwijs"
+        ],
+        [
+          "2",
+          "Vmbo"
+        ],
+        [
+          "3",
+          "Havo / vwo"
+        ],
+        [
+          "4",
+          "Mbo"
+        ],
+        [
+          "5",
+          "Hbo"
+        ],
+        [
+          "6",
+          "Wo bachelor"
+        ],
+        [
+          "7",
+          "Wo master of hoger"
+        ],
+        [
+          "8",
+          "Anders"
+        ],
+        [
+          "9",
+          "Wil ik niet zeggen"
+        ]
+      ]
+    },
+    {
+      "id": "Q04",
+      "block": "A",
+      "type": "single",
+      "text": "Wat is jouw huidige rol?",
+      "shuffle": false,
+      "options": [
+        [
+          "1",
+          "HR-management",
+          "Bijvoorbeeld HR-manager of HR-directeur"
+        ],
+        [
+          "2",
+          "HR-professional",
+          "Bijvoorbeeld HR-adviseur, recruiter of L&D"
+        ],
+        [
+          "7",
+          "Marketing"
+        ],
+        [
+          "8",
+          "Communicatie"
+        ],
+        [
+          "9",
+          "Sales / accountmanagement"
+        ],
+        [
+          "10",
+          "IT / digital"
+        ],
+        [
+          "3",
+          "Directie / eigenaar"
+        ],
+        [
+          "12",
+          "Leidinggevende buiten HR"
+        ],
+        [
+          "4",
+          "Andere werkende rol"
+        ],
+        [
+          "5",
+          "Student"
+        ],
+        [
+          "11",
+          "Momenteel niet werkzaam"
+        ],
+        [
+          "6",
+          "Anders"
+        ]
+      ],
+      "hint": "Kies één antwoord. Werk je in HR? Kies dan een HR-rol."
+    },
+    {
+      "id": "Q05",
+      "block": "A",
+      "type": "single",
+      "text": "Hoeveel medewerkers telt jouw organisatie?",
+      "skipStudent": true,
+      "options": [
+        [
+          "1",
+          "1–49"
+        ],
+        [
+          "2",
+          "50–250"
+        ],
+        [
+          "3",
+          "251–500"
+        ],
+        [
+          "4",
+          "500+"
+        ],
+        [
+          "8",
+          "Niet van toepassing"
+        ]
+      ],
+      "hint": "Geen werkgever? Kies niet van toepassing. Precies 500 valt onder 251–500."
+    },
+    {
+      "id": "Q06",
+      "block": "B",
+      "type": "multi",
+      "text": "Wat doet jouw organisatie op dit moment aan talentontwikkeling?",
+      "hint": "Kies alles wat van toepassing is.",
+      "shuffle": false,
+      "prefix": "Q06_",
+      "audience": [
+        "1",
+        "2",
+        "3"
+      ],
+      "autoValue": "8",
+      "hiddenOptions": [
+        "8"
+      ],
+      "exclusive": [
+        "10",
+        "9",
+        "8"
+      ],
+      "options": [
+        [
+          "1",
+          "Opleidingen en trainingen"
+        ],
+        [
+          "2",
+          "Persoonlijke ontwikkelplannen"
+        ],
+        [
+          "3",
+          "Functionerings- of ontwikkelgesprekken"
+        ],
+        [
+          "4",
+          "Coaching of mentoring"
+        ],
+        [
+          "5",
+          "Vaardigheden en talenten in kaart brengen"
+        ],
+        [
+          "6",
+          "Interne doorgroei- en loopbaanpaden"
+        ],
+        [
+          "7",
+          "Software of een platform voor talentontwikkeling"
+        ],
+        [
+          "10",
+          "Hier doen we (nog) weinig aan",
+          true
+        ],
+        [
+          "9",
+          "Weet ik niet",
+          true
+        ],
+        [
+          "8",
+          "Niet van toepassing",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "Q07",
+      "block": "B",
+      "type": "matrix",
+      "text": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor jouw organisatie?",
+      "textByGroup": {
+        "organisatie": "Hoe belangrijk zijn deze onderdelen van talentontwikkeling voor jouw organisatie?",
+        "werk": "Hoe belangrijk vind jij deze onderdelen van talentontwikkeling in je werk?",
+        "toekomst": "Hoe belangrijk vind jij deze onderdelen van talentontwikkeling voor je (toekomstige) werk?"
+      },
+      "hint": "Geef per onderdeel aan hoe belangrijk het is. Er zijn geen goede of foute antwoorden.",
+      "ends": [
+        "Niet belangrijk",
+        "Zeer belangrijk"
+      ],
+      "perspective": "Q07_PERSPECTIEF",
+      "rows": [
+        [
+          "Q07_LEREN",
+          "Nieuwe vaardigheden leren"
+        ],
+        [
+          "Q07_TALENTEN",
+          "Talenten van medewerkers in kaart brengen"
+        ],
+        [
+          "Q07_DOORGROEI",
+          "Doorgroeien naar een andere of hogere functie"
+        ],
+        [
+          "Q07_FEEDBACK",
+          "Regelmatige feedback en ontwikkelgesprekken"
+        ],
+        [
+          "Q07_TEAMS",
+          "Teams goed samenstellen"
+        ],
+        [
+          "Q07_BEHOUD",
+          "Goede medewerkers behouden"
+        ],
+        [
+          "Q07_WERVING",
+          "De juiste mensen aannemen"
+        ],
+        [
+          "Q07_WELZIJN",
+          "Welzijn en werkplezier"
+        ]
+      ]
+    },
+    {
+      "id": "Q08",
+      "block": "BV",
+      "type": "multi",
+      "text": "Welke aanbieders ken je van naam?",
+      "hint": "Selecteer de namen die je al kende vóór deze enquête.",
+      "shuffle": true,
+      "prefix": "Q08_",
+      "options": [
+        [
+          "PERSONIO",
+          "Personio"
+        ],
+        [
+          "VISMA",
+          "Visma (Raet, Youforce)"
+        ],
+        [
+          "TMA",
+          "TMA"
+        ],
+        [
+          "AFAS",
+          "AFAS"
+        ],
+        [
+          "LIVREA",
+          "LIVREA"
+        ],
+        [
+          "GEEN",
+          "Geen van deze",
+          true
+        ]
+      ],
+      "exclusive": [
+        "GEEN"
+      ]
+    },
+    {
+      "id": "Q09",
+      "block": "BV",
+      "type": "scale",
+      "text": "Hoe belangrijk is een bedrijfswebsite voor jouw eerste indruk?",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Helemaal niet belangrijk",
+        "Heel belangrijk"
+      ]
+    },
+    {
+      "id": "Q10",
+      "block": "C",
+      "type": "attention",
+      "text": "Wat trekt als eerste je aandacht?",
+      "page": "home",
+      "hint": "Klik op één plek in de pagina. Je kunt naar beneden scrollen.",
+      "comment": "Q10_TOELICHTING"
+    },
+    {
+      "id": "Q11",
+      "block": "C",
+      "type": "scale",
+      "text": "Hoe duidelijk is voor jou wat LIVREA aanbiedt?",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Helemaal niet duidelijk",
+        "Helemaal duidelijk"
+      ]
+    },
+    {
+      "id": "Q12",
+      "block": "C",
+      "type": "scale",
+      "text": "Wat is je eerste indruk van de website?",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Zeer negatief",
+        "Zeer positief"
+      ],
+      "comment": "Q12_TOELICHTING",
+      "page": "home",
+      "hint": "Bekijk de website opnieuw als je dat wilt."
+    },
+    {
+      "id": "Q13",
+      "block": "D",
+      "type": "semantic",
+      "text": "Hoe komt de website op je over?",
+      "page": "home",
+      "rows": [
+        [
+          "Q13_MODERN",
+          "Ouderwets",
+          "Modern"
+        ],
+        [
+          "Q13_MENSELIJK",
+          "Onpersoonlijk",
+          "Menselijk"
+        ],
+        [
+          "Q13_DUIDELIJK",
+          "Onduidelijk",
+          "Duidelijk"
+        ],
+        [
+          "Q13_BETROUWBAAR",
+          "Onbetrouwbaar",
+          "Betrouwbaar"
+        ],
+        [
+          "Q13_NEDERLANDS",
+          "Internationaal gericht",
+          "Nederlands gericht"
+        ]
+      ],
+      "hint": "Kies voor elke regel de positie die het best past bij jouw indruk.",
+      "shuffle": false
+    },
+    {
+      "id": "Q14",
+      "block": "D",
+      "type": "click",
+      "text": "Welk onderdeel nodigt je het meest uit om verder te kijken?",
+      "page": "home",
+      "noAttraction": true,
+      "comment": "Q14_TOELICHTING"
+    },
+    {
+      "id": "Q15",
+      "block": "D",
+      "type": "click",
+      "text": "Bij welk onderdeel zou je besluiten de website te verlaten?",
+      "page": "home",
+      "noLeave": true,
+      "comment": "Q15_TOELICHTING"
+    },
+    {
+      "id": "Q16",
+      "block": "E",
+      "type": "scale",
+      "text": "Hoe duidelijk is voor welke organisaties LIVREA bedoeld is?",
+      "page": "product",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Helemaal niet duidelijk",
+        "Helemaal duidelijk"
+      ],
+      "comment": "Q16_TOELICHTING",
+      "hint": "Bekijk hiervoor de productpagina."
+    },
+    {
+      "id": "Q17",
+      "block": "E",
+      "type": "single",
+      "page": "product",
+      "text": "Welk beeld krijg je van LIVREA: waar draait het bij dit bedrijf vooral om?",
+      "hint": "Kies het antwoord dat het best past bij wat je hebt gezien.",
+      "shuffle": true,
+      "options": [
+        [
+          "1",
+          "Technologie en data"
+        ],
+        [
+          "2",
+          "De mens en zijn talenten"
+        ],
+        [
+          "3",
+          "Efficiëntie en kostenbesparing"
+        ],
+        [
+          "4",
+          "Het oplossen van HR-problemen"
+        ],
+        [
+          "9",
+          "Weet ik niet",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "Q18",
+      "variable": "MEEST_BIJGEBLEVEN",
+      "block": "F",
+      "type": "open",
+      "text": "Welk onderdeel van de website is je het meest bijgebleven?",
+      "minLength": 1,
+      "maxLength": 2000,
+      "hint": "Noem het onderdeel of de boodschap die je je herinnert. Je kunt ook “niets in het bijzonder” invullen."
+    },
+    {
+      "id": "Q19",
+      "block": "F",
+      "type": "scale",
+      "text": "Hoe waarschijnlijk is het dat je contact zou opnemen met LIVREA?",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Zeer onwaarschijnlijk",
+        "Zeer waarschijnlijk"
+      ]
+    },
+    {
+      "id": "Q20",
+      "block": "F",
+      "type": "scale",
+      "text": "Hoe waarschijnlijk is het dat je LIVREA zou aanbevelen aan een collega?",
+      "min": 0,
+      "max": 10,
+      "ends": [
+        "Zeer onwaarschijnlijk",
+        "Zeer waarschijnlijk"
+      ],
+      "comment": "Q20_TOELICHTING",
+      "nps": true
+    },
+    {
+      "id": "Q21",
+      "block": "G",
+      "type": "single",
+      "text": "Zag je informatie over wetenschappelijke onderbouwing?",
+      "shuffle": false,
+      "options": [
+        [
+          "1",
+          "Ja"
+        ],
+        [
+          "2",
+          "Nee"
+        ],
+        [
+          "9",
+          "Weet ik niet",
+          true
+        ]
+      ],
+      "afterCard": true
+    },
+    {
+      "id": "Q22",
+      "block": "G",
+      "type": "scale",
+      "text": "Hoe waarschijnlijk is het nu dat je contact zou opnemen met LIVREA?",
+      "controlText": "Hoe waarschijnlijk is het nu dat je contact zou opnemen met LIVREA?",
+      "min": 1,
+      "max": 5,
+      "ends": [
+        "Zeer onwaarschijnlijk",
+        "Zeer waarschijnlijk"
+      ],
+      "comment": "Q22_TOELICHTING"
+    },
+    {
+      "id": "Q23",
+      "block": "G",
+      "type": "open",
+      "text": "Wat zou je als eerste verbeteren aan de website?",
+      "minLength": 10,
+      "maxLength": 2000,
+      "hint": "Je kunt ook aangeven dat je geen verbeterpunt hebt."
+    }
+  ],
+  "limits": {
+    "text": 2000,
+    "clicks": 120,
+    "payload": 96000,
+    "minimumDuration": 90,
+    "retryMs": 6000
+  },
+  "blocks": {
+    "A": "Over jou",
+    "B": "Talentontwikkeling",
+    "BV": "Vooraf",
+    "C": "Je eerste indruk",
+    "D": "Je ervaring met de website",
+    "E": "Het aanbod verkennen",
+    "F": "Wat blijft hangen?",
+    "G": "Tot slot"
+  },
+  "labels": {
+    "SEGMENT": {
+      "1": "HR",
+      "2": "Overig"
+    },
+    "DOELGROEP": {
+      "0": "Overig",
+      "1": "HR met 50–500 medewerkers"
+    },
+    "CONDITIE": {
+      "1": "Wetenschapsclaim",
+      "2": "Controle"
+    },
+    "DEVICE": {
+      "desktop": "Desktop",
+      "mobile": "Mobiel"
+    },
+    "TEST": {
+      "0": "Echte afname",
+      "1": "Proefafname"
+    },
+    "NPS_GROEP": {
+      "1": "Detractor (0–6)",
+      "2": "Passive (7–8)",
+      "3": "Promoter (9–10)"
+    },
+    "Q07_PERSPECTIEF": {
+      "1": "Organisatie (HR/directie)",
+      "2": "Eigen werk",
+      "3": "(Toekomstig) werk: student of niet werkzaam"
+    }
+  },
+  "LIVE_VERKENNING": true
+};
+</script>
+<style>
+
+:root{--ink:#202631;--muted:#69717d;--accent:#8b276e;--blue:#8b276e;--light:#f7edf4;--line:#dfe2e7;--bg:#f5f6f8;--shadow:0 12px 40px #20263106}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button,a,summary{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #9368ca;outline-offset:4px}h1,h2,h3,p{margin-top:0}h1,h2{font-weight:650;letter-spacing:-.8px;line-height:1.25}h1{font-size:clamp(26px,4vw,38px);overflow-wrap:anywhere}h2{font-size:28px}a{color:var(--accent)}.muted{color:var(--muted)}.top{height:76px;display:flex;align-items:center;gap:18px;padding:0 4vw;background:white;border-bottom:1px solid var(--line)}.header-logo{width:75px;display:block;border-right:1px solid var(--line);padding-right:18px;flex-shrink:0}.header-logo img{width:100%;height:auto;display:block;filter:brightness(0)}.brand{font-size:14px;font-weight:650;line-height:1.3}.brand small{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:4px}.top .right{margin-left:auto;font-size:12px;text-align:right;font-variant-numeric:tabular-nums}.top .right small{display:block;color:var(--muted);font-size:11px}.progress{height:3px;background:#e5e6eb}.progress i{display:block;height:100%;background:var(--accent)}.test{padding:5px 16px;text-align:center;font-size:11px;background:#faf1dc;color:#705a28;min-height:27px}.test-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:#aa8534;margin-right:8px}.eyebrow,.block-label{font-size:11px;letter-spacing:1.3px;font-weight:600;text-transform:uppercase;color:var(--muted)}.primary,.secondary{min-height:48px;padding:12px 20px;border-radius:8px;font-weight:600;font-size:14px;border:1px solid transparent}.primary{background:var(--accent);color:white}.primary:hover:not(:disabled){background:#6f1f58}.primary:disabled{opacity:1;background:#ececf0;color:#969aa4}.secondary{background:white;border-color:var(--line);color:var(--ink)}.secondary:hover:not(:disabled){background:#f7f8fa}.link{border:0;background:none;color:var(--accent);text-decoration:underline;padding:12px;font-size:13px}.center,.question-only{max-width:800px;padding:0 24px;margin:40px auto}.panel,.welcome{background:white;border:1px solid var(--line);border-radius:12px;padding:36px;box-shadow:var(--shadow)}.question-only .panel{padding:38px 42px}.question-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.question-number{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}.panel h2{margin-bottom:22px}.panel h2[tabindex]:focus-visible{outline:none}.panel .muted{font-size:14px;line-height:1.6}.options{display:grid;gap:9px}.option{display:flex;align-items:center;gap:13px;text-align:left;width:100%;min-height:54px;padding:13px 16px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);font-size:15px}.option:hover{border-color:#a79aad;background:#fcfafc}.option[aria-checked=true]{background:var(--light);border-color:var(--accent)}.indicator{width:19px;height:19px;border:1.5px solid #aab0ba;border-radius:50%;flex-shrink:0;display:grid;place-items:center}.multi .indicator{border-radius:4px}[aria-checked=true] .indicator{background:var(--accent);border-color:var(--accent);color:white}[aria-checked=true] .indicator:after{content:'✓';font-size:12px}.option small{display:block;font-size:12px;color:var(--muted);margin-top:3px}.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:26px 0 12px}.scale button{min-width:0;min-height:50px;border:1px solid #cbd0d8;border-radius:8px;background:white;color:var(--ink);font-weight:600;padding:6px}.scale button:hover{border-color:var(--accent)}.scale button[aria-checked=true]{background:var(--accent);border-color:var(--accent);color:white}.ends{display:grid;grid-template-columns:1fr 1fr;gap:24px;color:var(--muted);font-size:12px;line-height:1.5}.ends span:last-child{text-align:right}.semantic{padding:20px 0;border-bottom:1px solid #e9ebee}.semantic:first-of-type{padding-top:0}.semantic .ends{color:var(--ink);font-size:14px}.semantic .scale{margin:14px 0 0;gap:12px}.semantic .scale button{min-height:42px;border-radius:7px;font-size:13px}.scale.nps{grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}.scale.nps button{font-size:13px;padding:0;min-height:46px}.fieldlabel{display:block;font-size:13px;color:var(--muted);margin:24px 0 8px}textarea{display:block;width:100%;min-height:108px;resize:vertical;padding:13px 14px;border:1px solid #c8ced8;border-radius:8px;color:var(--ink);background:white;font-size:15px;line-height:1.6}small.muted{display:block;margin-top:7px;font-size:12px}.actions{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #e8eaee;padding-top:22px;margin-top:28px}.actions .primary{margin-left:auto}.status,.navigation-note{font-size:12px;line-height:1.5;color:var(--muted);margin:14px 0 0}.navigation-note:empty,.status:empty{display:none}.error{background:#fff2ee;color:#963f32;padding:14px;border-radius:8px;font-size:14px}.survey-start{max-width:680px;margin:48px auto;padding:0 24px}.start-card{background:white;border:1px solid var(--line);border-radius:14px;padding:42px 46px}.livrea-wordmark{display:block;width:132px;height:auto;filter:brightness(0);margin:0 0 24px}.start-card .eyebrow{font-size:10px;letter-spacing:1px;margin:0 0 14px}.start-card h1{font-size:36px;margin-bottom:17px;letter-spacing:-1.1px}.start-lead{font-size:16px;color:#626a76;margin-bottom:27px;max-width:40ch}.start-facts{display:flex;flex-wrap:wrap;gap:10px 22px;padding:17px 0;margin:0 0 27px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:#626a76;font-size:13px}.start-card>.primary,.start-card>#resume{width:100%;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}.privacy-details{font-size:12px;line-height:1.7;margin-top:12px;color:var(--muted)}.privacy-details summary{cursor:pointer;min-height:38px;padding:7px 0}.privacy-details p{margin:10px 0}.mobile-site-button{display:none}.study{max-width:1760px;display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:22px;align-items:stretch;height:calc(100dvh - 139px);min-height:560px;margin:16px auto;padding:0 24px}.study .panel{height:100%;min-width:0;max-height:100%;overflow-y:auto;padding:28px}.study h2{font-size:25px}.study .semantic{padding:14px 0}.study .semantic .scale{margin-top:10px}.study .actions{position:sticky;bottom:-28px;background:white;padding:18px 0;margin-bottom:-10px;z-index:2}.browser{border:1px solid var(--line);border-radius:12px;background:white;overflow:hidden;display:flex;flex-direction:column;height:100%;min-height:0;position:relative}.site-nav{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line);flex-wrap:wrap;flex-shrink:0}.viewer-title{margin-right:auto;line-height:1.35}.viewer-title strong{font-size:13px;display:block;font-weight:600}.viewer-title small{font-size:11px;color:var(--muted);display:block;margin-top:2px}.viewer-controls,.viewer-tools{display:flex;gap:6px;flex-wrap:wrap}.viewer-tools{width:100%}.site-nav button{min-height:38px;font-size:12px;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink)}.site-nav #expand-site,.site-nav #overview-toggle{background:#f5f1f6;border-color:#e6dbe8;color:#71355f}.site-nav #selection-mode{margin-left:auto}.embed-note{margin:0;padding:8px 12px;font-size:10px;color:var(--muted);line-height:1.5;border-top:1px solid var(--line)}.viewport{height:100%;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;position:relative;overscroll-behavior:contain;scrollbar-color:#9fa7b3 #edf0f3;scrollbar-width:auto;background:#f3f4f6}.image-wrap{position:relative;min-height:100%;line-height:0}.site-image{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}.live-viewport{overflow:hidden}.live-wrap{height:100%;line-height:normal}.live-site{border:0;display:block;height:100%;width:100%;background:white}.dot{position:absolute;z-index:4;pointer-events:none;width:18px;height:18px;border:3px solid white;background:var(--accent);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 6px #8b276e25}.site-hotspot{position:absolute;background:transparent;border:0;cursor:pointer;z-index:3}.site-hotspot:hover{background:#8b276e12}.other-page,#noattraction,#noleave{width:100%;margin-top:10px;min-height:48px;text-align:left;white-space:normal}.other-page[aria-pressed=true],#noattraction[aria-pressed=true],#noleave[aria-pressed=true]{background:var(--light);border-color:var(--accent)}.study.website-expanded{position:fixed;inset:0;z-index:1000;max-width:none;height:100dvh;min-height:0;display:block;padding:0;margin:0;background:white}.website-expanded .panel{display:none}.website-expanded .browser{border:0;border-radius:0}.website-expanded .viewer-tools{width:auto}.website-expanded #expand-site{background:var(--accent);color:white}.attention-study .site-nav{min-height:63px}.overview-mode .image-wrap{height:100%;min-height:0;display:flex;justify-content:center}.overview-mode .site-image{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:top}.overview-mode .viewport{background:#e9ecf0}.attention-study .viewport{cursor:crosshair}.attention-study:not(.has-selection) .fieldlabel,.attention-study:not(.has-selection) #comment,.attention-study:not(.has-selection) .actions{display:none}.information-screen h1{font-size:32px;margin-bottom:15px}.information-copy{margin:30px 0 12px;padding:0 0 0 24px;border-left:3px solid var(--accent)}.information-copy>p{font-size:19px;line-height:1.8;color:#353b47;margin:0}.source-details{font-size:13px;line-height:1.6;overflow-wrap:anywhere;margin-top:22px}.source-details summary{cursor:pointer}.preview-note{font-size:12px;color:#84612b;background:#fcf5e8;padding:11px 14px;border-radius:7px;margin-top:24px}.completion-mark{display:grid;place-items:center;width:52px;height:52px;border:1px solid #d3ddd8;background:#f1f6f3;color:#496457;border-radius:50%;font-size:25px;margin-bottom:26px}.completion h1{font-size:34px;margin-bottom:18px}.completion .lead{font-size:16px;color:var(--muted);line-height:1.7}.admin{max-width:1400px;margin:36px auto;padding:0 24px}.admin h1{font-size:clamp(26px,4vw,34px);overflow-wrap:anywhere}.filters{display:flex;gap:16px;flex-wrap:wrap;margin:26px 0}.filters label{font-size:12px}.filters select,.keyinput,select{display:block;border:1px solid #c8ced8;border-radius:7px;background:white;color:var(--ink);padding:10px;max-width:100%;margin:6px 0}.keyinput{width:100%;margin:14px 0}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin:24px 0}.metric{background:white;border:1px solid var(--line);padding:19px;border-radius:10px}.metric strong{font-size:28px;display:block}.metric span{font-size:12px;color:var(--muted)}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 9px;vertical-align:top}td small{display:block;color:var(--muted);font-size:10px}.heatbox{max-height:650px;overflow:auto;border:1px solid var(--line);border-radius:8px}.heat{position:relative;max-width:800px;margin:auto}.heat img{width:100%;display:block}.heat canvas{position:absolute;inset:0;width:100%;height:100%}.open-answers{padding-left:20px}.open-answers li{padding:12px 0;border-bottom:1px solid var(--line);white-space:pre-wrap;overflow-wrap:anywhere}.pill{font-size:12px;background:var(--light);color:var(--accent);padding:5px 10px;border-radius:5px}.spinner{width:26px;height:26px;border:3px solid #e5dfe9;border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px}@keyframes spin{to{transform:rotate(360deg)}}
+@media(min-width:1600px){.study{grid-template-columns:minmax(0,1fr) 420px}}
+@media(max-width:1050px) and (min-width:801px){.study{grid-template-columns:minmax(0,1fr) 340px;gap:16px;padding:0 16px}.study .panel{padding:23px}.study .actions{bottom:-23px}}
+@media(max-width:800px){.top{height:64px;padding:0 18px;gap:12px}.header-logo{width:57px;padding-right:12px}.brand{font-size:12px}.brand small{font-size:9px}.top .right{font-size:11px}.top .right small{font-size:10px}.test{font-size:10px;min-height:25px}.survey-start{margin:24px auto;padding:0 16px}.start-card{padding:30px 25px}.livrea-wordmark{width:112px;margin-bottom:20px}.start-card h1{font-size:30px;letter-spacing:-.7px}.start-lead{font-size:15px}.start-facts{font-size:12px;gap:7px 16px}.center,.question-only{padding:0 14px;margin:24px auto}.panel,.welcome,.question-only .panel{padding:27px 23px}.panel h2{font-size:25px}.question-meta{margin-bottom:20px}.block-label{font-size:10px;letter-spacing:1px}.question-number{font-size:11px}.option{font-size:15px;min-height:53px;padding:12px 13px}.option small{font-size:11px}.scale{gap:7px}.scale button{min-height:48px}.ends{font-size:11px;gap:16px}.scale.nps{grid-template-columns:repeat(11,minmax(0,1fr));gap:3px}.scale.nps{grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}.scale.nps button{font-size:13px;min-height:46px;border-radius:6px}.semantic .scale{gap:8px}.semantic .scale button{min-height:44px}.semantic .ends{font-size:13px}.study{display:flex;flex-direction:column;height:auto;min-height:0;overflow:visible;gap:16px;margin:14px auto;padding:0 12px 24px}.study .browser{height:64dvh;min-height:380px;max-height:740px}.study .panel{height:auto;overflow:visible;max-height:none;padding:25px 23px;order:0}.study .browser{order:1}.mobile-site-button{display:block;width:100%;margin:0 0 22px;text-align:center;border-color:#d9c4d3;color:#7b285f}.attention-study .mobile-site-button{display:none}.study h2{font-size:24px}.study .actions{bottom:0;padding:16px 0;position:sticky;margin-bottom:0}.attention-study .panel{order:0}.attention-study .browser{order:1;height:78dvh;min-height:540px}.attention-study .panel{padding:18px 20px}.attention-study:not(.has-selection) .panel{padding:16px 20px}.attention-study:not(.has-selection) .panel h2{font-size:21px;margin-bottom:10px}.attention-study:not(.has-selection) .panel .status{display:none}.attention-study:not(.has-selection) .panel .muted{margin-bottom:0}.attention-study .panel .actions{position:static}.attention-study .question-meta{margin-bottom:12px}.attention-study h2{font-size:23px;margin-bottom:12px}.attention-study textarea{min-height:70px}.site-nav{padding:11px;gap:8px}.viewer-title small{font-size:10px}.site-nav button{min-height:40px;padding:8px 10px;font-size:11px}.viewer-controls,.viewer-tools{width:100%}.site-nav #expand-site{flex:1}.study.website-expanded{display:block;height:100dvh;padding:0;margin:0}.website-expanded .browser{height:100%;min-height:0;max-height:none}.information-screen h1{font-size:28px}.information-copy{padding-left:18px}.information-copy>p{font-size:17px;line-height:1.8}.completion h1{font-size:30px}.actions{gap:9px}.actions .primary,.actions .secondary{padding:12px 14px;font-size:13px}.admin{padding:0 14px}.admin .panel{padding:23px 18px;min-width:0}.admin .actions{flex-wrap:wrap}#question-summary{overflow-x:auto;max-width:100%}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.metric{padding:14px}.metric strong{font-size:25px}.status,.navigation-note{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Matrixvraag talentontwikkeling */
+.matrix{display:grid;gap:0;margin-top:6px}
+.matrix-head{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px;padding:0 0 10px;border-bottom:1px solid #e9ebee}
+.matrix-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.matrix-row{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid #eef0f2}
+.matrix-label{font-size:15px;line-height:1.4}
+.matrix .scale{margin:0;gap:8px}
+.matrix .scale button{min-height:40px}
+@media(max-width:800px){.matrix-head{grid-template-columns:1fr}.matrix-head>span:first-child{display:none}.matrix-row{grid-template-columns:1fr;gap:8px;padding:14px 0}}
+/* Weergavekeuze bij de eerste klik */
+.view-switch{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.view-switch button{border:0;border-right:1px solid var(--line);background:#fff;padding:7px 12px;font-size:12px;color:var(--ink)}
+.view-switch button:last-child{border-right:0}
+.view-switch button[aria-pressed=true]{background:var(--ink);color:#fff}
+.compact-mode .viewport{background:#e9ecf0}
+.compact-mode .image-wrap{display:flex;justify-content:center}
+.compact-mode .site-image{width:min(100%,620px);box-shadow:0 0 0 1px #d5dbe2}
+</style></head><body><div id="app"></div><noscript>Schakel JavaScript in om aan dit onderzoek deel te nemen.</noscript>
+<script>
+'use strict';
+const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const params=new URLSearchParams(location.search), IS_TEST=params.get('test')==='1', IS_ADMIN=params.get('admin')==='1';
+const DEVICE=matchMedia('(max-width:800px)').matches?'mobile':'desktop'; // Vast per afname, ook bij draaien/vergroten.
+const STORE='hva-research-'+CONFIG.VERSION+'-'+(IS_TEST?'test':'live');
+const uid=()=>{if(crypto.randomUUID)return crypto.randomUUID();const b=crypto.getRandomValues(new Uint8Array(16));b[6]=(b[6]&15)|64;b[8]=(b[8]&63)|128;const x=Array.from(b,n=>n.toString(16).padStart(2,'0')).join('');return x.slice(0,8)+'-'+x.slice(8,12)+'-'+x.slice(12,16)+'-'+x.slice(16,20)+'-'+x.slice(20)}, token=()=>Array.from(crypto.getRandomValues(new Uint8Array(24)),x=>x.toString(16).padStart(2,'0')).join('');
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(crypto.getRandomValues(new Uint32Array(1))[0]/4294967296*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let state=null, currentPage=null, enteredAt=0, questionAt=0, showCard=false, saveTimer=null, saving=false, retryCount=0, imagesReady=false, animationId=0, adminData=null, selectionMode=false, siteHistory=[];
+const ui=CONFIG.ui;
+function shell(content,p=0){const inStudy=state&&!IS_ADMIN;const step=inStudy?(state.complete?'Afgerond':'Vraag '+String(state.index+1).padStart(2,'0')+' / '+CONFIG.questions.length):IS_ADMIN?'Beheer':'HvA · Onderzoek';$('#app').innerHTML=`<header class="top"><span class="header-logo"><img src="img/livrea-logo.png" alt="LIVREA" width="166" height="88"></span><span class="brand">${esc(ui.brand)}<small>Hogeschool van Amsterdam</small></span><span class="right"><span>${esc(step)}</span>${inStudy?`<small>${Math.round(p)+ui.completedSuffix}</small>`:''}</span></header><div class="progress" role="progressbar" aria-label="Voortgang" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(p)}"><i style="width:${p}%"></i></div>${IS_TEST?`<div class="test"><span class="test-dot" aria-hidden="true"></span>${esc(ui.test)}</div>`:''}${content}`}
+function download(name,data,type='text/plain'){const url=URL.createObjectURL(new Blob([data],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000)}
+function persist(){if(!state)return;try{localStorage.setItem(STORE,JSON.stringify(state));}catch(e){const el=$('#storage-note');if(el)el.textContent=ui.storageBlocked}}
+function newState(){const condition=CONFIG.CONTROLEGROEP_AAN?(crypto.getRandomValues(new Uint8Array(1))[0]<128?1:2):1;return {id:uid(),receipt:token(),test:IS_TEST?1:0,condition,device:DEVICE,started:new Date().toISOString(),ended:'',index:0,answers:{},clicks:[],orders:{},seen:[],scroll:{home:0,product:0},sitePositions:{home:0,product:0},blockMs:{},last:'Q01',sequence:0,acked:0,complete:false,consent:true,cardSeen:false,screenWidth:innerWidth,browser:browserName(),input:'pointer',activeMs:0}}
+function browserName(){const u=navigator.userAgent;return /Edg\//.test(u)?'Edge':/Firefox\//.test(u)?'Firefox':/OPR\//.test(u)?'Opera':/Chrome\//.test(u)?'Chrome':/Safari\//.test(u)?'Safari':'Overig'}
+function variant(page){return CONFIG.pages[page][state?.device||DEVICE]}
+function current(){return CONFIG.questions[state.index]}
+function isHR(){return ['1','2'].includes(state?.answers.Q04)}
+/* Wie krijgt welke vraag: onlyHR = HR (1,2); audience = lijst met Q04-codes; skipStudent = niet voor studenten. */
+function eligible(q,q04){q04=String(q04??'');if(q.skipStudent&&q04==='5')return false;if(q.onlyHR&&!['1','2'].includes(q04))return false;if(q.audience&&!q.audience.includes(q04))return false;return true}
+function perspective(q04){q04=String(q04??'');return ['1','2','3'].includes(q04)?1:['5','11'].includes(q04)?3:2}
+function questionText(q){if(q.textByGroup){const p=perspective(state?.answers.Q04);return q.textByGroup[p===1?'organisatie':p===3?'toekomst':'werk']}return q.id==='Q22'&&state.condition===2?q.controlText:q.text}
+function order(q){if(!state.orders[q.id]){const arr=q.type==='semantic'?q.rows:q.options||[];state.orders[q.id]=q.type==='semantic'?shuffle(arr).map(x=>x[0]):(q.shuffle?[...shuffle(arr.filter(x=>x[2]!==true)),...arr.filter(x=>x[2]===true)]:arr).map(x=>x[0]);persist()}return state.orders[q.id].map(id=>(q.rows||q.options).find(x=>x[0]===id))}
+async function preload(){const urls=[...new Set(Object.values(CONFIG.pages).map(p=>p[state?.device||DEVICE].src))];await Promise.all(urls.map(src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve();im.onerror=()=>reject(new Error('Afbeelding ontbreekt: '+src));im.src=src})));imagesReady=true}
+function liveErrors(){const r=[];if(!CONFIG.LIVE_GEREED)r.push('LIVE_GEREED staat nog uit');if(!CONFIG.SCREENSHOTS_ECHT)r.push('echte screenshots ontbreken');if(!CONFIG.CLAIM_GEVERIFIEERD||!CONFIG.claim.text||!CONFIG.claim.source)r.push('de onderbouwde wetenschapsclaim ontbreekt');if(!/^https:\/\/script.google.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(CONFIG.APPS_SCRIPT_URL))r.push('de opslag-URL ontbreekt');return r}
+function welcome(){
+ let old;try{old=JSON.parse(localStorage.getItem(STORE))}catch{}
+ if(old?.complete){state=old;thanks();sendPending();return}
+ state=null;const errors=liveErrors();
+ shell(`<main class="survey-start"><section class="start-card"><p class="eyebrow">KEVIN GNADE &amp; FAAS HENSSEN · HVA</p><h1>${esc(ui.startTitle)}</h1><p class="start-lead">${esc(ui.startText)}</p><div class="start-facts"><span>${esc(ui.duration)}</span><span>Anoniem · geen naam of e-mail</span></div>${!IS_TEST&&errors.length?`<p class="error">${esc(ui.blocked)}</p>`:''}${old&&!old.complete?`<button class="secondary" id="resume">Verder met je enquête</button>`:''}<button class="primary" id="start" ${!IS_TEST&&errors.length?'disabled':''}>${esc(ui.start)} <span aria-hidden="true">→</span></button><details class="privacy-details"><summary>Over dit onderzoek en je gegevens</summary><p>Je kunt op ieder moment stoppen. We vragen geen naam of e-mail. Je antwoorden krijgen een willekeurige code, zodat je later op dit apparaat verder kunt gaan.</p><p>${esc(ui.privacy)}</p><p>${esc(CONFIG.privacy.retention)} ${esc(CONFIG.privacy.contact)}</p></details></section></main>`);
+ $('#start').onclick=async()=>{state=newState();await begin()};if($('#resume'))$('#resume').onclick=async()=>{state=old;await begin()}
+}
+async function begin(){shell(`<main class="center"><div class="welcome"><div class="spinner"></div><p>${esc(ui.loading)}</p></div></main>`);try{await preload();enteredAt=performance.now();persist();render();checkpoint()}catch(e){shell(`<main class="center"><section class="welcome"><div class="eyebrow">Laden onderbroken</div><h1>We kunnen het beeld nog niet laden.</h1><p>Je antwoorden zijn op dit apparaat bewaard. Probeer het opnieuw om verder te gaan.</p><p class="error">${esc(e.message)}</p><button class="primary" id="reload-images">Opnieuw proberen</button><button class="link" id="back-start">Terug naar start</button></section></main>`);$('#reload-images').onclick=begin;$('#back-start').onclick=welcome}}
+function accountTime(){if(!state||!enteredAt)return;const now=performance.now(),ms=now-enteredAt;state.blockMs[current()?.block||'G']=(state.blockMs[current()?.block||'G']||0)+ms;state.activeMs+=ms;enteredAt=now}
+function selected(q){return state.answers[q.variable||q.id]}
+function optionsHTML(q){const value=selected(q),multi=q.type==='multi';return `<div class="options ${multi?'multi':''}" role="${multi?'group':'radiogroup'}" aria-label="${esc(q.text)}">${order(q).filter(o=>!(q.hiddenOptions||[]).includes(o[0])).map(([code,label,sub])=>`<button type="button" class="option" role="${multi?'checkbox':'radio'}" aria-checked="${multi?(value||[]).includes(code):value===code}" data-option="${esc(code)}"><span class="indicator" aria-hidden="true"></span><span>${esc(label)}${typeof sub==='string'?`<small>${esc(sub)}</small>`:''}</span></button>`).join('')}</div>`}
+function scaleHTML(key,min,max,ends,nps=false,showEnds=true){return `<div class="scale ${nps?'nps':''}" role="radiogroup" aria-label="${esc(key)}">${Array.from({length:max-min+1},(_,i)=>i+min).map(v=>`<button type="button" role="radio" data-scale="${key}" data-value="${v}" aria-label="${v}${v===min?' — '+ends[0]:v===max?' — '+ends[1]:''}" aria-checked="${state.answers[key]===v}" >${v}</button>`).join('')}</div>${showEnds?`<div class="ends"><span>${nps?min+' · ':''}${esc(ends[0])}</span><span>${nps?max+' · ':''}${esc(ends[1])}</span></div>`:''}`} 
+function memoryHTML(q){return `<div class="thumbs" role="radiogroup" aria-label="${esc(q.text)}">${state.seen.map(id=>{let entry;Object.keys(CONFIG.pages).forEach(p=>{const v=variant(p),s=v.sections.find(s=>s.id===id);if(s)entry={p,v,s}});if(!entry)return '';const {p,v,s}=entry;const crop=s.thumb||{start:s.start,end:Math.min(s.start+12,s.end)};return `<button class="thumb" role="radio" aria-checked="${selected(q)===id}" data-memory="${id}"><div class="thumb-crop" data-thumb-src="${esc(v.src)}" data-width="${v.width}" data-height="${v.height}" data-start="${crop.start}"></div><span>${esc(s.label)} · ${p==='home'?'Homepage':'Productpagina'}</span></button>`}).join('')}</div><button class="option" role="radio" aria-checked="${selected(q)==='99'}" data-memory="99" style="margin-top:12px"><span class="indicator"></span>${esc(q.none[1])}</button>`}
+const qIndex=id=>CONFIG.questions.findIndex(q=>q.id===id);
+function previousQuestionIndex(){const floor=state.cardSeen?qIndex('Q22'):state.answers.Q11!==undefined?qIndex('Q11')+1:state.answers.Q10?qIndex('Q10')+1:0;for(let i=state.index-1;i>=floor;i--){const q=CONFIG.questions[i];if(!eligible(q,state.answers.Q04))continue;return i}return -1}
+function goPreviousQuestion(){const i=previousQuestionIndex();if(i<0)return;accountTime();state.index=i;render();checkpoint()}
+function navigationNote(){if(state.index===qIndex('Q11'))return 'De eerste klik staat vast. Je kunt vanaf de volgende vraag terug binnen dit onderdeel.';if(state.index===qIndex('Q22'))return 'Antwoorden van vóór de informatiekaart staan vast.';return ''}
+const VIEW_CLASS={compact:'compact-mode',breedte:'',overzicht:'overview-mode'};
+function attentionView(){return state?.answers?.Q10_WEERGAVE||(DEVICE==='mobile'?'breedte':'compact')}
+function toggleWebsiteView(){const study=$('.study'),button=$('#expand-site');if(!study||!button)return;const expanded=study.classList.toggle('website-expanded');button.textContent=expanded?'← Terug naar vragen':'Website groter bekijken';button.setAttribute('aria-expanded',String(expanded));if(!expanded)$('#question-heading')?.focus({preventScroll:true});else button.focus({preventScroll:true})}
+function textCount(q,value){const n=String(value||'').trim().length;return n<q.minLength&&q.minLength>1?'Minimaal '+q.minLength+' tekens.':n+' / '+q.maxLength+' tekens'}
+function panelHTML(q){let body='';if(['single','multi'].includes(q.type))body=optionsHTML(q);if(q.type==='scale')body=scaleHTML(q.id,q.min,q.max,q.ends,q.nps);if(q.type==='semantic')body=q.rows.map(([code,left,right])=>`<div class="semantic"><div class="ends"><span>${esc(left)}</span><span>${esc(right)}</span></div>${scaleHTML(code,1,5,[left,right],false,false)}</div>`).join('');if(q.type==='matrix')body=`<div class="matrix" role="group" aria-label="${esc(questionText(q))}"><div class="matrix-head" aria-hidden="true"><span></span><span class="matrix-ends"><span>1 · ${esc(q.ends[0])}</span><span>5 · ${esc(q.ends[1])}</span></span></div>${q.rows.map(([code,label])=>`<div class="matrix-row"><span class="matrix-label" id="lbl-${code}">${esc(label)}</span>${scaleHTML(code,1,5,q.ends,false,false).replace('role="radiogroup" aria-label="'+code+'"','role="radiogroup" aria-labelledby="lbl-'+code+'"')}</div>`).join('')}</div>`;if(q.type==='memory')body=memoryHTML(q);if(q.type==='open')body=`<textarea id="open" aria-label="${esc(q.text)}" maxlength="${q.maxLength}">${esc(selected(q)||'')}</textarea><small class="muted" id="charcount">${esc(textCount(q,selected(q)))}</small>`;if(q.type==='click')body=`<p class="muted" style="font-size:13px">${esc(ui.clickHelp)}</p><p class="status" id="click-status" aria-live="polite">${state.answers[q.id]?esc(ui.choiceRecorded):''}</p><button class="secondary other-page" id="other-page">Mijn antwoord gaat over een andere pagina</button>${q.noAttraction?`<button class="secondary" id="noattraction" aria-pressed="${state.answers.Q14_GEEN===1}">${esc(ui.positiveNone)}</button>`:''}${q.noLeave?`<button class="secondary" id="noleave" aria-pressed="${state.answers.Q15_NIET_AFHAKEN===1}">${esc(ui.noLeave)}</button>`:''}`;if(q.type==='attention')body=`<p class="status" id="click-status" aria-live="polite">${state.answers[q.id]?'Eerste klik vastgelegd. Je kunt doorgaan.':''}</p>`;const title=questionText(q);return `<aside class="panel fade question-${q.id}"><div class="question-meta"><div class="block-label">${esc(CONFIG.blocks[q.block])}</div><span class="question-number">${q.id.slice(1)} / ${CONFIG.questions.length}</span></div><h2 id="question-heading" tabindex="-1">${esc(title)}</h2>${q.hint?`<p class="muted" style="font-size:13px">${esc(q.hint)}</p>`:''}${q.type==='open'?`<p class="muted" style="font-size:13px">${esc(q.id==='Q18'?'Vermeld geen namen of andere persoonsgegevens.':ui.openHint)}</p>`:''}${q.page&&q.type!=='attention'?'<button type="button" class="secondary mobile-site-button" id="show-site">Website bekijken ↗</button>':''}${body}${q.comment?`<label class="fieldlabel" for="comment">${esc(q.type==='attention'?'Wat trok hier je aandacht? (optioneel)':ui.comment)}</label><textarea id="comment" maxlength="${CONFIG.limits.text}">${esc(state.answers[q.comment]||'')}</textarea>`:''}<div class="actions">${previousQuestionIndex()>=0?`<button class="secondary" id="back">← Vorige vraag</button>`:''}<button class="primary" id="next" ${valid(q)?'':'disabled'}>${esc(q.id==='Q23'?ui.finish:q.type==='click'?ui.confirm:ui.next)}</button></div><p class="navigation-note">${esc(navigationNote())}</p><p class="status" id="storage-note" aria-live="polite"></p></aside>`}
+function browserHTML(q){const attention=q.type==='attention';return `<section class="browser ${attention?VIEW_CLASS[attentionView()]:''}" aria-label="Websitevenster"><nav class="site-nav" aria-label="Website verkennen"><div class="viewer-title"><strong>${attention?'Eerste aandacht':'LIVREA'}</strong><small>${attention?'Scroll door de pagina en kies één plek.':selectionMode?'Scroll en klik op je antwoord':'Echte website · klik op ‘Terug naar aanwijzen’ om te kiezen'}</small></div>${attention?`<div class="view-switch" role="group" aria-label="Weergave van de pagina">${[['compact','Overzicht'],['breedte','Groot'],['overzicht','Hele pagina']].map(([v,l])=>`<button type="button" data-view="${v}" aria-pressed="${attentionView()===v}">${l}</button>`).join('')}</div>`:`<div class="viewer-controls"><button type="button" data-site-back ${siteHistory.length?'':'disabled'}>← Terug</button><button type="button" data-site-page="home">Homepage</button><button type="button" data-site-page="product">Product</button></div><div class="viewer-tools"><button type="button" id="expand-site" aria-expanded="false">Website groter bekijken</button>${q.type==='click'?`<button type="button" id="selection-mode" aria-pressed="${selectionMode}">${selectionMode?'Echte website verkennen':'Terug naar aanwijzen'}</button>`:''}</div>`}</nav><div class="viewport" id="viewport" tabindex="0" aria-label="${attention?'Klik op wat als eerste je aandacht trekt.':selectionMode?'Aanwijsmodus: kies een plek.':'Verken de website.'}"><div class="image-wrap" id="image-wrap"></div></div></section>`}
+function render(){
+ questionAt=performance.now();showCard=false;const q=current();state.last=q.id;persist();
+ const priorPage=currentPage,priorScroll=$('#viewport')?.scrollTop||0;if(priorPage){state.sitePositions??={};state.sitePositions[priorPage]=priorScroll}
+ selectionMode=q.type==='attention'||q.type==='click';if(!q.page||currentPage!==q.page)siteHistory=[];
+ const progress=state.index/CONFIG.questions.length*100,withSite=!!q.page;
+ if(withSite&&q.type!=='attention'&&!selectionMode&&$('.live-site')&&currentPage===q.page){$('.study .panel').outerHTML=panelHTML(q);const tmp=document.createElement('div');tmp.innerHTML=browserHTML(q);$('.site-nav').replaceWith(tmp.querySelector('.site-nav'));bindPanel(q);bindNavigation(q);$('.top .right').innerHTML='<span>Vraag '+String(state.index+1).padStart(2,'0')+' / '+CONFIG.questions.length+'</span><small>'+Math.round(progress)+ui.completedSuffix+'</small>';$('.progress').setAttribute('aria-valuenow',Math.round(progress));$('.progress i').style.width=progress+'%'}
+ else{shell(withSite?`<main class="study ${q.type==='attention'?'attention-study':''}">${browserHTML(q)}${panelHTML(q)}</main>`:`<main class="question-only">${panelHTML(q)}</main>`,progress);bindPanel(q);if(withSite){currentPage=q.page;mountPage(q,priorPage,priorScroll)}else currentPage=null;window.scrollTo(0,0)}
+ $('#question-heading')?.focus({preventScroll:true});updateStatus()
+}
+function initThumbs(){document.querySelectorAll('[data-thumb-src]').forEach(el=>{const w=el.clientWidth,h=Number(el.dataset.height)/Number(el.dataset.width)*w;el.style.backgroundImage=`url("${el.dataset.thumbSrc.replace(/["\\]/g,'')}")`;el.style.backgroundPosition=`center -${Number(el.dataset.start)/100*h}px`})}
+function valid(q){const v=selected(q);if(q.type==='attention')return state.clicks.some(c=>c.VRAAG===q.id);if(q.type==='click'&&state.answers[q.id+'_ANDERS']===1)return (state.answers[q.comment]||'').trim().length>=10;if(q.type==='multi')return Array.isArray(v)&&v.length>0&&(!q.max||v.length<=q.max);if(q.type==='semantic'||q.type==='matrix')return q.rows.every(r=>Number.isInteger(state.answers[r[0]]));if(q.type==='open')return typeof v==='string'&&v.trim().length>=q.minLength;return v!==undefined&&v!==null&&v!==''}
+function bindPanel(q){if($('#show-site'))$('#show-site').onclick=toggleWebsiteView;document.querySelectorAll('[data-option]').forEach(b=>b.onclick=()=>{const code=b.dataset.option;if(q.id==='Q04'&&state.answers.Q04!==code){delete state.answers.Q06;if(code==='5')delete state.answers.Q05;}if(q.type==='multi'){let arr=[...(selected(q)||[])];if(arr.includes(code))arr=arr.filter(x=>x!==code);else if((q.exclusive||[]).includes(code))arr=[code];else{arr=arr.filter(x=>!(q.exclusive||[]).includes(x));if(q.max&&arr.length>=q.max)return;arr.push(code)}state.answers[q.id]=arr}else state.answers[q.id]=code;updateChoices(q);changed()});document.querySelectorAll('[data-scale]').forEach(b=>b.onclick=()=>{state.answers[b.dataset.scale]=Number(b.dataset.value);document.querySelectorAll(`[data-scale="${b.dataset.scale}"]`).forEach(x=>x.setAttribute('aria-checked',x===b));changed()});document.querySelectorAll('[data-memory]').forEach(b=>b.onclick=()=>{state.answers.MEEST_BIJGEBLEVEN=b.dataset.memory;document.querySelectorAll('[data-memory]').forEach(x=>x.setAttribute('aria-checked',x===b));changed()});if($('#open'))$('#open').oninput=e=>{state.answers[q.variable||q.id]=e.target.value;$('#charcount').textContent=textCount(q,e.target.value);changed()};if($('#comment'))$('#comment').oninput=e=>{state.answers[q.comment]=e.target.value;changed()};if($('#noleave'))$('#noleave').onclick=()=>clearSelection(q,'Q15_NIET_AFHAKEN');if($('#back'))$('#back').onclick=goPreviousQuestion;if($('#other-page'))$('#other-page').onclick=()=>{clearSelection(q,q.id+'_ANDERS');$('#click-status').textContent='Beschrijf hieronder de pagina en het onderdeel (minimaal 10 tekens).';$('#comment')?.focus()};if($('#noattraction'))$('#noattraction').onclick=()=>clearSelection(q,'Q14_GEEN');$('#next').onclick=next}
+function updateChoices(q){const v=selected(q);document.querySelectorAll('[data-option]').forEach(b=>{const on=q.type==='multi'?(v||[]).includes(b.dataset.option):v===b.dataset.option;b.setAttribute('aria-checked',on);b.disabled=q.type==='multi'&&q.max&&(v||[]).length>=q.max&&!on&&!(q.exclusive||[]).includes(b.dataset.option)})}
+function changed(){persist();$('#next').disabled=!valid(current());scheduleCheckpoint()}
+function next(){const q=current();if(!valid(q))return;accountTime();if(q.afterCard&&!state.cardSeen){showInfoCard();checkpoint();return}advance()}
+function advance(){if(state.index===CONFIG.questions.length-1){state.complete=true;state.ended=new Date().toISOString();checkpoint();thanks();return}state.index++;while(current()&&!eligible(current(),state.answers.Q04)){const s=current();if(s.type==='multi'&&(s.onlyHR||s.audience)&&!(s.skipStudent&&state.answers.Q04==='5'))state.answers[s.id]=[s.autoValue||'8'];else delete state.answers[s.id];state.index++}{const c=current();if(c&&(c.onlyHR||c.audience)&&JSON.stringify(state.answers[c.id])===JSON.stringify([c.autoValue||'8']))delete state.answers[c.id]}enteredAt=performance.now();render();checkpoint()}
+function clearSelection(q,flag){state.answers[q.id+'_ANDERS']=0;if(q.id==='Q14')state.answers.Q14_GEEN=0;else state.answers.Q15_NIET_AFHAKEN=0;state.answers[q.id]=1;state.answers[flag]=1;['X','Y','MS','SECTIE','PAGINA'].forEach(k=>delete state.answers[q.id+'_'+k]);state.clicks.filter(c=>c.VRAAG===q.id).forEach(c=>c.GESELECTEERD=0);$('#click-dot')?.remove();if(q.id==='Q14')$('#noattraction')?.setAttribute('aria-pressed','true');else $('#noleave')?.setAttribute('aria-pressed','true');changed()}
+
+function showInfoCard(){showCard=true;const claim=state.condition===1,card=claim?CONFIG.claim:CONFIG.control,text=card.text||ui.previewClaim;shell(`<main class="question-only information-screen"><section class="panel"><div class="question-meta"><span class="block-label">Aanvullende informatie</span><span class="question-number">LEESKAART</span></div><h1>${esc(card.title)}</h1><p class="muted">Lees de tekst en ga daarna verder.</p><article class="information-copy"><span class="reading-rule" aria-hidden="true"></span><p>${esc(text)}</p>${claim&&card.source?`<details class="source-details"><summary>Bron bekijken</summary><a href="${esc(safeURL(card.source))}" target="_blank" rel="noopener noreferrer">${esc(card.source)}</a></details>`:''}</article>${!card.text?'<p class="preview-note">Proefversie · inhoud en bron nog te bevestigen</p>':''}<div class="actions"><button id="card-next" class="primary">Verder →</button></div></section></main>`,state.index/CONFIG.questions.length*100);$('#card-next').onclick=()=>{state.cardSeen=true;state.answers.KAART_GEZIEN=1;accountTime();advance()}}
+
+function safeURL(s){try{const u=new URL(s);return u.protocol==='https:'?u.href:'#'}catch{return '#'}}
+function mountPage(q,priorPage,priorScroll,forcedScroll){const vp=$('#viewport'),wrap=$('#image-wrap'),v=variant(q.page);if(CONFIG.LIVE_VERKENNING&&q.type!=='attention'&&!(q.type==='click'&&selectionMode)){wrap.classList.add('live-wrap');wrap.innerHTML=`<iframe class="live-site" title="LIVREA — vrij verkennen" sandbox="allow-scripts allow-same-origin allow-forms" src="${esc(CONFIG.pages[q.page].url)}" referrerpolicy="no-referrer" allow="fullscreen"></iframe>`;vp.classList.add('live-viewport');bindNavigation(q);if($('.study')?.classList.contains('website-expanded')){$('#expand-site').textContent='← Terug naar vragen';$('#expand-site').setAttribute('aria-expanded','true')}return}wrap.classList.remove('live-wrap');vp.classList.remove('live-viewport');wrap.innerHTML=`<img class="site-image" id="site-image" src="${esc(v.src)}" alt="${esc(CONFIG.pages[q.page].title)}" draggable="false">`;const image=$('#site-image');let loaded=false;image.onload=()=>{if(loaded||!image.isConnected)return;loaded=true;vp.scrollTop=forcedScroll??(priorPage===q.page?priorScroll:state.sitePositions?.[q.page]||0);if(q.type==='attention'){questionAt=performance.now();if(!state.answers.Q10)state.answers.Q10_WEERGAVE=attentionView()}trackView(q.page);drawSelected(q);if(q.type!=='attention')mountLinks(q)};if(image.complete)image.onload();vp.onscroll=()=>{trackView(q.page);state.sitePositions??={};state.sitePositions[q.page]=vp.scrollTop;persist()};vp.onwheel=()=>animationId++;vp.ontouchstart=()=>animationId++;vp.onkeydown=e=>{if(['PageDown','PageUp','Home','End','ArrowDown','ArrowUp',' '].includes(e.key))animationId++};if(q.type==='click'&&selectionMode||q.type==='attention')bindClick(q);bindNavigation(q)}
+function mountLinks(q){const wrap=$('#image-wrap');wrap.querySelectorAll('.site-hotspot').forEach(el=>el.remove());if(q.type==='click'&&selectionMode)return;variant(q.page).links.forEach(link=>{const b=document.createElement('button');b.type='button';b.className='site-hotspot';b.setAttribute('aria-label',link.label);b.title=link.label;b.style.cssText=`left:${link.x}%;top:${link.y}%;width:${link.w}%;height:${link.h}%;`;b.onclick=e=>{e.stopPropagation();navigateSite(link.page,link.section)};wrap.appendChild(b)})}
+function bindNavigation(q){document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{const v=b.dataset.view,br=$('.browser');Object.values(VIEW_CLASS).filter(Boolean).forEach(c=>br.classList.remove(c));if(VIEW_CLASS[v])br.classList.add(VIEW_CLASS[v]);document.querySelectorAll('[data-view]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));if(!state.answers.Q10)state.answers.Q10_WEERGAVE=v;persist();trackView(q.page);requestAnimationFrame(()=>drawSelected(current()))});if($('#expand-site'))$('#expand-site').onclick=toggleWebsiteView;document.querySelectorAll('[data-site-page]').forEach(b=>b.onclick=()=>navigateSite(b.dataset.sitePage));if($('[data-site-back]'))$('[data-site-back]').onclick=()=>{const last=siteHistory.pop();if(last)navigateSite(last.page,null,true,last.scroll)};if($('#selection-mode'))$('#selection-mode').onclick=()=>{selectionMode=!selectionMode;const page=currentPage,pos=$('#viewport').scrollTop;const old=$('.browser');old.outerHTML=browserHTML({...q,page});mountPage({...q,page},page,pos)}}
+function navigateSite(page,section=null,back=false,position){if(!CONFIG.pages[page]||current().type==='exposure')return;const from=currentPage,scroll=$('#viewport')?.scrollTop||0;if(from){state.sitePositions??={};state.sitePositions[from]=scroll;if(!back)siteHistory.push({page:from,scroll})}currentPage=page;const q={...current(),page};$('.browser').outerHTML=browserHTML(q);mountPage(q,from,scroll,position);if(section&&$('#site-image')){const im=$('#site-image'),target=variant(page).sections.find(s=>s.id===section);const jump=()=>{if(target&&im.isConnected)smoothScroll($('#viewport'),target.start/100*im.clientHeight,()=>trackView(page))};if(im.complete)jump();else im.addEventListener('load',jump,{once:true})}persist()}
+
+function smoothScroll(el,target,done){const id=++animationId,from=el.scrollTop,start=performance.now();target=Math.min(target,el.scrollHeight-el.clientHeight);if(reduced){el.scrollTop=target;done?.();return}function step(t){if(id!==animationId)return;const p=Math.min((t-start)/900,1),ease=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;el.scrollTop=from+(target-from)*ease;if(p<1)requestAnimationFrame(step);else done?.()}requestAnimationFrame(step)}
+function trackView(page){const vp=$('#viewport'),im=$('#site-image');if(!vp||!im||!im.clientHeight)return;const h=im.clientHeight,top=vp.scrollTop,bottom=Math.min(h,top+vp.clientHeight);state.scroll[page]=Math.max(state.scroll[page]||0,Math.min(100,bottom/h*100));variant(page).sections.forEach(s=>{if(Math.min(bottom,s.end/100*h)-Math.max(top,s.start/100*h)>Math.min(35,(s.end-s.start)/100*h/2)&&!state.seen.includes(s.id))state.seen.push(s.id)})}
+function drawSelected(q){if(state.answers[q.id+'_X']!==undefined&&(!state.answers[q.id+'_PAGINA']||state.answers[q.id+'_PAGINA']===q.page))dot(state.answers[q.id+'_X'],state.answers[q.id+'_Y'])}
+function dot(x,y,keyboard=false){$('#click-dot')?.remove();const el=document.createElement('div');el.className='dot'+(keyboard?' keyboard':'');el.id='click-dot';const image=$('#site-image');el.style.left=(image.offsetLeft+x/100*image.clientWidth)+'px';el.style.top=(image.offsetTop+y/100*image.clientHeight)+'px';$('#image-wrap').appendChild(el)}
+function sectionAt(page,y){return variant(page).sections.find(s=>y>=s.start&&(y<s.end||s.end===100))?.id||''}
+function bindClick(q){const vp=$('#viewport');let keypos=null;vp.onclick=e=>{if(q.type==='attention'&&state.answers[q.id])return;const im=$('#site-image');if(!im||!im.naturalWidth)return;const r=im.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*100,y=(e.clientY-r.top)/r.height*100;if(x>=0&&x<=100&&y>=0&&y<=100)recordClick(q,x,y,'pointer')};vp.onkeydown=e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' '].includes(e.key))return;if(q.type==='attention'&&state.answers[q.id])return;e.preventDefault();const im=$('#site-image');if(!im)return;if(!keypos)keypos={x:50,y:(vp.scrollTop+vp.clientHeight/2)/im.clientHeight*100};const step=e.shiftKey?1:.25;if(e.key==='ArrowLeft')keypos.x-=step;if(e.key==='ArrowRight')keypos.x+=step;if(e.key==='ArrowUp')keypos.y-=step;if(e.key==='ArrowDown')keypos.y+=step;keypos.x=Math.max(0,Math.min(100,keypos.x));keypos.y=Math.max(0,Math.min(100,keypos.y));if(e.key==='Enter'||e.key===' ')recordClick(q,keypos.x,keypos.y,'keyboard');else{dot(keypos.x,keypos.y,true);const py=keypos.y/100*im.clientHeight;if(py<vp.scrollTop||py>vp.scrollTop+vp.clientHeight)vp.scrollTop=py-vp.clientHeight/2}}}
+function recordClick(q,x,y,method){if(state.clicks.length>=CONFIG.limits.clicks)return;if(q.type==='attention'&&state.clicks.some(c=>c.VRAAG===q.id))return;const ms=Math.round(performance.now()-questionAt);state.clicks.filter(c=>c.VRAAG===q.id).forEach(c=>c.GESELECTEERD=0);state.clicks.push({KLIK_ID:uid(),VRAAG:q.id,PAGINA:q.page,SECTIE:sectionAt(q.page,y),X:Math.round(x*10000)/10000,Y:Math.round(y*10000)/10000,MS:ms,GEVONDEN:null,GESELECTEERD:1,INPUT_METHOD:method});state.answers[q.id]=1;if(q.type!=='attention')state.answers[q.id+'_ANDERS']=0;state.answers[q.id+'_X']=x;state.answers[q.id+'_Y']=y;state.answers[q.id+'_MS']=ms;state.answers[q.id+'_PAGINA']=q.page;if(q.id==='Q14'){state.answers.Q14_GEEN=0;$('#noattraction')?.setAttribute('aria-pressed','false')}if(q.noLeave){state.answers.Q15_NIET_AFHAKEN=0;state.answers.Q15_SECTIE=sectionAt(q.page,y);$('#noleave')?.setAttribute('aria-pressed','false')}dot(x,y);$('.attention-study')?.classList.add('has-selection');if(q.type==='attention'&&matchMedia('(max-width:800px)').matches)$('.attention-study .panel')?.scrollIntoView({block:'start',behavior:reduced?'auto':'smooth'});$('#click-status').textContent=q.type==='attention'?'Eerste klik vastgelegd. Ga verder wanneer je klaar bent.':ui.choiceEditable;changed();if(q.type==='click'&&$('.study')?.classList.contains('website-expanded'))setTimeout(()=>{if($('.study')?.classList.contains('website-expanded'))toggleWebsiteView();$('#next')?.scrollIntoView({block:'center',behavior:reduced?'auto':'smooth'})},650)}
+function derive(){const a=state.answers,hr=['1','2'].includes(a.Q04),r={RESPONDENT_ID:state.id,VERSIE:CONFIG.VERSION,TEST:state.test,CONDITIE:state.condition,DEVICE:state.device,STARTTIJD:state.started,EINDTIJD:state.ended,TOTALE_DUUR_SEC:Math.round(((state.complete?Date.parse(state.ended):Date.now())-Date.parse(state.started))/100)/10,ACTIEVE_DUUR_SEC:Math.round(state.activeMs/100)/10,SCHERMBREEDTE:state.screenWidth,BROWSER:state.browser,AFGEROND:state.complete?1:0,LAATSTE_VRAAG:state.last,SEGMENT:a.Q04?(hr?1:2):null,DOELGROEP:a.Q04?(hr&&['2','3'].includes(a.Q05)?1:0):null,MAX_SCROLL_HOME:state.scroll.home,MAX_SCROLL_PRODUCT:state.scroll.product,GEZIENE_SECTIES:state.seen.join('|'),TOESTEMMING:1};Object.entries(a).forEach(([k,v])=>{if(!Array.isArray(v))r[k]=v});CONFIG.questions.filter(q=>q.type==='multi').forEach(q=>{if(a[q.id])q.options.forEach(([code])=>r[q.prefix+code]=a[q.id].includes(code)?1:0)});Object.keys(CONFIG.blocks).forEach(b=>r['TIJD_BLOK_'+b+'_SEC']=Math.round((state.blockMs[b]||0)/100)/10);if(a.Q04)r.Q07_PERSPECTIEF=perspective(a.Q04);if(a.Q20!==undefined)r.NPS_GROEP=a.Q20<=6?1:a.Q20<=8?2:3;if(a.Q19!==undefined&&a.Q22!==undefined)r.USP_EFFECT=a.Q22-a.Q19;r.SNELHEID_VLAG=state.complete&&r.TOTALE_DUUR_SEC<CONFIG.limits.minimumDuration?1:0;return r}
+function scheduleCheckpoint(){clearTimeout(saveTimer);saveTimer=setTimeout(checkpoint,800)}
+function checkpoint(){if(!state)return;accountTime();state.sequence++;state.pending={version:CONFIG.VERSION,id:state.id,receipt:state.receipt,seq:state.sequence,respondent:derive(),clicks:state.clicks};persist();sendPending()}
+function jsonp(args){return new Promise((resolve,reject)=>{if(!CONFIG.APPS_SCRIPT_URL)return reject(new Error('Geen opslag-URL'));const name='cb_'+uid().replaceAll('-','');const s=document.createElement('script');let timeout;const clean=()=>{clearTimeout(timeout);s.remove();delete window[name]};window[name]=data=>{clean();resolve(data)};s.onerror=()=>{clean();reject(new Error('Geen verbinding met opslag'))};timeout=setTimeout(()=>{clean();reject(new Error('Opslag reageert niet'))},18000);const u=new URL(CONFIG.APPS_SCRIPT_URL);Object.entries({...args,callback:name}).forEach(([k,v])=>u.searchParams.set(k,String(v)));s.referrerPolicy='no-referrer';s.src=u.href;document.head.appendChild(s)})}
+async function sendPending(){if(!state?.pending||saving||!CONFIG.APPS_SCRIPT_URL){updateStatus();return}saving=true;updateStatus();const payload=state.pending;try{await fetch(CONFIG.APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload),keepalive:JSON.stringify(payload).length<60000,credentials:'omit',referrerPolicy:'no-referrer'});const ack=await jsonp({action:'status',id:state.id,receipt:state.receipt});if(!ack.ok||ack.seq<payload.seq)throw new Error('Nog niet bevestigd');state.acked=Math.max(state.acked,ack.seq);retryCount=0;if(state.pending?.seq<=state.acked)state.pending=null;persist()}catch{retryCount++}finally{saving=false;updateStatus();if(state.pending)setTimeout(sendPending,Math.min(60000,CONFIG.limits.retryMs*Math.max(1,retryCount)))}}
+function storageStatus(){if(!state)return '';if(saving)return ui.sending;if(!CONFIG.APPS_SCRIPT_URL)return ui.savedLocal+' · '+ui.noSheets;if(state.pending||state.acked<1)return ui.pending;return ui.saved}
+function updateStatus(){const el=$('#storage-note');if(el)el.textContent=storageStatus()}
+function thanks(){enteredAt=0;shell(`<main class="center"><section class="welcome completion"><span class="completion-mark" aria-hidden="true">✓</span><div class="eyebrow">${esc(ui.complete)}</div><h1>${esc(ui.thanks)}</h1><p class="lead muted">${esc(ui.thanksText)}</p><p class="status" id="storage-note" aria-live="polite"></p><button class="secondary" id="retry" ${CONFIG.APPS_SCRIPT_URL?'':'disabled'}>${esc(ui.retry)}</button><button class="link" id="backup">${esc(ui.backup)}</button>${IS_TEST?`<p><button id="restart" class="link">${esc(ui.restart)}</button></p>`:''}</section></main>`,100);$('#retry').onclick=()=>sendPending();$('#backup').onclick=()=>download('onderzoeksbackup-'+state.id+'.json',JSON.stringify(state.pending||{version:CONFIG.VERSION,id:state.id,receipt:state.receipt,seq:state.sequence,respondent:derive(),clicks:state.clicks},null,2),'application/json');if($('#restart'))$('#restart').onclick=()=>{localStorage.removeItem(STORE);state=null;welcome()};updateStatus()}
+window.addEventListener('online',sendPending);document.addEventListener('visibilitychange',()=>{if(document.hidden){if(state&&!state.complete){accountTime();checkpoint()}enteredAt=0}else if(state&&!state.complete)enteredAt=performance.now()});window.addEventListener('pagehide',()=>{if(state){accountTime();checkpoint()}});setInterval(()=>{if(state&&!state.complete&&!document.hidden)checkpoint()},15000);
+/* ---------------- CODEBOEK + SERVERSCHEMA UIT CONFIG ---------------- */
+function buildSchema(){const f={},book=[];function add(code,text,type='number',values=null,min=0,max=1e9){f[code]={type,values,min,max,maxLength:CONFIG.limits.text,integer:type==='number'&&!!values};book.push({CODE:code,VRAAGTEKST:text,TYPE:type,WAARDEN:values?JSON.stringify(values):''})}const meta={RESPONDENT_ID:'Willekeurige respondentcode',VERSIE:'Onderzoeksversie',STARTTIJD:'Starttijd UTC (ISO)',EINDTIJD:'Eindtijd UTC (ISO)',BROWSER:'Browserfamilie',LAATSTE_VRAAG:'Laatst bereikt scherm; geen bewezen afhaaksectie',GEZIENE_SECTIES:'Daadwerkelijk getoonde secties, gescheiden door |'};Object.entries(meta).forEach(([k,v])=>add(k,v,'text'));['TEST','CONDITIE','DEVICE','SEGMENT','DOELGROEP','NPS_GROEP'].forEach(k=>add(k,k,k==='DEVICE'?'text':'number',CONFIG.labels[k]));['TOESTEMMING','AFGEROND','SNELHEID_VLAG','Q15_NIET_AFHAKEN','Q14_GEEN','Q14_ANDERS','Q15_ANDERS','KAART_GEZIEN'].forEach(k=>add(k,k,'number',{'0':'Nee','1':'Ja'},0,1));['TOTALE_DUUR_SEC','ACTIEVE_DUUR_SEC','SCHERMBREEDTE'].forEach(k=>add(k,k));['MAX_SCROLL_HOME','MAX_SCROLL_PRODUCT'].forEach(k=>add(k,'Maximale zichtbare onderrand, inclusief automatische scroll','number',null,0,100));Object.keys(CONFIG.blocks).forEach(k=>add('TIJD_BLOK_'+k+'_SEC','Actieve tijd blok '+k));CONFIG.questions.forEach(q=>{if(q.type==='multi')q.options.forEach(([code,label])=>add(q.prefix+code,q.text+' — '+label,'number',{'0':'Niet gekozen','1':'Gekozen'},0,1));else if(q.type==='semantic')q.rows.forEach(([code,l,r])=>{add(code,q.text+' '+l+' – '+r,'number',null,1,5);f[code].integer=true;});else if(q.type==='matrix'){q.rows.forEach(([code,l])=>{add(code,'Belang talentontwikkeling — '+l+' (1 niet belangrijk – 5 zeer belangrijk)','number',null,1,5);f[code].integer=true});add(q.perspective,'Perspectief van '+q.id+' (afgeleid uit Q04)','number',CONFIG.labels[q.perspective],1,3)}else if(q.type==='memory'){const vals={'99':q.none[1]};Object.values(CONFIG.pages).forEach(p=>Object.values(p).filter(v=>v?.sections).forEach(v=>v.sections.forEach(s=>vals[s.id]=s.label)));add('MEEST_BIJGEBLEVEN',q.text,'text',vals)}else if(['click','attention'].includes(q.type)){add(q.id,q.text,'number',{'1':'Afgerond'},1,1);add(q.id+'_X','Klik x%, volledige afbeelding','number',null,0,100);add(q.id+'_Y','Klik y%, volledige afbeelding','number',null,0,100);add(q.id+'_MS','Tijd tot geselecteerde klik (ms)');add(q.id+'_PAGINA','Pagina van de geselecteerde klik','text',{home:'Homepage',product:'Productpagina'})}else if(q.type==='scale'){add(q.id,q.text,'number',null,q.min,q.max);f[q.id].integer=true;}else if(q.type==='open')add(q.variable||q.id,q.text,'text');else add(q.id,q.text,'text',Object.fromEntries(q.options.map(x=>[x[0],x[1]])));if(q.comment)add(q.comment,q.text+' — toelichting','text')});add('Q10_WEERGAVE','Weergave bij de eerste klik','text',{compact:'Overzicht (verkleind)',breedte:'Groot (volle breedte)',overzicht:'Hele pagina'});add('Q15_SECTIE','Aangewezen afhaaksectie; geen werkelijk vertrek','text');add('USP_EFFECT','Q22 − Q19; verandering in uitgesproken intentie','number',null,-4,4);book.push({CODE:'KLIKS',VRAAGTEKST:'Alle pogingen, GESELECTEERD=1 voor laatste bevestigde selectie; Q10 eerste klik. DEVICE nooit mengen.',TYPE:'dataset',WAARDEN:'X/Y 0–100; MS vanaf zichtbaar worden van de opname/vraag; GEVONDEN is leeg; geen goed/fout-score; INPUT_METHOD pointer/keyboard'});return {version:CONFIG.VERSION,fields:f,codebook:book,limits:CONFIG.limits,controlGroup:CONFIG.CONTROLEGROEP_AAN,questions:CONFIG.questions.map(q=>({id:q.id,type:q.type,page:q.page,variable:q.variable,correct:q.correct,options:q.options,rows:q.rows?q.rows.map(r=>r[0]):undefined,prefix:q.prefix,onlyHR:q.onlyHR,audience:q.audience,autoValue:q.autoValue,skipStudent:q.skipStudent,exclusive:q.exclusive,max:q.max,minLength:q.minLength})),targets:Object.fromEntries(Object.entries(CONFIG.pages.home).filter(([k,v])=>v?.targets).map(([k,v])=>[k,v.targets])),sections:Object.fromEntries(['desktop','mobile'].map(d=>[d,Object.fromEntries(Object.entries(CONFIG.pages).map(([p,v])=>[p,v[d].sections]))]))}}
+/* ---------------- BEHEER ---------------- */
+function adminLogin(message=''){shell(`<main class="center"><section class="welcome"><div class="eyebrow">Alleen voor onderzoekers</div><h1>${esc(ui.adminTitle)}</h1><p class="muted">${esc(ui.adminIntro)}</p><label>${esc(ui.key)}<input type="password" autocomplete="off" id="admin-key" class="keyinput"></label><button class="primary" id="admin-load">${esc(ui.login)}</button><button class="link" id="schema-export">${esc(ui.configExport)}</button><p class="status" id="admin-msg">${esc(message)}</p></section></main>`);$('#schema-export').onclick=()=>download('ResearchConfig.gs','/* Automatisch uit index.html CONFIG. Geen geheimen. */\nconst RESEARCH = '+JSON.stringify(buildSchema(),null,2)+';\n');$('#admin-load').onclick=async()=>{const key=$('#admin-key').value.trim();if(!key)return;$('#admin-load').disabled=true;$('#admin-msg').textContent='Beveiligde gegevens ophalen…';try{const data=await jsonp({action:'data',key});if(!data.ok)throw new Error(data.error||'Geen toegang');sessionStorage.setItem('research-admin-key',key);adminData=data;adminDashboard()}catch(e){$('#admin-msg').textContent=e.message;$('#admin-load').disabled=false}}}
+function getFilters(){return {test:$('#filter-test')?.value||'0',segment:$('#filter-segment')?.value||'all',target:$('#filter-target')?.value||'all',device:$('#filter-device')?.value||'desktop',question:$('#filter-question')?.value||'Q10',page:$('#filter-page')?.value||'home',speed:$('#filter-speed')?.value||'all'}}
+function adminDashboard(){shell(`<main class="admin"><div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap"><div><div class="eyebrow">Onderzoeksdashboard</div><h1>${esc(ui.adminTitle)}</h1></div><div><button class="secondary" id="refresh">Vernieuwen</button> <button class="link" id="logout">${esc(ui.logout)}</button></div></div><p class="muted">Percentages gebruiken geldige antwoorden als noemer. Testafnames staan standaard uit. Heatmaps gebruiken alleen de laatste selectie per vraag en één apparaat.</p><div class="filters"><label>Gegevens<select id="filter-test"><option value="0">Echte afnames</option><option value="1">Alleen TEST</option><option value="all">Alle afnames</option></select></label><label>Segment<select id="filter-segment"><option value="all">Alle segmenten</option><option value="1">HR</option><option value="2">Overig</option></select></label><label>Kerndoelgroep<select id="filter-target"><option value="all">Iedereen</option><option value="1">Kerndoelgroep</option><option value="0">Overig</option></select></label><label>Apparaat<select id="filter-device"><option value="desktop">Desktop</option><option value="mobile">Mobiel</option></select></label><label>Snelheidsvlag<select id="filter-speed"><option value="all">Inclusief vlag</option><option value="0">Zonder vlag</option></select></label></div><div id="dashboard-body"></div><div class="actions"><button class="secondary" id="csv-r">Respondenten.csv</button><button class="secondary" id="csv-c">Kliks.csv</button><button class="secondary" id="csv-b">Codeboek.csv</button></div><p class="muted" style="font-size:12px">Exports volgen bovenstaande filters; Codeboek blijft volledig. Een aangegeven afhaakpunt is geen werkelijk vertrek. De NPS-vraag meet een aanbevelingsintentie na korte blootstelling.</p></main>`);document.querySelectorAll('.filters select').forEach(el=>el.onchange=drawDashboard);$('#logout').onclick=()=>{sessionStorage.removeItem('research-admin-key');adminData=null;adminLogin()};$('#refresh').onclick=async()=>{try{const data=await jsonp({action:'data',key:sessionStorage.getItem('research-admin-key')||''});if(!data.ok)throw new Error('Geen toegang');adminData=data;drawDashboard()}catch{sessionStorage.removeItem('research-admin-key');adminLogin('Opnieuw inloggen nodig.')}};$('#csv-r').onclick=()=>exportCSV('Respondenten',filteredRows());$('#csv-c').onclick=()=>exportCSV('Kliks',filteredClicks(false));$('#csv-b').onclick=()=>exportCSV('Codeboek',adminData.codebook);drawDashboard()}
+function filteredRows(){const f=getFilters();return adminData.respondents.filter(r=>(f.test==='all'||String(r.TEST)===f.test)&&(f.segment==='all'||String(r.SEGMENT)===f.segment)&&(f.target==='all'||String(r.DOELGROEP)===f.target)&&r.DEVICE===f.device&&(f.speed==='all'||Number(r.SNELHEID_VLAG)===0))}
+function filteredClicks(selectedOnly=true){const ids=new Set(filteredRows().map(r=>r.RESPONDENT_ID));return adminData.clicks.filter(c=>ids.has(c.RESPONDENT_ID)&&c.DEVICE===getFilters().device&&(!selectedOnly||Number(c.GESELECTEERD)===1))}
+const has=(r,k)=>r[k]!==''&&r[k]!==null&&r[k]!==undefined&&Number.isFinite(Number(r[k]));
+function mean(rows,key){const v=rows.filter(r=>has(r,key));return v.length?v.reduce((s,r)=>s+Number(r[key]),0)/v.length:null}
+function fmt(x,n=1){return x===null?'—':Number(x).toLocaleString('nl-NL',{maximumFractionDigits:n,minimumFractionDigits:n})}
+function rate(rows,key){const a=rows.filter(r=>has(r,key));return a.length?fmt(100*a.filter(r=>Number(r[key])===1).length/a.length)+'% · n='+a.length:'—'}
+function metric(value,label){return `<div class="metric"><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`}
+function summarizeQuestion(q,rows){
+ const eligibleRows=rows.filter(r=>eligible(q,r.Q04));
+ const key=q.variable||q.id;
+ const answered=eligibleRows.filter(r=>q.type==='multi'?q.options.some(o=>Number(r[q.prefix+o[0]])===1):(q.type==='semantic'||q.type==='matrix')?q.rows.every(x=>has(r,x[0])):has(r,key));
+ const counts=q.type==='multi'?q.options.map(o=>[o[0],o[1],answered.filter(r=>Number(r[q.prefix+o[0]])===1).length]):q.type==='single'?q.options.map(o=>[o[0],o[1],answered.filter(r=>String(r[q.id])===o[0]).length]):q.type==='scale'?Array.from({length:q.max-q.min+1},(_,i)=>{const v=q.min+i;return [v,String(v),answered.filter(r=>Number(r[q.id])===v).length]}):[];
+ return {eligible:eligibleRows.length,n:answered.length,missing:eligibleRows.length-answered.length,counts,texts:q.type==='open'?answered.map(r=>String(r[key])):[]}
+}
+function drawQuestionSummary(){const q=CONFIG.questions.find(q=>q.id===$('#summary-question').value),rows=filteredRows(),a=summarizeQuestion(q,rows);let body=`<p><strong>${esc(q.text)}</strong></p><p class="muted">Van toepassing: ${a.eligible} · beantwoord: ${a.n} · ontbrekend: ${a.missing}</p>`;
+ if(a.counts.length)body+=`<div class="table-wrap"><table><thead><tr><th>Code</th><th>Antwoord</th><th>Aantal</th><th>% van beantwoord</th></tr></thead><tbody>${a.counts.map(([code,label,n])=>`<tr><td>${esc(code)}</td><td>${esc(label)}</td><td>${n}</td><td>${a.n?fmt(n/a.n*100):'—'}%</td></tr>`).join('')}</tbody></table></div>${q.type==='multi'?'<p class="muted">Meerdere antwoorden mogelijk; percentages kunnen optellen tot meer dan 100%.</p>':''}`;
+ if(q.type==='matrix')body+=`<p class="muted">Perspectief verschilt per rol (Q07_PERSPECTIEF): organisatie (HR/directie), eigen werk, of (toekomstig) werk. Rapporteer per perspectief.</p><table><thead><tr><th>Onderdeel / variabele</th><th>n</th><th>Gemiddelde</th><th>1 / 2 / 3 / 4 / 5</th></tr></thead><tbody>${q.rows.map(([k,l])=>{const valid=rows.filter(x=>has(x,k));return `<tr><td>${esc(l)}<small>${esc(k)}</small></td><td>${valid.length}</td><td>${fmt(mean(valid,k))}</td><td>${[1,2,3,4,5].map(v=>valid.filter(x=>Number(x[k])===v).length).join(' / ')}</td></tr>`}).join('')}</tbody></table>`;if(q.type==='semantic')body+=`<table><thead><tr><th>Dimensie / variabele</th><th>n</th><th>Gemiddelde</th><th>1 / 2 / 3 / 4 / 5</th></tr></thead><tbody>${q.rows.map(([k,l,r])=>{const valid=rows.filter(x=>has(x,k));return `<tr><td>${esc(l+' — '+r)}<small>${esc(k)}</small></td><td>${valid.length}</td><td>${fmt(mean(valid,k))}</td><td>${[1,2,3,4,5].map(v=>valid.filter(x=>Number(x[k])===v).length).join(' / ')}</td></tr>`}).join('')}</tbody></table>`;
+ if(a.texts.length)body+=`<ol class="open-answers">${a.texts.map(t=>`<li>${esc(t)}</li>`).join('')}</ol><p class="muted">Vrije antwoorden: thematisch coderen; niet automatisch als categorie of sentiment gescoord.</p>`;
+ if(['attention','click'].includes(q.type))body+='<p class="muted">Klikposities staan in Klikpatronen; toelichtingen en selectiecodes staan in de respondent-CSV.</p>';
+ $('#question-summary').innerHTML=body
+}
+function drawDashboard(){const rows=filteredRows(),nps=rows.filter(r=>has(r,'Q20')),npsScore=nps.length?100*(nps.filter(r=>Number(r.Q20)>=9).length-nps.filter(r=>Number(r.Q20)<=6).length)/nps.length:null;const paired=rows.filter(r=>has(r,'Q19')&&has(r,'Q22'));$('#dashboard-body').innerHTML=`<div class="metrics">${metric(rows.length,'Totaal · huidige selectie')}${metric(rows.filter(r=>Number(r.SEGMENT)===1).length,'HR')}${metric(rows.filter(r=>Number(r.SEGMENT)===2).length,'Overig')}${metric(rows.filter(r=>Number(r.DOELGROEP)===1).length,'Kerndoelgroep')}${metric(rows.filter(r=>Number(r.AFGEROND)===1).length,'Afgerond')}${metric(fmt(mean(rows,'Q11')),'Duidelijkheid aanbod · Q11')}${metric(fmt(mean(rows,'Q12')),'Eerste indruk · Q12')}${metric(fmt(mean(rows,'Q16')),'Inzicht in passend aanbod · Q16')}${metric(fmt(npsScore),'Aanbevelingsindex · n='+nps.length)}${metric(fmt(mean(paired,'Q19')),'Intentie vóór · gekoppelde n='+paired.length)}${metric(fmt(mean(paired,'Q22')),'Intentie na · gekoppelde n='+paired.length)}${metric(fmt(mean(paired,'USP_EFFECT')),'Gemiddelde verandering')}</div><section class="panel"><h2>Verandering per conditie</h2><p class="muted">Alleen respondenten met zowel Q19 als Q22. Vergelijking is verkennend; controleer groepsgrootte en uitval.</p><div class="table-wrap"><table><thead><tr><th>Conditie</th><th>n</th><th>Vóór</th><th>Na</th><th>USP_EFFECT</th></tr></thead><tbody>${[1,2].map(c=>{const r=paired.filter(r=>Number(r.CONDITIE)===c);return `<tr><td>${esc(CONFIG.labels.CONDITIE[c])}</td><td>${r.length}</td><td>${fmt(mean(r,'Q19'))}</td><td>${fmt(mean(r,'Q22'))}</td><td>${fmt(mean(r,'USP_EFFECT'))}</td></tr>`}).join('')}</tbody></table></div><p>Verschil in gemiddelde verandering (claim − controle): <strong>${fmt(mean(paired.filter(r=>Number(r.CONDITIE)===1),'USP_EFFECT')===null||mean(paired.filter(r=>Number(r.CONDITIE)===2),'USP_EFFECT')===null?null:mean(paired.filter(r=>Number(r.CONDITIE)===1),'USP_EFFECT')-mean(paired.filter(r=>Number(r.CONDITIE)===2),'USP_EFFECT'))}</strong></p></section><section class="panel" style="margin-top:20px"><h2>Aangegeven afhaakpunt · Q15</h2><div id="drop-table"></div><h2 style="margin-top:25px">Onvoltooide afnames</h2><p class="muted">Laatst bereikte vraag; de respondent kan later nog terugkomen.</p><div id="actual-drop"></div></section><section class="panel" style="margin-top:20px"><h2>Klikpatronen · ${getFilters().device==='mobile'?'mobiel':'desktop'}</h2><label>Websitepagina<select id="filter-page" class="keyinput"><option value="home">Homepage</option><option value="product">Productpagina</option></select></label><label>Klikvraag<select id="filter-question" class="keyinput"><option value="Q10">Q10 · eerste aandacht</option><option value="Q14">Q14 · uitnodigend onderdeel</option><option value="Q15">Q15 · aangegeven vertrekpunt</option></select></label><p class="status" id="heat-count"></p><div class="heatbox"><div class="heat" id="heat"><img id="heat-img" alt="Screenshot met klikpatronen"><canvas id="heat-canvas" aria-label="Heatmap"></canvas></div></div></section>`;$('#dashboard-body').insertAdjacentHTML('beforeend',`<section class="panel" style="margin-top:24px"><h2>Antwoorden per vraag</h2><label>Vraag<select id="summary-question">${CONFIG.questions.map(q=>`<option value="${q.id}">${q.id} · ${esc(q.text)}</option>`).join('')}</select></label><div id="question-summary"></div></section>`);$('#summary-question').onchange=drawQuestionSummary;drawQuestionSummary();const drops={};rows.forEach(r=>{if(Number(r.Q15_NIET_AFHAKEN)===1)drops['Ik zou niet afhaken']=(drops['Ik zou niet afhaken']||0)+1;else if(r.Q15_SECTIE)drops[r.Q15_SECTIE]=(drops[r.Q15_SECTIE]||0)+1});const actual={};rows.filter(r=>Number(r.AFGEROND)!==1).forEach(r=>actual[r.LAATSTE_VRAAG]=(actual[r.LAATSTE_VRAAG]||0)+1);const table=o=>Object.keys(o).length?`<table><thead><tr><th>Antwoord / scherm</th><th>Aantal</th></tr></thead><tbody>${Object.entries(o).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${v}</td></tr>`).join('')}</tbody></table>`:`<p class="muted">${esc(ui.empty)}</p>`;$('#drop-table').innerHTML=table(drops);$('#actual-drop').innerHTML=table(actual);$('#filter-question').onchange=()=>{const first=$('#filter-question').value==='Q10';$('#filter-page').disabled=first;if(first)$('#filter-page').value='home';drawHeatmap()};$('#filter-page').onchange=drawHeatmap;$('#filter-page').disabled=true;drawHeatmap()}
+function drawHeatmap(){const f=getFilters(),im=$('#heat-img'),canvas=$('#heat-canvas'),v=CONFIG.pages[f.page][f.device],clicks=filteredClicks().filter(c=>c.VRAAG===f.question&&c.PAGINA===f.page);$('#heat-count').textContent=clicks.length+' geselecteerde klikken · '+(f.device==='mobile'?'mobiel':'desktop')+' · '+(f.page==='home'?'homepage':'productpagina');im.onload=()=>{const w=Math.min(1100,v.width),h=Math.round(w*v.height/v.width);canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,w,h);if(!clicks.length)return;const off=document.createElement('canvas');off.width=w;off.height=h;const c=off.getContext('2d');c.filter='blur(12px)';clicks.forEach(p=>{c.beginPath();c.fillStyle='rgba(0,0,0,.32)';c.arc(Number(p.X)/100*w,Number(p.Y)/100*h,20,0,Math.PI*2);c.fill()});const pixels=c.getImageData(0,0,w,h),d=pixels.data;let max=1;for(let i=3;i<d.length;i+=4)max=Math.max(max,d[i]);for(let i=0;i<d.length;i+=4){const a=d[i+3]/max;if(a<.025){d[i+3]=0;continue}d[i]=Math.round(255*Math.min(1,a*2));d[i+1]=Math.round(220*(1-Math.abs(a-.5)*2));d[i+2]=Math.round(255*Math.max(0,1-a*2));d[i+3]=Math.round(Math.min(.8,a)*255)}ctx.putImageData(pixels,0,0)};im.src=v.src;if(im.complete)im.onload()}
+function exportCSV(name,rows){const keys=rows.length?Object.keys(rows[0]):name==='Respondenten'?Object.keys(buildSchema().fields):[];const safe=v=>{let s=String(v??'');if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"'};download(name+'.csv','\ufeff'+[keys,...rows.map(r=>keys.map(k=>r[k]))].map(row=>row.map(safe).join(';')).join('\r\n'),'text/csv;charset=utf-8')}
+if(IS_ADMIN){adminLogin();const key=sessionStorage.getItem('research-admin-key');if(key){$('#admin-key').value=key;$('#admin-load').click()}}else welcome();
+</script></body></html>
