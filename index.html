@@ -1647,35 +1647,29 @@ const CONFIG = {
     "G": 3
   },
   "card": {
-    "title": "Dit is LIVREA",
-    "lead": "LIVREA is een Nederlands HR-techbedrijf uit Nieuwegein. Het brengt het Talent Experience Platform van het Italiaanse Smartpeg naar Nederland: software én advies om de talenten van medewerkers zichtbaar te maken en verder te ontwikkelen.",
+    "title": "LIVREA in het kort",
+    "lead": "LIVREA is een Nederlandse aanbieder van software en advies voor talentontwikkeling. Het platform brengt vaardigheden, persoonlijkheid en ontwikkelmogelijkheden van medewerkers en kandidaten in kaart. HR en leidinggevenden kunnen deze inzichten gebruiken bij keuzes over werving, doorstroom en teamsamenstelling.",
     "sections": [
       {
-        "title": "Waar LIVREA voor staat",
-        "text": "‘Het versterken van talenten van mensen, het hart van de nieuwe bedrijfsvoering.’ De mens staat centraal: iedereen heeft eigen talenten, en het succes van iedere medewerker is het succes van de organisatie. LIVREA combineert menselijke en artificiële intelligentie, gericht op welzijn én bedrijfsresultaat."
+        "title": "Inzicht in mensen",
+        "text": "Het platform combineert vakkennis met soft skills, zoals samenwerken en leidinggeven, en persoonlijkheidskenmerken. Daarmee ontstaat een beeld van iemands kwaliteiten, de aansluiting op een functie of team en mogelijke ontwikkelpunten."
       },
       {
-        "title": "Wat het platform doet",
+        "title": "Toepassing in de organisatie",
         "items": [
-          "Soft skills, hard skills en persoonlijkheid van medewerkers in kaart brengen",
-          "Doorlopende 360°-feedback",
-          "Potentieel ontdekken en ontwikkel- en loopbaanpaden uitzetten, met microlearning",
-          "Teams samenstellen die elkaar aanvullen: de juiste persoon op de juiste plek",
-          "Bij werving kijken wie echt bij functie en team past"
+          "Werving en selectie: kandidaten vergelijken op vaardigheden en aansluiting bij de functie en het team.",
+          "Interne doorstroom: inzicht krijgen in passende rollen en ontwikkelmogelijkheden binnen de organisatie.",
+          "Teamontwikkeling: kwaliteiten en onderlinge samenwerking in kaart brengen.",
+          "Ontwikkeling volgen: loopbaanpaden, korte leermodules en doorlopende 360°-feedback inzetten."
         ]
       },
       {
-        "title": "Waarom LIVREA",
-        "items": [
-          "Eén platform met zes modules: Magic Mirror, Relationships, Role Maps, Dream Team, Talent Acquisition en Feedback",
-          "Datagedreven, met vooraf ingestelde rollen en vaardigheden per sector",
-          "In de cloud, modulair en op maat, met snelle persoonlijke ondersteuning",
-          "Voor bedrijfsleven, banken en verzekeraars, zorg en publieke sector"
-        ]
+        "title": "Platform en begeleiding",
+        "text": "LIVREA combineert assessments, rol- en teamanalyses en ontwikkeltrajecten in één modulair platform. De zes modules zijn af te stemmen op de organisatie en sector. De Nederlandse organisatie biedt persoonlijk advies en ondersteuning en werkt samen met Smartpeg, de Italiaanse ontwikkelaar van de software."
       }
     ],
-    "tagline": "Always develop talents.",
-    "source": "Gebaseerd op livrea.nl (homepage en Over ons), oktober 2026."
+    "tagline": "Het uitgangspunt: de ontwikkeling van medewerkers verbinden met de doelen van de organisatie.",
+    "source": "Bronnen: livrea.nl · platform, softwaremodules en Over ons."
   },
   "interview": {
     "title": "Meedenken in een kort interview?",
@@ -1739,6 +1733,32 @@ const CONFIG = {
 .compact-mode .viewport{background:#e9ecf0}
 .compact-mode .image-wrap{display:flex;justify-content:center}
 .compact-mode .site-image{width:min(100%,620px);box-shadow:0 0 0 1px #d5dbe2}
+
+
+/* LIVREA-bedrijfsinformatie — uitsluitend de leeskaart, 22 oktober 2026. */
+.question-only.information-screen{max-width:1096px}
+.information-screen .info-card{padding:0;border-radius:12px;overflow:hidden}
+.info-card .info-heading{padding:30px 38px 0}
+.info-card .question-meta{margin:0}
+.info-card .question-number{font-size:10px;letter-spacing:1px}
+.info-card .info-intro{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:44px;padding:24px 38px 30px;align-items:start}
+.info-card .info-intro h1{font-size:36px;line-height:1.15;letter-spacing:-1px;margin:0 0 19px}
+.info-card .info-lead{font-size:16px;line-height:1.8;color:#454953;margin:0}
+.info-card .info-wordmark{padding-top:5px;display:flex;justify-content:flex-end}.info-card .info-wordmark img{display:block;width:140px;max-width:100%;height:auto;filter:brightness(0)}
+.info-card .info-grid{display:block;margin:0 38px;border-top:1px solid #dfe2e7}
+.info-card .info-block{display:grid;grid-template-columns:190px minmax(0,1fr);gap:26px;border:0;border-radius:0;background:transparent;padding:24px 0}
+.info-card .info-block+.info-block{border-top:1px solid #e6e7eb}
+.info-card .info-block h2{font-size:16px;line-height:1.5;letter-spacing:-.2px;color:#272c38;margin:0;padding-left:13px;border-left:2px solid #8b276e;align-self:start}
+.info-card .info-block p,.info-card .info-block li{font-size:14px;line-height:1.8;color:#4d525d;margin:0}
+.info-card .info-block ul{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;list-style:none;margin:0;padding:0}
+.info-card .info-block li+li{margin:0}
+.info-card .info-block li strong{display:block;font-size:13px;line-height:1.5;font-weight:650;color:#303543;margin:0 0 4px}
+.info-card .info-purpose{font-size:13px;line-height:1.8;color:#545363;padding:17px 22px;background:#f7f5f8;margin:2px 38px 0;border-left:2px solid #d5c7d7}
+.info-card .info-source{font-size:10px;line-height:1.8;color:#7a7f88;margin:16px 38px 0}
+.info-card .actions{margin:22px 38px 0;padding:20px 0 26px;border-top:1px solid #e6e7eb;justify-content:space-between}
+@media(max-width:760px){.info-card .info-heading{padding:25px 25px 0}.info-card .info-intro{grid-template-columns:1fr;gap:0;padding:22px 25px 25px}.info-card .info-intro h1{font-size:31px}.info-card .info-wordmark{display:none}.info-card .info-grid{margin:0 25px}.info-card .info-block{grid-template-columns:1fr;gap:15px;padding:23px 0}.info-card .info-block ul{gap:18px 24px}.info-card .info-purpose{margin:0 25px;padding:15px 18px}.info-card .info-source{margin:16px 25px 0}.info-card .actions{margin:20px 25px 0}.info-card .info-lead{font-size:15px}}
+@media(max-width:460px){.info-card .info-block ul{grid-template-columns:1fr}.info-card .info-block p,.info-card .info-block li{font-size:14px}.info-card .question-number{display:none}.info-card .info-intro{gap:20px}.info-card .actions button{font-size:12px;padding:11px 13px}}
+
 </style></head><body><div id="app"></div><noscript>Schakel JavaScript in om aan dit onderzoek deel te nemen.</noscript>
 <script>
 'use strict';
@@ -1830,8 +1850,7 @@ function chosenText(q){const a=state.answers;if(a[q.id+'_ANDERS']===1)return 'Be
 function clearSelectionFeedback(q){$('.click-study')?.classList.add('has-selection');if(q.id==='Q18'||q.id==='Q19')$('#other-page')?.setAttribute('aria-pressed','false');const el=$('#click-status');if(el)el.textContent=chosenText(q)}
 function clearSelection(q,flag){state.answers[q.id+'_ANDERS']=0;if(q.id==='Q18')state.answers.Q18_GEEN=0;else state.answers.Q19_NIET_AFHAKEN=0;state.answers[q.id]=1;state.answers[flag]=1;['X','Y','MS','SECTIE','PAGINA'].forEach(k=>delete state.answers[q.id+'_'+k]);state.clicks.filter(c=>c.VRAAG===q.id).forEach(c=>c.GESELECTEERD=0);$('#click-dot')?.remove();if(q.id==='Q18')$('#noattraction')?.setAttribute('aria-pressed','true');else $('#noleave')?.setAttribute('aria-pressed','true');changed()}
 
-function showInfoCard(){showCard=true;const k=CONFIG.card,claim=CONFIG.CLAIM_GEVERIFIEERD&&CONFIG.claim.text&&CONFIG.claim.source;shell(`<main class="question-only information-screen"><section class="panel info-card"><div class="question-meta"><span class="block-label">Over LIVREA</span><span class="question-number">LEESKAART</span></div><h1>${esc(k.title)}</h1><p class="info-lead">${esc(k.lead)}</p><div class="info-grid">${k.sections.map(s=>`<article class="info-block"><h2>${esc(s.title)}</h2>${s.text?`<p>${esc(s.text)}</p>`:''}${s.items?`<ul>${s.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</article>`).join('')}${claim?`<article class="info-block"><h2>${esc(CONFIG.claim.title)}</h2><p>${esc(CONFIG.claim.text)}</p><details class="source-details"><summary>Bron bekijken</summary><a href="${esc(safeURL(CONFIG.claim.source))}" target="_blank" rel="noopener noreferrer">${esc(CONFIG.claim.source)}</a></details></article>`:''}</div><p class="info-tagline">${esc(k.tagline)}</p><p class="info-source">${esc(k.source)}</p><div class="actions"><button id="card-back" class="secondary">← Vorige vraag</button><button id="card-next" class="primary">Verder →</button></div></section></main>`,state.index/CONFIG.questions.length*100);$('#card-next').onclick=()=>{state.cardSeen=true;state.answers.KAART_GEZIEN=1;accountTime();advance()};$('#card-back').onclick=()=>{showCard=false;if(state.cardSeen)state.answers.TERUG_NA_KAART=1;render();checkpoint()}}
-
+function showInfoCard(){showCard=true;const k=CONFIG.card,claim=CONFIG.CLAIM_GEVERIFIEERD&&CONFIG.claim.text&&CONFIG.claim.source;shell(`<main class="question-only information-screen"><section class="panel info-card"><header class="info-heading"><div class="question-meta"><span class="block-label">Bedrijfsinformatie</span><span class="question-number">AANVULLENDE INFORMATIE</span></div></header><div class="info-intro"><div><h1>${esc(k.title)}</h1><p class="info-lead">${esc(k.lead)}</p></div><div class="info-wordmark"><img src="img/livrea-logo.png" alt="LIVREA"></div></div><div class="info-grid">${k.sections.map(s=>`<article class="info-block"><h2>${esc(s.title)}</h2><div>${s.text?`<p>${esc(s.text)}</p>`:''}${s.items?`<ul>${s.items.map(x=>`<li>${x.includes(": ")?`<strong>${esc(x.split(": ")[0])}</strong>${esc(x.slice(x.indexOf(": ")+2))}`:esc(x)}</li>`).join('')}</ul>`:''}</div></article>`).join('')}${claim?`<article class="info-block"><h2>${esc(CONFIG.claim.title)}</h2><div><p>${esc(CONFIG.claim.text)}</p><details class="source-details"><summary>Bron bekijken</summary><a href="${esc(safeURL(CONFIG.claim.source))}" target="_blank" rel="noopener noreferrer">${esc(CONFIG.claim.source)}</a></details></div></article>`:''}</div><p class="info-purpose">${esc(k.tagline)}</p><p class="info-source">${esc(k.source)}</p><div class="actions"><button id="card-back" class="secondary">← Vorige vraag</button><button id="card-next" class="primary">Verder →</button></div></section></main>`,state.index/CONFIG.questions.length*100);$('#card-next').onclick=()=>{state.cardSeen=true;state.answers.KAART_GEZIEN=1;accountTime();advance()};$('#card-back').onclick=()=>{showCard=false;if(state.cardSeen)state.answers.TERUG_NA_KAART=1;render();checkpoint()}}
 function safeURL(s){try{const u=new URL(s);return u.protocol==='https:'?u.href:'#'}catch{return '#'}}
 function mountPage(q,priorPage,priorScroll,forcedScroll){const vp=$('#viewport'),wrap=$('#image-wrap'),v=variant(q.page);if(CONFIG.LIVE_VERKENNING&&q.type!=='attention'&&!(q.type==='click'&&selectionMode)){wrap.classList.add('live-wrap');wrap.innerHTML=`<iframe class="live-site" title="LIVREA — vrij verkennen" sandbox="allow-scripts allow-same-origin allow-forms" src="${esc(CONFIG.pages[q.page].url)}" referrerpolicy="no-referrer" allow="fullscreen"></iframe>`;vp.classList.add('live-viewport');bindNavigation(q);if($('.study')?.classList.contains('website-expanded')){$('#expand-site').textContent='← Terug naar vragen';$('#expand-site').setAttribute('aria-expanded','true')}return}wrap.classList.remove('live-wrap');vp.classList.remove('live-viewport');wrap.innerHTML=`<img class="site-image" id="site-image" src="${esc(v.src)}" alt="${esc(CONFIG.pages[q.page].title)}" draggable="false">`;const image=$('#site-image');let loaded=false;image.onload=()=>{if(loaded||!image.isConnected)return;loaded=true;vp.scrollTop=forcedScroll??(priorPage===q.page?priorScroll:state.sitePositions?.[q.page]||0);if(q.type==='attention'){if(!state.answers[q.id]&&!$('.point-hint')){const hint=document.createElement('div');hint.className='point-hint';hint.setAttribute('aria-hidden','true');hint.textContent='Klik op wat als eerste opvalt · er opent niets';$('.browser')?.appendChild(hint)}questionAt=performance.now();if(!state.answers.Q14)state.answers.Q14_WEERGAVE=attentionView()}trackView(q.page);drawSelected(q);if(q.type!=='attention')mountLinks(q)};if(image.complete)image.onload();vp.onscroll=()=>{trackView(q.page);state.sitePositions??={};state.sitePositions[q.page]=vp.scrollTop;persist()};vp.onwheel=()=>animationId++;vp.ontouchstart=()=>animationId++;vp.onkeydown=e=>{if(['PageDown','PageUp','Home','End','ArrowDown','ArrowUp',' '].includes(e.key))animationId++};if(q.type==='click'&&selectionMode||q.type==='attention')bindClick(q);bindNavigation(q)}
 function mountLinks(q){const wrap=$('#image-wrap');wrap.querySelectorAll('.site-hotspot').forEach(el=>el.remove());if(q.type==='click'&&selectionMode)return;variant(q.page).links.forEach(link=>{const b=document.createElement('button');b.type='button';b.className='site-hotspot';b.setAttribute('aria-label',link.label);b.title=link.label;b.style.cssText=`left:${link.x}%;top:${link.y}%;width:${link.w}%;height:${link.h}%;`;b.onclick=e=>{e.stopPropagation();navigateSite(link.page,link.section)};wrap.appendChild(b)})}
